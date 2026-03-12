@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-brand-text antialiased overflow-x-hidden;
+  }
+  h1, h2 {
+    @apply font-sans font-semibold text-brand-accent;
+  }
+  h3, h4, h5, h6 {
+    @apply font-sans font-semibold text-brand-navy;
+  }
+  h1 { @apply text-3xl sm:text-4xl lg:text-5xl; }
+  h2 { @apply text-2xl sm:text-3xl; }
+  h3 { @apply text-lg sm:text-xl; }
+  p {
+    @apply font-sans text-brand-text;
+  }
+  a {
+    @apply font-sans;
+  }
+  button {
+    @apply font-sans font-semibold;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Section reveal: trigger with .is-visible on parent */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.is-visible .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+.is-visible .reveal-item-delay-1 { transition-delay: 60ms; }
+.is-visible .reveal-item-delay-2 { transition-delay: 120ms; }
+.is-visible .reveal-item-delay-3 { transition-delay: 180ms; }
+.is-visible .reveal-item-delay-4 { transition-delay: 240ms; }
+.is-visible .reveal-item-delay-5 { transition-delay: 300ms; }
+.is-visible .reveal-item-delay-6 { transition-delay: 360ms; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item,
+  .is-visible .reveal-item { transition: none; opacity: 1; transform: none; }
+}
+
+/* Hero entrance: add .hero-ready to parent after mount */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.hero-ready .hero-reveal { opacity: 1; transform: translateY(0); }
+.hero-ready .hero-reveal-delay-1 { transition-delay: 80ms; }
+.hero-ready .hero-reveal-delay-2 { transition-delay: 160ms; }
+.hero-ready .hero-reveal-delay-3 { transition-delay: 240ms; }
+.hero-ready .hero-reveal-delay-4 { transition-delay: 320ms; }
+.hero-ready .hero-reveal-delay-5 { transition-delay: 400ms; }
+.hero-ready .hero-reveal-delay-6 { transition-delay: 480ms; }
+.hero-ready .hero-reveal-delay-7 { transition-delay: 560ms; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal, .hero-ready .hero-reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* Premium card hover – lift + shadow (md+ only to avoid lag on touch) */
+@media (min-width: 768px) {
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover { transform: none; }
+  .ambient-shape { animation: none !important; }
+  .icon-float { animation: none !important; }
+}
+
+/* Hero accent line – expand on load */
+.hero-accent-line {
+  transform-origin: left;
+  animation: line-expand 0.6s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-accent-line { animation: none; transform: scaleX(1); }
+}
