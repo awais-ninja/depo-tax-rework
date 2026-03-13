@@ -40,8 +40,9 @@ const STEPS = [
   },
 ];
 
-function ProcessStepCard({ step, delayClass }) {
-  const { num, title, description, color } = step;
+function ProcessStepCard({ step, delayClass, stepIndex }) {
+  const { num, title, description } = step;
+  const bgClass = `process-step-bg-${stepIndex + 1}`;
   return (
     <article
       className={`reveal-item ${delayClass} relative flex flex-col min-h-[200px] sm:min-h-[220px]`}
@@ -49,15 +50,13 @@ function ProcessStepCard({ step, delayClass }) {
     >
       {/* Layered design: colored shape behind, white card on top */}
       <div
-        className="absolute inset-0 rounded-2xl translate-x-1 translate-y-1 sm:translate-x-1.5 sm:translate-y-1.5"
-        style={{ backgroundColor: color }}
+        className={`absolute inset-0 rounded-2xl translate-x-1 translate-y-1 sm:translate-x-1.5 sm:translate-y-1.5 ${bgClass}`}
         aria-hidden
       />
       <div className="relative flex flex-col flex-1 rounded-2xl border border-brand-grayBorder bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition-all duration-200 md:hover:shadow-[0_8px_28px_rgba(15,23,42,0.08)]">
         {/* Step number — clear and professional */}
         <div
-          className="absolute top-0 right-0 flex flex-col items-center justify-center rounded-bl-xl rounded-tr-2xl w-10 sm:w-11 h-20 sm:h-24 text-white"
-          style={{ backgroundColor: color }}
+          className={`absolute top-0 right-0 flex flex-col items-center justify-center rounded-bl-xl rounded-tr-2xl w-10 sm:w-11 h-20 sm:h-24 text-white ${bgClass}`}
           aria-hidden
         >
           <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider">Step</span>
@@ -110,6 +109,7 @@ export default function AboutOurProcess() {
               <ProcessStepCard
                 key={step.num}
                 step={step}
+                stepIndex={i}
                 delayClass={
                   i === 0 ? 'reveal-item-delay-3' : i === 1 ? 'reveal-item-delay-4' : i === 2 ? 'reveal-item-delay-5' : 'reveal-item-delay-6'
                 }

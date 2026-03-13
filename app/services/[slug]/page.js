@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getServicePageData } from '@/components/services/servicePageData';
-import { getAllServiceSlugs } from '@/components/services/servicesConfig';
+import { getServicePageData } from '@/data/services/servicePageData';
+import { getAllServiceSlugs } from '@/data/services/config';
 import ServicePageTemplate from '@/components/services/ServicePageTemplate';
 
 /**

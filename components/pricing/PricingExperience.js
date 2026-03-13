@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { PRICING_MODES, BUSINESS_TYPE_CONFIG, PRICING_MATRIX } from '@/data/pricingData';
+import { PRICING_MODES, BUSINESS_TYPE_CONFIG, PRICING_MATRIX } from '@/data/pricing';
 import PricingModeToggle from './PricingModeToggle';
 import BusinessTypeSelector from './BusinessTypeSelector';
 import SizeSelector from './SizeSelector';

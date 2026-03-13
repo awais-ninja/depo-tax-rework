@@ -1,6 +1,6 @@
 'use client';
 
-import { BUSINESS_TYPE_CONFIG, PRICING_MATRIX } from '@/data/pricingData';
+import { BUSINESS_TYPE_CONFIG, PRICING_MATRIX } from '@/data/pricing';
 
 function getSizeOptionsForBusinessType(businessTypeId) {
   const type = BUSINESS_TYPE_CONFIG.find((t) => t.id === businessTypeId);

@@ -1,4 +1,4 @@
-import { PRICING_MATRIX, BUSINESS_TYPE_CONFIG } from '@/data/pricingData';
+import { PRICING_MATRIX, BUSINESS_TYPE_CONFIG } from '@/data/pricing';
 
 // Helper to get the ordered sizes array for a business type
 function getSizes(businessTypeId) {

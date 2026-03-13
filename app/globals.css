@@ -86,6 +86,34 @@
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
   }
 }
+/* CSP-safe background patterns (no inline styles) */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle at 1px 1px, #1f4e79 1px, transparent 0);
+  background-size: 32px 32px;
+}
+.bg-diagonal-lines {
+  background-image:
+    repeating-linear-gradient(120deg, transparent, transparent 40px, #1e293b 40px, #1e293b 41px),
+    repeating-linear-gradient(-60deg, transparent, transparent 40px, #1e293b 40px, #1e293b 41px);
+  background-size: 100% 100%;
+}
+
+/* Animation delays for ambient shapes (CSP-safe) */
+.animate-delay-0 { animation-delay: 0s; }
+.animate-delay-1s { animation-delay: 1s; }
+.animate-delay-2s { animation-delay: 2s; }
+
+/* Process step card accent colors (AboutOurProcess) */
+.process-step-bg-1 { background-color: #1f4e79; }
+.process-step-bg-2 { background-color: #2e5c8a; }
+.process-step-bg-3 { background-color: #9a0000; }
+.process-step-bg-4 { background-color: #5c6b7a; }
+
+/* Triangle clip for CoreServices image corner */
+.clip-triangle-br {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card-hover:hover { transform: none; }
   .ambient-shape { animation: none !important; }

@@ -2,6 +2,9 @@ import './globals.css'
 import { Open_Sans } from 'next/font/google'
 import BackToTop from '@/components/ui/BackToTop'
 import Script from 'next/script'
+import { headers } from 'next/headers'
+import { connection } from 'next/server'
+import { SITE_NAME, BASE_URL, defaultMetadata, structuredDataNav } from '@/data/site'
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -10,8 +13,16 @@ const openSans = Open_Sans({
   display: 'swap',
 })
 
-const SITE_NAME = 'DepoTax'
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.depotax.co.uk'
+/** Viewport/theme-color: separate export (Next 14+). Do not add these to metadata. */
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+}
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
@@ -19,8 +30,8 @@ export const metadata = {
     default: `Specialist Accountants & Tax Consultants UK | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
-  description: 'Clear pricing, expert tax advice, and modern accounting for self-employed, contractors, startups, landlords and SPVs across the UK. Book a free consultation.',
-  keywords: ['accountants UK', 'tax consultants', 'self assessment', 'limited company accounting', 'landlord accounting', 'contractor accounting', 'DepoTax'],
+  description: defaultMetadata.description,
+  keywords: defaultMetadata.keywords,
   authors: [{ name: SITE_NAME, url: BASE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -44,8 +55,8 @@ export const metadata = {
     locale: 'en_GB',
     url: BASE_URL,
     siteName: SITE_NAME,
-    title: 'DepoTax | Expert Accountants & Tax Consultants UK',
-    description: 'Expert accounting and tax services for businesses and individuals across the UK. Clear pricing, modern accounting.',
+    title: defaultMetadata.openGraph.title,
+    description: defaultMetadata.openGraph.description,
     images: [
       {
         url: '/open/opengraph.png',
@@ -63,25 +74,28 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DepoTax | Expert Accountants & Tax Consultants UK',
-    description: 'Expert accounting and tax services for businesses and individuals across the UK.',
+    title: defaultMetadata.twitter.title,
+    description: defaultMetadata.twitter.description,
     images: ['/open/twitter-image.png'],
   },
   alternates: {
     canonical: BASE_URL,
   },
-  verification: {
-    // Optional: add when you have them from Google / Bing
-    // google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
-  },
+  verification: {},
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  await connection()
+  const headersList = await headers()
+  const nonce = headersList.get('x-nonce') || undefined
+
   return (
     <html lang="en-GB" className={openSans.variable}>
+      <head>
+        <link rel="preload" href="/logo.svg" as="image" />
+      </head>
       <body className="min-h-screen bg-brand-white font-sans antialiased text-brand-text" suppressHydrationWarning>
-        <Script id="ld-json-website" type="application/ld+json" strategy="afterInteractive">
+        <Script id="ld-json-website" type="application/ld+json" strategy="lazyOnload" nonce={nonce}>
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
@@ -94,48 +108,16 @@ export default function RootLayout({ children }) {
             },
           })}
         </Script>
-        <Script id="ld-json-sitenavigation" type="application/ld+json" strategy="afterInteractive">
+        <Script id="ld-json-sitenavigation" type="application/ld+json" strategy="lazyOnload" nonce={nonce}>
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'ItemList',
-            itemListElement: [
-              {
-                '@type': 'SiteNavigationElement',
-                position: 1,
-                name: 'Home',
-                url: `${BASE_URL}/`,
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                position: 2,
-                name: 'Pricing',
-                url: `${BASE_URL}/pricing`,
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                position: 3,
-                name: 'Services',
-                url: `${BASE_URL}/services`,
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                position: 4,
-                name: 'Who We Serve',
-                url: `${BASE_URL}/who-we-serve`,
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                position: 5,
-                name: 'Knowledge',
-                url: `${BASE_URL}/knowledge`,
-              },
-              {
-                '@type': 'SiteNavigationElement',
-                position: 6,
-                name: 'Contact',
-                url: `${BASE_URL}/contact`,
-              },
-            ],
+            itemListElement: structuredDataNav.map((item, i) => ({
+              '@type': 'SiteNavigationElement',
+              position: i + 1,
+              name: item.name,
+              url: `${BASE_URL}${item.url}`,
+            })),
           })}
         </Script>
         {children}

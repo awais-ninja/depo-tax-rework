@@ -1,6 +1,6 @@
 'use client';
 
-import { BUSINESS_TYPE_CONFIG } from '@/data/pricingData';
+import { BUSINESS_TYPE_CONFIG } from '@/data/pricing';
 import {
   IconDocumentText,
   IconClock,

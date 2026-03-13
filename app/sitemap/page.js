@@ -6,7 +6,7 @@ import {
   megaMenuPricing,
   megaMenuWhoWeServe,
   megaMenuKnowledge,
-} from '@/components/layout/navConfig';
+} from '@/data/navigation';
 
 export const metadata = {
   title: 'Sitemap',

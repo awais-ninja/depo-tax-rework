@@ -19,14 +19,7 @@ export default function KnowledgeHero() {
       className="relative overflow-hidden bg-brand-grayLight/40"
       aria-labelledby="knowledge-hero-heading"
     >
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #1F4E79 1px, transparent 0)`,
-          backgroundSize: '32px 32px',
-        }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 opacity-[0.03] bg-dot-pattern" aria-hidden />
       <SectionBackgroundLabel label="KNOWLEDGE" position="right-top" size="lg" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 md:py-20 lg:py-24">

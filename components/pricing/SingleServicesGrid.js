@@ -1,4 +1,4 @@
-import { SINGLE_SERVICES } from '@/data/pricingData';
+import { SINGLE_SERVICES } from '@/data/pricing';
 
 function SingleServiceCard({ service, selected, quantity, onToggle, onQuantityChange }) {
   const isMonthly = service.billingType === 'monthly';

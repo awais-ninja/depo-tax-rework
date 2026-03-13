@@ -57,9 +57,7 @@ const OfficeLocations = dynamic(
   () => import("@/components/home/OfficeLocations"),
   { ssr: true },
 );
-const FinalCTA = dynamic(() => import("@/components/home/FinalCTA"), {
-  ssr: true,
-});
+import FinalCTALazy from "@/components/home/FinalCTALazy";
 
 export const metadata = {
   title: "Home | DepoTax",
@@ -106,7 +104,7 @@ export default function Home() {
         <SectionDivider />
         <OfficeLocations />
         <SectionDivider />
-        <FinalCTA />
+        <FinalCTALazy />
       </main>
       <Footer />
     </>

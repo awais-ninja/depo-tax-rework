@@ -6,107 +6,11 @@ import SectionReveal from "@/components/ui/SectionReveal";
 import TestimonialsBackground from "@/components/ui/TestimonialsBackground";
 import SectionBackgroundLabel from "@/components/ui/SectionBackgroundLabel";
 import SectionAmbient from "@/components/ui/SectionAmbient";
+import { coreServices as coreServicesData } from "@/data/home";
 
-const SERVICE_IMAGES = [
-  "/services/bookkeeping.jpg",
-  "/services/payroll.jpg",
-  "/services/tax-return.jpg",
-  "/services/management-accounts.jpg",
-  "/services/property-account-services.jpg",
-  "/services/business-startup.jpg",
-];
-
-const SERVICES = [
-  {
-    title: "Bookkeeping Services",
-    description:
-      "Accurate bookkeeping services for small businesses, limited companies and startups using modern cloud accounting tools.",
-    bullets: [
-      "Cloud bookkeeping support",
-      "Better financial records",
-      "Ongoing monthly accuracy",
-    ],
-    href: "/services/bookkeeping",
-    chip: "Popular Service",
-  },
-  {
-    title: "Payroll Services",
-    description:
-      "Reliable payroll and PAYE services including payslips, RTI submissions, pension support and HMRC payroll compliance.",
-    bullets: [
-      "PAYE and RTI submissions",
-      "Pension support",
-      "HMRC payroll compliance",
-    ],
-    href: "/services/payroll",
-  },
-  {
-    title: "Self Assessment & Tax Returns",
-    description:
-      "Expert help with self assessment tax returns, personal tax returns and HMRC filing for sole traders, landlords and individuals.",
-    bullets: [
-      "Self assessment tax returns",
-      "Personal tax return support",
-      "HMRC filing assistance",
-    ],
-    href: "/services/self-assessment",
-    chip: "For Individuals",
-  },
-  {
-    title: "Management Accounts",
-    description:
-      "Clear management accounts, profit and loss reports and cash flow insight to help businesses make better financial decisions.",
-    bullets: [
-      "Profit and loss reporting",
-      "Cash flow visibility",
-      "Better financial decisions",
-    ],
-    href: "/services/management-accounts",
-  },
-  {
-    title: "Property Accounts Services",
-    description:
-      "Specialist property accounting for landlords, HMO owners and investors including rental accounts and tax reporting support.",
-    bullets: [
-      "Rental income reporting",
-      "Landlord tax support",
-      "Property portfolio accounting",
-    ],
-    href: "/services/landlord-accounting",
-    chip: "Property Specialists",
-  },
-  {
-    title: "Business Startup Support",
-    description:
-      "Startup accounting support including company formation, financial setup, bookkeeping structure and tax planning for new businesses.",
-    bullets: [
-      "Company formation support",
-      "Financial setup guidance",
-      "Startup tax planning",
-    ],
-    href: "/services/startup-support",
-    chip: "For Growing Businesses",
-  },
-];
-
-const CTA_LABELS = [
-  "Explore service",
-  "View details",
-  "Get help",
-  "Learn more",
-  "Read more",
-  "View details",
-];
-
-function ServiceRow({ service, index, reverse }) {
-  const delay =
-    index < 2
-      ? "reveal-item-delay-3"
-      : index < 4
-        ? "reveal-item-delay-4"
-        : "reveal-item-delay-5";
+function ServiceRow({ service, index, reverse, ctaLabel }) {
+  const delay = index < 2 ? "reveal-item-delay-3" : index < 4 ? "reveal-item-delay-4" : "reveal-item-delay-5";
   const num = String(index + 1).padStart(2, "0");
-  const ctaLabel = CTA_LABELS[index] || "Learn more";
 
   const content = (
     <div
@@ -155,7 +59,7 @@ function ServiceRow({ service, index, reverse }) {
       </ul>
       <Link
         href={service.href}
-        className="group inline-flex items-center gap-2 rounded-full border-2 border-brand-accent px-5 py-2.5 text-sm font-semibold text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-200 min-h-[44px]"
+        className="group inline-flex items-center gap-2 rounded-full border-2 border-brand-accent px-5 py-2.5 text-sm font-semibold text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-200 min-h-12"
       >
         {ctaLabel}
         <span
@@ -177,7 +81,7 @@ function ServiceRow({ service, index, reverse }) {
       />
       <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-white shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
         <Image
-          src={SERVICE_IMAGES[index]}
+          src={service.image}
           alt=""
           fill
           className="object-cover object-center transition-transform duration-500 md:group-hover:scale-105"
@@ -191,10 +95,7 @@ function ServiceRow({ service, index, reverse }) {
           className="absolute bottom-0 right-0 w-24 h-24 sm:w-28 sm:h-28"
           aria-hidden
         >
-          <div
-            className="absolute bottom-0 right-0 w-full h-full bg-brand-accent/90"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          />
+          <div className="absolute bottom-0 right-0 w-full h-full bg-brand-accent/90 clip-triangle-br" />
         </div>
         <span
           className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm border border-white/80 flex items-center justify-center text-sm font-bold text-brand-accent shadow-md"
@@ -215,7 +116,7 @@ function ServiceRow({ service, index, reverse }) {
         >
           <div className="relative aspect-[16/10] w-full">
             <Image
-              src={SERVICE_IMAGES[index]}
+              src={service.image}
               alt=""
               fill
               className="object-cover object-center"
@@ -291,52 +192,32 @@ function ServiceRow({ service, index, reverse }) {
 }
 
 export default function CoreServices() {
+  const { heading1, heading2, subtitle, description, services, ctaLabels, seeMoreLabel } = coreServicesData;
   return (
-    <section
-      className="relative pt-14 pb-16 lg:pt-24 lg:pb-32 bg-white overflow-hidden"
-      aria-labelledby="core-services-heading"
-    >
+    <section className="relative pt-14 pb-16 lg:pt-24 lg:pb-32 bg-white overflow-hidden" aria-labelledby="core-services-heading">
       <TestimonialsBackground />
       <SectionBackgroundLabel label="SERVICES" position="right-top" />
       <SectionAmbient />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 lg:mb-10">
-            <h2
-              id="core-services-heading"
-              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
-            >
-              <span className="text-[#2b4b6b]">Core </span>
-              <span className="text-[#9a0000]">Services</span>
+            <h2 id="core-services-heading" className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4">
+              <span className="text-[#2b4b6b]">{heading1}</span>
+              <span className="text-[#9a0000]">{heading2}</span>
             </h2>
-            <p className="reveal-item reveal-item-delay-2 text-xl sm:text-2xl font-bold text-brand-navy max-w-3xl mx-auto mb-3">
-              Bookkeeping, Payroll, Tax Returns & Accounting Services in the UK
-            </p>
-            <p className="reveal-item reveal-item-delay-2 text-center text-brand-text/80 max-w-2xl mx-auto">
-              DepoTax provides expert bookkeeping, payroll, tax return, business
-              accounting and property accounting services for companies,
-              contractors, sole traders, landlords and growing businesses across
-              the UK.
-            </p>
+            <p className="reveal-item reveal-item-delay-2 text-xl sm:text-2xl font-bold text-brand-navy max-w-3xl mx-auto mb-3">{subtitle}</p>
+            <p className="reveal-item reveal-item-delay-2 text-center text-brand-text/80 max-w-2xl mx-auto">{description}</p>
           </div>
 
           <div className="space-y-0 lg:space-y-0">
-            {SERVICES.map((service, i) => (
-              <ServiceRow
-                key={service.title}
-                service={service}
-                index={i}
-                reverse={i % 2 === 1}
-              />
+            {services.map((service, i) => (
+              <ServiceRow key={service.title} service={service} index={i} reverse={i % 2 === 1} ctaLabel={ctaLabels[i] || 'Learn more'} />
             ))}
           </div>
 
           <div className="text-center mt-14 lg:mt-16">
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-accent px-8 py-4 text-base font-semibold text-white hover:bg-brand-accentDark transition-colors duration-200"
-            >
-              See more services
+            <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-accent px-8 py-4 text-base font-semibold text-white hover:bg-brand-accentDark transition-colors duration-200">
+              {seeMoreLabel}
               <span aria-hidden>•</span>
             </Link>
           </div>

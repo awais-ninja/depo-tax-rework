@@ -36,11 +36,10 @@ export default function ContactMap() {
             src={MAP_EMBED_URL}
             width="100%"
             height="400"
-            style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="w-full min-h-[280px] sm:min-h-[350px]"
+            className="w-full min-h-[280px] sm:min-h-[350px] border-0"
           />
         </div>
       </div>

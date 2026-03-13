@@ -29,13 +29,13 @@ export default function PricingHero() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="#guided-pricing"
-            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-sm font-medium px-5 py-2.5 shadow-[0_12px_30px_rgba(154,0,0,0.40)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-[44px]"
+            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-sm font-medium px-5 py-2.5 shadow-[0_12px_30px_rgba(154,0,0,0.40)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-12"
           >
             Start pricing
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full border border-brand-grayBorder bg-white text-sm font-medium text-brand-navy px-5 py-2.5 hover:border-brand-navy/70 hover:bg-brand-grayLight/70 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-[44px]"
+            className="inline-flex items-center justify-center rounded-full border border-brand-grayBorder bg-white text-sm font-medium text-brand-navy px-5 py-2.5 hover:border-brand-navy/70 hover:bg-brand-grayLight/70 transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-12"
           >
             Book consultation
           </Link>

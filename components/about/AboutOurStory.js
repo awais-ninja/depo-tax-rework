@@ -15,17 +15,7 @@ export default function AboutOurStory() {
       aria-labelledby="our-story-heading"
     >
       {/* Subtle diagonal lines — top-left and bottom-right */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(120deg, transparent, transparent 40px, #1e293b 40px, #1e293b 41px),
-            repeating-linear-gradient(-60deg, transparent, transparent 40px, #1e293b 40px, #1e293b 41px)
-          `,
-          backgroundSize: '100% 100%',
-        }}
-        aria-hidden
-      />
+      <div className="absolute inset-0 pointer-events-none opacity-[0.06] bg-diagonal-lines" aria-hidden />
 
       <SectionBackgroundLabel label="OUR STORY" position="left-mid" size="md" />
 

@@ -93,8 +93,7 @@ export default function HowItWorks() {
           <div className="relative">
             {/* Connecting line – desktop only, between step cards */}
             <div
-              className="hidden lg:block absolute top-[5.5rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9a0000]/30 to-transparent pointer-events-none"
-              style={{ left: '12.5%', right: '12.5%' }}
+              className="hidden lg:block absolute top-[5.5rem] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-[#9a0000]/30 to-transparent pointer-events-none"
               aria-hidden
             />
 

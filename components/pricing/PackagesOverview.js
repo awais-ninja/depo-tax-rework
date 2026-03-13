@@ -1,4 +1,4 @@
-import { BUSINESS_TYPE_CONFIG, PRICING_MATRIX, FEATURE_SETS } from '@/data/pricingData';
+import { BUSINESS_TYPE_CONFIG, PRICING_MATRIX, FEATURE_SETS } from '@/data/pricing';
 
 function getBusinessTypesWithPackages() {
   return BUSINESS_TYPE_CONFIG.filter((type) => PRICING_MATRIX[type.id]).sort(

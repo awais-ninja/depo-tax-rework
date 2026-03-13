@@ -6,7 +6,7 @@ import PricingExperience from "@/components/pricing/PricingExperience";
 import PackageComparison from "@/components/pricing/PackageComparison";
 import PricingFAQ from "@/components/pricing/PricingFAQ";
 import PricingCTA from "@/components/pricing/PricingCTA";
-import { PRICING_MODES } from "@/data/pricingData";
+import { PRICING_MODES } from '@/data/pricing';
 import AboutFinalCTA from "@/components/about/AboutFinalCTA";
 
 export const metadata = {

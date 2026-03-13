@@ -3,10 +3,9 @@
  * Each service can override defaults; getServicePageData(slug) returns the full shape for the template.
  */
 
-import { getServiceBySlug, SERVICE_CATEGORIES } from './servicesConfig';
-import { SERVICE_DESCRIPTIONS } from './servicesCategoryContent';
-
-const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
+import { getServiceBySlug, SERVICE_CATEGORIES } from './config';
+import { SERVICE_DESCRIPTIONS } from './categoryContent';
+import { BOOKING_URL as BOOK_CONSULTATION_URL } from '@/data/contact';
 
 /**
  * Default page content when a service has no custom content yet.

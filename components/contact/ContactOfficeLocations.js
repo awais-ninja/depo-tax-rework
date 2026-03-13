@@ -104,7 +104,7 @@ export default function ContactOfficeLocations() {
                             <Link
                               key={num}
                               href={telHref(num)}
-                              className="min-h-[44px] py-2 inline-flex items-center text-brand-text/90 hover:text-brand-accent transition-colors"
+                              className="min-h-12 py-2 inline-flex items-center text-brand-text/90 hover:text-brand-accent transition-colors"
                               aria-label={`Call ${num}`}
                             >
                               {num}
@@ -122,11 +122,10 @@ export default function ContactOfficeLocations() {
                       src={office.mapEmbedSrc}
                       width="100%"
                       height="450"
-                      style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      className="w-full min-h-[280px] sm:min-h-[350px] lg:min-h-[450px]"
+                      className="w-full min-h-[280px] sm:min-h-[350px] lg:min-h-[450px] border-0"
                     />
                   </div>
                 </div>

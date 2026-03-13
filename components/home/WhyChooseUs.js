@@ -15,56 +15,18 @@ import {
   HiBuildingOffice2,
 } from 'react-icons/hi2';
 
-const FEATURES = [
-  {
-    title: 'Fast Company Accounts',
-    description:
-      'We prepare company accounts quickly and efficiently so businesses stay organised and meet Companies House filing requirements on time—often within 20 days.',
-    Icon: HiBolt,
-  },
-  {
-    title: 'Unlimited Phone Support',
-    description:
-      'Clients benefit from unlimited phone and email support whenever they need accounting or tax advice from an experienced small business accountant in the UK.',
-    Icon: HiPhoneArrowUpRight,
-  },
-  {
-    title: 'Free Tax Review',
-    description:
-      'We include a free tax review to highlight opportunities for better planning, savings and HMRC compliance across your company accounts and self assessment.',
-    Icon: HiDocumentMagnifyingGlass,
-  },
-  {
-    title: 'On-Time Filing',
-    description:
-      'Our team works to a clear deadline process with a 100% focus on filing on time for tax returns, VAT, payroll and HMRC compliance documents.',
-    Icon: HiClock,
-  },
-  {
-    title: 'UK Tax Expertise',
-    description:
-      'With over 10 years serving the UK market, we understand local tax rules, HMRC expectations and how accounting services in the UK should support growing businesses.',
-    Icon: HiGlobeAlt,
-  },
-  {
-    title: 'Quality Assurance',
-    description:
-      'Every assignment is reviewed under a clear quality assurance and department review process so work is accurate, compliant and matched to your sector.',
-    Icon: HiShieldCheck,
-  },
-  {
-    title: 'Dedicated Support Team',
-    description:
-      'You get responsive support from a dedicated team of accountants who understand your business, sector expertise needs and ongoing bookkeeping services in the UK.',
-    Icon: HiUserGroup,
-  },
-  {
-    title: 'Accessible London Office',
-    description:
-      'Our Greyhound Lane, London SW16 5NL office is easy to reach for in-person consultations, with convenient transport links and free parking outside the office.',
-    Icon: HiBuildingOffice2,
-  },
-];
+import { whyChooseUs as whyChooseUsData } from '@/data/home';
+
+const ICON_MAP = {
+  bolt: HiBolt,
+  phone: HiPhoneArrowUpRight,
+  document: HiDocumentMagnifyingGlass,
+  clock: HiClock,
+  globe: HiGlobeAlt,
+  shield: HiShieldCheck,
+  userGroup: HiUserGroup,
+  building: HiBuildingOffice2,
+};
 
 const HEXAGON_CLIP =
   'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)';
@@ -112,6 +74,8 @@ function MobileFeatureCard({ title, description, Icon, delayClass }) {
 }
 
 export default function WhyChooseUs() {
+  const { heading1, heading2, description, features } = whyChooseUsData;
+  const FEATURES = features.map((f) => ({ ...f, Icon: ICON_MAP[f.iconKey] || HiBolt }));
   const row1 = FEATURES.slice(0, 3);
   const row2 = FEATURES.slice(3, 5);
   const row3 = FEATURES.slice(5, 8);
@@ -131,20 +95,12 @@ export default function WhyChooseUs() {
           </div>
 
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12 lg:mb-16">
-            <h2
-              id="why-choose-heading"
-              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4"
-            >
-              <span className="text-[#2b4b6b]">Why Choose </span>
-              <span className="text-[#9a0000]">Us</span>
+            <h2 id="why-choose-heading" className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4">
+              <span className="text-[#2b4b6b]">{heading1}</span>
+              <span className="text-[#9a0000]">{heading2}</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85">
-              Why choose DepoTax for accounting, tax returns and bookkeeping in
-              the UK? Businesses, contractors, landlords and self-employed
-              professionals choose our fixed fee accountants for expert
-              accounting services in the UK, deadline-focused support, payroll
-              help and reliable HMRC compliance guidance for tax returns and
-              bookkeeping services.
+              {description}
             </p>
           </div>
 

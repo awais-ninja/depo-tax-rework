@@ -74,7 +74,7 @@ export default function AboutCareers() {
                 </p>
                 <Link
                   href="mailto:careers@depotax.co.uk"
-                  className="inline-flex items-center justify-center min-h-[44px] sm:min-h-[48px] px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 text-sm sm:text-base w-full sm:w-auto"
+                  className="inline-flex items-center justify-center min-h-12 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 text-sm sm:text-base w-full sm:w-auto"
                 >
                   Send Your CV
                 </Link>

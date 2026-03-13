@@ -19,13 +19,13 @@ export default function PricingCTA() {
         <div className="flex flex-wrap justify-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-sm font-medium px-6 py-2.5 shadow-[0_16px_45px_rgba(0,0,0,0.35)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy focus-visible:ring-brand-accent min-h-[44px]"
+            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-sm font-medium px-6 py-2.5 shadow-[0_16px_45px_rgba(0,0,0,0.35)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy focus-visible:ring-brand-accent min-h-12"
           >
             Book a free consultation
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full border border-white/70 text-sm font-medium text-white px-6 py-2.5 hover:bg-white hover:text-brand-navy transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy focus-visible:ring-white min-h-[44px]"
+            className="inline-flex items-center justify-center rounded-full border border-white/70 text-sm font-medium text-white px-6 py-2.5 hover:bg-white hover:text-brand-navy transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy focus-visible:ring-white min-h-12"
           >
             Contact us
           </Link>

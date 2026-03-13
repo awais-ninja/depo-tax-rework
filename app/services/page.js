@@ -3,7 +3,7 @@ import ServicesExplore from '@/components/services/ServicesExplore';
 import ServicesWhyChoose from '@/components/services/ServicesWhyChoose';
 import ServicesHowWeWork from '@/components/services/ServicesHowWeWork';
 import ServicesFinalCTA from '@/components/services/ServicesFinalCTA';
-import { getCategorySectionsWithServices } from '@/components/services/servicesCategoryContent';
+import { getCategorySectionsWithServices } from '@/data/services/categoryContent';
 
 export const metadata = {
   title: 'Services',

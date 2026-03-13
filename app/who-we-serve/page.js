@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 import WhoWeServeHero from '@/components/who-we-serve/WhoWeServeHero';
 import ClientTypesGrid from '@/components/who-we-serve/ClientTypesGrid';
 import AudienceDetailSection from '@/components/who-we-serve/AudienceDetailSection';
-import { AUDIENCE_DETAIL_SECTIONS } from '@/components/who-we-serve/audienceDetailSectionsData';
+import { AUDIENCE_DETAIL_SECTIONS } from '@/data/who-we-serve';
 import IndustriesSupport from '@/components/who-we-serve/IndustriesSupport';
 import WhyClientsChoose from '@/components/who-we-serve/WhyClientsChoose';
 import ClientJourney from '@/components/who-we-serve/ClientJourney';

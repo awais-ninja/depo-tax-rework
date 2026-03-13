@@ -1,8 +1,19 @@
 /**
- * Edit menu items here. Each mega menu has:
- * - columns: array of { title?: string, items: [{ label, href }] }
- * - featuredCard?: { text, ctaLabel, ctaHref } for a highlight card (e.g. About Us)
+ * Main nav and mega menus. Edit menu items here.
+ * Used by Navbar and MegaMenu.
  */
+
+import { BOOKING_URL } from './contact';
+
+export const mainNav = [
+  { label: 'Home', href: '/', megaKey: null },
+  { label: 'About Us', href: '/about', megaKey: 'about' },
+  { label: 'Services', href: '/services', megaKey: 'services' },
+  { label: 'Pricing', href: '/pricing', megaKey: 'pricing' },
+  { label: 'Who We Serve', href: '/who-we-serve', megaKey: 'whoWeServe' },
+  { label: 'Knowledge', href: '/knowledge', megaKey: 'knowledge' },
+  { label: 'Contact', href: '/contact', megaKey: null },
+]
 
 export const megaMenuAbout = {
   columns: [
@@ -26,7 +37,7 @@ export const megaMenuAbout = {
   featuredCard: {
     text: 'Work with a team of experienced accountants focused on helping businesses grow.',
     ctaLabel: 'Book a free consultation',
-    ctaHref: 'https://www.picktime.com/aazizandco',
+    ctaHref: BOOKING_URL,
   },
 }
 
@@ -167,4 +178,13 @@ export const megaMenuKnowledge = {
       ],
     },
   ],
+}
+
+/** Mega menu by nav key. Used by Navbar. */
+export const megaMenus = {
+  about: megaMenuAbout,
+  services: megaMenuServices,
+  pricing: megaMenuPricing,
+  whoWeServe: megaMenuWhoWeServe,
+  knowledge: megaMenuKnowledge,
 }

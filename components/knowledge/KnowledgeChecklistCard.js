@@ -20,7 +20,7 @@ export default function KnowledgeChecklistCard({ title, summary, href = '/knowle
       )}
       <Link
         href={href}
-        className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 w-fit"
+        className="inline-flex items-center justify-center gap-2 min-h-12 px-5 py-2.5 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 w-fit"
       >
         <HiArrowDownTray className="w-5 h-5" aria-hidden />
         Download Checklist

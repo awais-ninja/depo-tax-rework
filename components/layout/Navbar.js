@@ -5,31 +5,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import MegaMenu from './MegaMenu'
-import {
-  megaMenuAbout,
-  megaMenuServices,
-  megaMenuPricing,
-  megaMenuWhoWeServe,
-  megaMenuKnowledge,
-} from './navConfig'
-
-const mainNav = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about', megaKey: 'about' },
-  { label: 'Services', href: '/services', megaKey: 'services' },
-  { label: 'Pricing', href: '/pricing', megaKey: 'pricing' },
-  { label: 'Who We Serve', href: '/who-we-serve', megaKey: 'whoWeServe' },
-  { label: 'Knowledge', href: '/knowledge', megaKey: 'knowledge' },
-  { label: 'Contact', href: '/contact' },
-]
-
-const megaByKey = {
-  about: megaMenuAbout,
-  services: megaMenuServices,
-  pricing: megaMenuPricing,
-  whoWeServe: megaMenuWhoWeServe,
-  knowledge: megaMenuKnowledge,
-}
+import { mainNav, megaMenus } from '@/data/navigation'
+import { BOOKING_URL } from '@/data/contact'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -70,7 +47,7 @@ export default function Navbar() {
                   >
                     <span className="relative">
                       {item.label}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'w-full' : 'w-0 group-hover:w-full'}`} style={{ bottom: '-2px' }} />
+                      <span className={`absolute -bottom-0.5 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                     </span>
                     <svg className={`w-4 h-4 transition-transform duration-200 ${openMega === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -79,7 +56,7 @@ export default function Navbar() {
                 ) : (
                   <Link href={item.href} className="relative group flex items-center px-3 xl:px-4 py-6 text-sm font-medium text-brand-text hover:text-brand-accent transition-colors duration-200 whitespace-nowrap">
                     {item.label}
-                    <span className="absolute left-3 xl:left-4 right-3 xl:right-4 h-0.5 bg-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" style={{ bottom: '18px' }} />
+                    <span className="absolute left-3 xl:left-4 right-3 xl:right-4 bottom-[18px] h-0.5 bg-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                   </Link>
                 )}
               </div>
@@ -88,9 +65,9 @@ export default function Navbar() {
 
           <div className="hidden xl:block shrink-0">
             <Link
-              href="https://www.picktime.com/aazizandco"
-              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
-              aria-label="Book a free consultation (main navigation)"
+              href={BOOKING_URL}
+              className="inline-flex items-center justify-center min-h-12 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
+              aria-label="Book Consultation (main navigation)"
             >
               Book Consultation
             </Link>
@@ -98,7 +75,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="xl:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-md text-brand-text hover:bg-brand-grayLight hover:text-brand-accent transition-colors duration-200"
+            className="xl:hidden p-2 min-h-12 min-w-12 flex items-center justify-center rounded-md text-brand-text hover:bg-brand-grayLight hover:text-brand-accent transition-colors duration-200"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-label="Toggle menu"
@@ -121,8 +98,8 @@ export default function Navbar() {
           <div className="hidden xl:block absolute left-0 right-0 top-full w-full bg-brand-white border-t border-brand-grayBorder shadow-lg z-50 animate-slide-down">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
               <MegaMenu
-                columns={megaByKey[item.megaKey].columns}
-                featuredCard={megaByKey[item.megaKey].featuredCard}
+                columns={megaMenus[item.megaKey].columns}
+                featuredCard={megaMenus[item.megaKey].featuredCard}
                 onNavigate={handleNav}
                 isMobile={false}
                 menuKey={item.megaKey}
@@ -140,12 +117,12 @@ export default function Navbar() {
                 {item.megaKey ? (
                   <>
                     <div className="flex items-center w-full">
-                      <Link href={item.href} className="flex-1 py-3 px-4 min-h-[44px] flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                      <Link href={item.href} className="flex-1 py-3 px-4 min-h-12 flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
                         {item.label}
                       </Link>
                       <button
                         type="button"
-                        className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center text-brand-text hover:text-brand-accent"
+                        className="p-3 min-h-12 min-w-12 flex items-center justify-center text-brand-text hover:text-brand-accent"
                         onClick={() => setOpenMega(openMega === item.label ? null : item.label)}
                         aria-expanded={openMega === item.label}
                         aria-label={openMega === item.label ? 'Collapse menu' : 'Expand menu'}
@@ -158,8 +135,8 @@ export default function Navbar() {
                     {openMega === item.label && (
                       <div className="bg-brand-grayLight/50 px-4 py-4">
                         <MegaMenu
-                          columns={megaByKey[item.megaKey].columns}
-                          featuredCard={megaByKey[item.megaKey].featuredCard}
+                          columns={megaMenus[item.megaKey].columns}
+                          featuredCard={megaMenus[item.megaKey].featuredCard}
                           onNavigate={closeAll}
                           isMobile
                           menuKey={item.megaKey}
@@ -168,7 +145,7 @@ export default function Navbar() {
                     )}
                   </>
                 ) : (
-                  <Link href={item.href} className="block px-4 py-3 min-h-[44px] flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                  <Link href={item.href} className="block px-4 py-3 min-h-12 flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
                     {item.label}
                   </Link>
                 )}
@@ -176,10 +153,10 @@ export default function Navbar() {
             ))}
             <li className="px-4 py-3">
               <Link
-                href="https://www.picktime.com/aazizandco"
-                className="block w-full text-center py-3 min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
+                href={BOOKING_URL}
+                className="block w-full text-center py-3 min-h-12 flex items-center justify-center rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
                 onClick={closeAll}
-                aria-label="Book a free consultation (mobile menu)"
+                aria-label="Book Consultation (mobile menu)"
               >
                 Book Consultation
               </Link>

@@ -7,48 +7,8 @@ import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 import { IconChevronDown } from '@/components/ui/Icons';
 
-const FAQ_ITEMS = [
-  {
-    question: 'How much does an accountant cost in the UK?',
-    answer:
-      'The cost of an accountant in the UK depends on the level of support you need. DepoTax offers flexible accounting packages for contractors, limited companies, sole traders, landlords and growing businesses, with options to spread the cost over 12 months.',
-  },
-  {
-    question: 'Do I need an accountant for a limited company?',
-    answer:
-      'Most limited companies benefit from an accountant to handle annual accounts, corporation tax, payroll, VAT returns and Companies House filing. This helps businesses stay compliant and organised throughout the year.',
-  },
-  {
-    question: 'Do you help with self assessment tax returns?',
-    answer:
-      'Yes. DepoTax supports self employed professionals, landlords and individuals with self assessment tax returns, tax planning and HMRC filing support.',
-  },
-  {
-    question: 'Do you offer bookkeeping and payroll services?',
-    answer:
-      'Yes. We provide bookkeeping services, payroll and PAYE support, pension submissions and cloud accounting support for small businesses and limited companies across the UK.',
-  },
-  {
-    question: 'Do you work with contractors and landlords?',
-    answer:
-      'Yes. We support contractors with accounting and tax planning, and we also provide specialist accounting services for landlords, HMO owners, property investors and SPV companies.',
-  },
-  {
-    question: 'Can I get a fixed fee accounting package?',
-    answer:
-      'Yes. DepoTax offers fixed fee accounting packages designed to give businesses clear monthly pricing with no hidden surprises.',
-  },
-  {
-    question: 'Do you only work with businesses in London?',
-    answer:
-      'No. While our office is based in London, we support businesses, contractors, sole traders, landlords and growing companies across the UK.',
-  },
-  {
-    question: 'How do I get started with DepoTax?',
-    answer:
-      'You can get started by contacting our team, booking a consultation, or using the pricing calculator to explore the package that best suits your needs.',
-  },
-];
+import { faq as faqData } from '@/data/home';
+import { BOOKING_URL } from '@/data/contact';
 
 function FaqItem({ question, answer, isOpen, onToggle }) {
   return (
@@ -58,14 +18,14 @@ function FaqItem({ question, answer, isOpen, onToggle }) {
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 sm:px-6 sm:py-5 min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50 focus-visible:ring-offset-2 rounded-xl"
+        className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 sm:px-6 sm:py-5 min-h-12 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50 focus-visible:ring-offset-2 rounded-xl"
         aria-expanded={isOpen}
       >
         <span className="text-sm sm:text-base font-semibold text-brand-navy pr-2">
           {question}
         </span>
         <span
-          className={`shrink-0 w-10 h-10 min-w-[44px] min-h-[44px] rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`shrink-0 w-10 h-10 min-w-12 min-h-12 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           aria-hidden
         >
           <IconChevronDown className="w-5 h-5" />
@@ -101,22 +61,15 @@ export default function FaqSection() {
       <SectionReveal>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2
-              id="faq-heading"
-              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
-            >
-              <span className="text-[#2b4b6b]">Frequently Asked </span>
-              <span className="text-[#9a0000]">Questions</span>
+            <h2 id="faq-heading" className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4">
+              <span className="text-[#2b4b6b]">{faqData.heading1}</span>
+              <span className="text-[#9a0000]">{faqData.heading2}</span>
             </h2>
-            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/90 text-center">
-              Find answers to common questions about accounting packages, tax
-              returns, bookkeeping, payroll, HMRC support and working with
-              DepoTax across the UK.
-            </p>
+            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/90 text-center">{faqData.intro}</p>
           </div>
 
           <div className="space-y-3 reveal-item reveal-item-delay-3">
-            {FAQ_ITEMS.map((item, index) => (
+            {faqData.items.map((item, index) => (
               <FaqItem
                 key={item.question}
                 question={item.question}
@@ -128,27 +81,14 @@ export default function FaqSection() {
           </div>
 
           <div className="reveal-item reveal-item-delay-4 mt-12 text-center rounded-2xl border border-brand-grayBorder bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(15,23,42,0.08)]">
-            <h3 className="text-lg font-semibold text-brand-navy mb-2">
-              Still Have Questions?
-            </h3>
-            <p className="text-sm text-brand-text/90 mb-5 max-w-md mx-auto">
-              Speak to our team for expert advice on accounting packages, tax
-              returns, bookkeeping and business support.
-            </p>
+            <h3 className="text-lg font-semibold text-brand-navy mb-2">{faqData.stillHaveQuestions.title}</h3>
+            <p className="text-sm text-brand-text/90 mb-5 max-w-md mx-auto">{faqData.stillHaveQuestions.description}</p>
             <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="https://www.picktime.com/aazizandco"
-                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
-                aria-label="Book a free consultation (FAQ section)"
-              >
-                Book Consultation
+              <Link href={BOOKING_URL} className="inline-flex items-center justify-center min-h-12 px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200" aria-label={`${faqData.stillHaveQuestions.ctaBook} (FAQ section)`}>
+                {faqData.stillHaveQuestions.ctaBook}
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
-                aria-label="Contact DepoTax (FAQ section)"
-              >
-                Contact Us
+              <Link href="/contact" className="inline-flex items-center justify-center min-h-12 px-6 py-3 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-colors duration-200" aria-label={`${faqData.stillHaveQuestions.ctaContact} (FAQ section)`}>
+                {faqData.stillHaveQuestions.ctaContact}
               </Link>
             </div>
           </div>

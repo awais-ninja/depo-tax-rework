@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { PRICING_MATRIX, FEATURE_SETS } from '@/data/pricingData';
+import { PRICING_MATRIX, FEATURE_SETS } from '@/data/pricing';
 import { getRecommendedPackage } from '@/utils/getRecommendedPackage';
 
 function getPackages(businessTypeId, sizeId) {

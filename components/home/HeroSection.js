@@ -8,21 +8,10 @@ import {
   IconCalculator,
   IconLightBulb,
 } from '@/components/ui/Icons';
+import { hero as heroData } from '@/data/home';
+import { googleReviewsUrl } from '@/data/contact';
 
-const TRUST_POINTS = [
-  'Since 2010',
-  'Fixed Fee Packages',
-  'HMRC Support',
-  'Cloud Accounting',
-];
-
-const QUICK_SERVICES = [
-  { title: 'Tax Planning & Returns', href: '/services/tax-planning', Icon: IconDocumentText, popular: true },
-  { title: 'Bookkeeping & Payroll', href: '/services/bookkeeping', Icon: IconCalculator, popular: false },
-  { title: 'Business Advice & Compliance', href: '/services/cfo-advisory', Icon: IconLightBulb, popular: false },
-];
-
-const GOOGLE_REVIEWS_URL = 'https://tinyurl.com/2axkc3eo';
+const QUICK_SERVICE_ICONS = [IconDocumentText, IconCalculator, IconLightBulb];
 
 function GoogleGIcon({ className = 'w-5 h-5' }) {
   return (
@@ -51,26 +40,26 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="order-1 text-center lg:text-left flex flex-col items-center lg:items-start">
             <Link
-              href={GOOGLE_REVIEWS_URL}
+              href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-reveal hero-reveal-delay-1 inline-flex items-center gap-3 rounded-full bg-white text-brand-navy px-4 py-2.5 mb-5 shadow-[0_14px_40px_rgba(15,23,42,0.14)] border border-brand-grayBorder/80 transition-all duration-200 md:hover:-translate-y-0.5 md:hover:shadow-[0_18px_55px_rgba(15,23,42,0.18)] min-h-[44px] min-w-[44px] justify-center"
+              className="hero-reveal hero-reveal-delay-1 inline-flex items-center gap-3 rounded-full bg-white text-brand-navy px-4 py-2.5 mb-5 shadow-[0_14px_40px_rgba(15,23,42,0.14)] border border-brand-grayBorder/80 transition-all duration-200 md:hover:-translate-y-0.5 md:hover:shadow-[0_18px_55px_rgba(15,23,42,0.18)] min-h-12 min-w-12 justify-center"
             >
               <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#9a0000]/10">
                 <GoogleGIcon className="w-4 h-4" />
               </span>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl sm:text-[1.7rem] font-extrabold tabular-nums leading-none">4.9</span>
+                <span className="text-2xl sm:text-[1.7rem] font-extrabold tabular-nums leading-none">{heroData.googleReviews.rating}</span>
                 <span className="text-amber-400 text-base sm:text-lg tracking-wider" aria-hidden>★★★★★</span>
               </div>
               <div className="flex flex-col gap-0.5 text-xs sm:text-sm font-medium text-brand-text/90 text-center lg:text-left">
-                <span>Based on 192 Google reviews</span>
-                <span className="text-[11px] uppercase tracking-[0.18em] text-brand-text/80">Verified Google Rating</span>
+                <span>{heroData.googleReviews.basedOn}</span>
+                <span className="text-[11px] uppercase tracking-[0.18em] text-brand-text/80">{heroData.googleReviews.verified}</span>
               </div>
             </Link>
 
             <div className="hero-reveal hero-reveal-delay-2 mb-2.5">
-              <p className="text-lg font-bold text-brand-accent tracking-wide">Welcome to DepoTax</p>
+              <p className="text-lg font-bold text-brand-accent tracking-wide">{heroData.welcomeLabel}</p>
               <span className="hero-accent-line mt-1 block h-0.5 w-24 bg-[#9a0000] origin-left" aria-hidden />
             </div>
             <h1
@@ -82,27 +71,20 @@ export default function HeroSection() {
               <span className="hero-reveal hero-reveal-delay-3 block"><span className="text-[#2b4b6b]">and </span><span className="text-[#9a0000]">Growing Businesses</span></span>
             </h1>
             <p className="hero-lcp mt-4 text-base text-brand-text/90 max-w-xl leading-relaxed">
-              Expert tax planning, bookkeeping, payroll and accounting services for contractors, limited companies, self employed professionals, landlords and SPVs across the UK.
+              {heroData.subtext}
             </p>
 
             <div className="hero-reveal hero-reveal-delay-5 mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              <Link
-                href="/pricing"
-                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3.5 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-all duration-200 md:hover:-translate-y-0.5"
-              >
-                View Pricing
+              <Link href={heroData.ctaPrimary.href} className="inline-flex items-center justify-center min-h-12 px-6 py-3.5 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-all duration-200 md:hover:-translate-y-0.5">
+                {heroData.ctaPrimary.label}
               </Link>
-              <Link
-                href="https://www.picktime.com/aazizandco"
-                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3.5 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-all duration-200 md:hover:-translate-y-0.5"
-                aria-label="Book a free consultation (hero)"
-              >
-                Book Free Consultation
+              <Link href={heroData.ctaSecondary.href} className="inline-flex items-center justify-center min-h-12 px-6 py-3.5 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-all duration-200 md:hover:-translate-y-0.5" aria-label={`${heroData.ctaSecondary.label} (hero)`}>
+                {heroData.ctaSecondary.label}
               </Link>
             </div>
 
             <ul className="mt-5 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-1.5 text-sm font-medium text-brand-text/90" aria-label="Trust points">
-              {TRUST_POINTS.map((point, i) => (
+              {heroData.trustPoints.map((point, i) => (
                 <li key={point} className={`hero-reveal ${i < 2 ? 'hero-reveal-delay-5' : i < 4 ? 'hero-reveal-delay-6' : 'hero-reveal-delay-7'} flex items-center gap-2`}>
                   <IconCheck className="w-4 h-4 text-brand-accent shrink-0" aria-hidden />
                   {point}
@@ -115,27 +97,26 @@ export default function HeroSection() {
             <div className="hero-reveal hero-reveal-delay-4 w-full max-w-md mx-auto lg:max-w-none rounded-2xl bg-white border border-brand-grayBorder/80 shadow-[0_16px_45px_rgba(15,23,42,0.14)] overflow-hidden transition-all duration-300 md:hover:shadow-[0_22px_60px_rgba(15,23,42,0.18)] md:hover:-translate-y-0.5 relative z-10">
               <div className="relative p-6 sm:p-7">
                 <div className="absolute top-0 right-0 w-20 h-20 rounded-bl-full bg-brand-accent/8" aria-hidden />
-                <Link
-                  href="/contact#contact-form"
-                  className="relative inline-flex items-center gap-1.5 min-h-[44px] rounded-full bg-brand-accent/10 text-brand-accent px-3 py-1.5 text-xs font-semibold hover:bg-brand-accent/15 transition-colors duration-200 mb-4"
-                >
+                <Link href="/contact#contact-form" className="relative inline-flex items-center gap-1.5 min-h-12 rounded-full bg-brand-accent/10 text-brand-accent px-3 py-1.5 text-xs font-semibold hover:bg-brand-accent/15 transition-colors duration-200 mb-4">
                   <IconBolt className="w-3.5 h-3.5" />
-                  Instant Quote
+                  {heroData.quickServicesCard.badge}
                 </Link>
                 <h2 className="relative text-xl sm:text-2xl font-bold leading-tight text-center mb-2">
-                  <span className="text-[#2b4b6b]">Choose the support </span>
-                  <span className="text-[#9a0000]">you need</span>
+                  <span className="text-[#2b4b6b]">{heroData.quickServicesCard.heading1}</span>
+                  <span className="text-[#9a0000]">{heroData.quickServicesCard.heading2}</span>
                 </h2>
                 <p className="relative text-center text-sm text-brand-text/90 mb-5">
-                  Quickly explore the services most businesses need.
+                  {heroData.quickServicesCard.description}
                 </p>
                 <ul className="relative space-y-2.5">
-                  {QUICK_SERVICES.map(({ title, href, Icon, popular }, i) => (
-                    <li key={title} className={`hero-reveal ${i === 0 ? 'hero-reveal-delay-5' : i === 1 ? 'hero-reveal-delay-6' : 'hero-reveal-delay-7'}`}>
+                  {heroData.quickServices.map((item, i) => {
+                    const Icon = QUICK_SERVICE_ICONS[i] || IconDocumentText;
+                    return (
+                    <li key={item.title} className={`hero-reveal ${i === 0 ? 'hero-reveal-delay-5' : i === 1 ? 'hero-reveal-delay-6' : 'hero-reveal-delay-7'}`}>
                       <Link
-                        href={href}
-                        className={`group flex items-center gap-4 p-4 rounded-xl border bg-white transition-all duration-200 md:hover:-translate-y-0.5 min-h-[44px] ${
-                          popular
+                        href={item.href}
+                        className={`group flex items-center gap-4 p-4 rounded-xl border bg-white transition-all duration-200 md:hover:-translate-y-0.5 min-h-12 ${
+                          item.popular
                             ? 'border-brand-accent/25 bg-brand-accent/5 shadow-sm hover:border-brand-accent/35 hover:bg-brand-accent/[0.07] hover:shadow-md'
                             : 'border-brand-grayBorder shadow-sm hover:border-brand-accent/30 hover:bg-brand-grayLight/40 hover:shadow-md'
                         }`}
@@ -144,13 +125,13 @@ export default function HeroSection() {
                           <Icon className="w-5 h-5" />
                         </span>
                         <p className="flex-1 min-w-0 font-semibold text-brand-navy text-sm leading-snug">
-                          {title}
-                          {popular && <span className="ml-2 text-xs font-medium text-brand-accent">Popular</span>}
+                          {item.title}
+                          {item.popular && <span className="ml-2 text-xs font-medium text-brand-accent">Popular</span>}
                         </p>
                         <IconChevronRight className="w-5 h-5 text-brand-accent/80 shrink-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
                       </Link>
                     </li>
-                  ))}
+                  ); })}
                 </ul>
               </div>
             </div>

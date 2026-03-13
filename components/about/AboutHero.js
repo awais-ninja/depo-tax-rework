@@ -69,7 +69,7 @@ export default function AboutHero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href={BOOK_CONSULTATION_URL}
-              className="inline-flex items-center justify-center min-h-[44px] sm:min-h-[48px] px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-semibold text-white border-2 border-white/90 hover:bg-white/15 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent text-sm sm:text-base w-full sm:w-auto"
+              className="inline-flex items-center justify-center min-h-12 px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-semibold text-white border-2 border-white/90 hover:bg-white/15 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent text-sm sm:text-base w-full sm:w-auto"
             >
               Book a Consultation
             </Link>

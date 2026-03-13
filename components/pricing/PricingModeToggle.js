@@ -1,6 +1,6 @@
 'use client';
 
-import { PRICING_MODES } from '@/data/pricingData';
+import { PRICING_MODES } from '@/data/pricing';
 
 const OPTIONS = [
   { id: PRICING_MODES.PACKAGES, label: 'Packages' },
@@ -19,7 +19,7 @@ export default function PricingModeToggle({ mode, onChange }) {
             key={option.id}
             type="button"
             onClick={() => onChange(option.id)}
-            className={`relative min-w-[120px] px-4 py-2.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-[44px] ${
+            className={`relative min-w-[120px] px-4 py-2.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-12 ${
               active
                 ? isPackages
                   ? 'bg-brand-accent text-white shadow-[0_10px_30px_rgba(154,0,0,0.35)]'
