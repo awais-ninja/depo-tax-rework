@@ -2,6 +2,8 @@
 
 import Link from '@/components/ui/Link';
 import { HiPhone, HiEnvelope, HiBuildingOffice2 } from 'react-icons/hi2';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const PHONE_PRIMARY = '+44 20 3659 9254';
 const PHONE_SECONDARY = '+44 739 2438 213';
@@ -34,9 +36,11 @@ const OPTIONS = [
 export default function ContactOptions() {
   return (
     <section
-      className="bg-brand-grayLight/40 py-12 sm:py-14 border-t border-brand-grayBorder/60"
+      className="relative overflow-hidden bg-brand-grayLight/40 py-12 sm:py-14 border-t border-brand-grayBorder/60"
       aria-labelledby="contact-options-heading"
     >
+      <SectionBackgroundLabel label="OPTIONS" position="right-mid" size="md" />
+      <SectionAmbient />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="contact-options-heading" className="sr-only">
           Quick contact options

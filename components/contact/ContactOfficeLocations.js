@@ -2,6 +2,8 @@
 
 import Link from '@/components/ui/Link';
 import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const OFFICES = [
   {
@@ -54,9 +56,11 @@ export default function ContactOfficeLocations() {
   return (
     <section
       id="office-locations"
-      className="scroll-mt-24 bg-brand-grayLight/40 py-12 sm:py-14 border-t border-brand-grayBorder/60"
+      className="relative overflow-hidden scroll-mt-24 bg-brand-grayLight/40 py-12 sm:py-14 border-t border-brand-grayBorder/60"
       aria-labelledby="offices-heading"
     >
+      <SectionBackgroundLabel label="OFFICES" position="center-top" size="lg" />
+      <SectionAmbient />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="offices-heading" className="text-xl sm:text-2xl font-bold text-brand-navy tracking-tight mb-10">
           Our Offices

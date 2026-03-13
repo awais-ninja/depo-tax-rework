@@ -1,15 +1,19 @@
 'use client';
 
 import Link from '@/components/ui/Link';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
 export default function ContactFinalCTA() {
   return (
     <section
-      className="bg-brand-grayLight/40 py-14 sm:py-16 md:py-20 border-t border-brand-grayBorder/60"
+      className="relative overflow-hidden bg-brand-grayLight/40 py-14 sm:py-16 md:py-20 border-t border-brand-grayBorder/60"
       aria-labelledby="contact-final-cta-heading"
     >
+      <SectionBackgroundLabel label="CONTACT" position="right-bottom" size="md" />
+      <SectionAmbient />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2
           id="contact-final-cta-heading"

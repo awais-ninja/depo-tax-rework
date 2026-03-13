@@ -2,13 +2,17 @@
 
 import Link from '@/components/ui/Link';
 import { HiCalendarDays, HiClock } from 'react-icons/hi2';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 export default function ContactMeetingInfo() {
   return (
     <section
-      className="bg-white py-12 sm:py-14 border-t border-brand-grayBorder/60"
+      className="relative overflow-hidden bg-white py-12 sm:py-14 border-t border-brand-grayBorder/60"
       aria-labelledby="meeting-info-heading"
     >
+      <SectionBackgroundLabel label="MEETINGS" position="left-top" size="md" />
+      <SectionAmbient />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="meeting-info-heading" className="text-xl sm:text-2xl font-bold text-brand-navy tracking-tight mb-6">
           Book a Meet & Greet

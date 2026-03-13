@@ -78,22 +78,24 @@ export const megaMenuServices = {
 export const megaMenuPricing = {
   columns: [
     {
+      title: 'Pricing formats',
       items: [
-        { label: 'Compliance Only Packages', href: '/pricing#compliance' },
-        { label: 'Core Packages', href: '/pricing#core' },
-        { label: 'Growth Packages', href: '/pricing#growth' },
-        { label: 'One Off Services', href: '/pricing#one-off' },
-        { label: 'Company Formations', href: '/pricing#formations' },
+        { label: 'Compliance Only Packages', href: '/pricing?mode=packages&packageType=compliance' },
+        { label: 'Core Packages', href: '/pricing?mode=packages&packageType=core' },
+        { label: 'Growth Packages', href: '/pricing?mode=packages&packageType=growth' },
+        { label: 'One Off Services', href: '/pricing?mode=single-services' },
+        { label: 'Company Formations', href: '/pricing?mode=single-services&service=company-formation' },
       ],
     },
     {
+      title: 'Client types',
       items: [
-        { label: 'Contractors', href: '/pricing' },
-        { label: 'Limited Companies', href: '/pricing' },
-        { label: 'Landlords', href: '/pricing' },
-        { label: 'Non Resident Landlords', href: '/pricing' },
-        { label: 'SPV Residential', href: '/pricing' },
-        { label: 'Self Employed', href: '/pricing' },
+        { label: 'Contractors', href: '/pricing?mode=packages&businessType=contractors' },
+        { label: 'Limited Companies', href: '/pricing?mode=packages&businessType=limited-companies' },
+        { label: 'Landlords', href: '/pricing?mode=packages&businessType=landlords' },
+        { label: 'Non Resident Landlords', href: '/pricing?mode=packages&businessType=non-resident-landlords' },
+        { label: 'SPV Residential', href: '/pricing?mode=packages&businessType=spv-residential' },
+        { label: 'Self Employed', href: '/pricing?mode=packages&businessType=self-employed' },
       ],
     },
   ],

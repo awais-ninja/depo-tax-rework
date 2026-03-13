@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from '@/components/ui/Link';
 import { HiCalendarDays } from 'react-icons/hi2';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
@@ -26,9 +28,11 @@ export default function ContactForm() {
   return (
     <section
       id="contact-form"
-      className="scroll-mt-24 bg-white py-12 sm:py-14 border-t border-brand-grayBorder/60"
+      className="relative overflow-hidden scroll-mt-24 bg-white py-12 sm:py-14 border-t border-brand-grayBorder/60"
       aria-labelledby="contact-form-heading"
     >
+      <SectionBackgroundLabel label="ENQUIRY" position="left-mid" size="md" />
+      <SectionAmbient />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 id="contact-form-heading" className="text-xl sm:text-2xl font-bold text-brand-navy tracking-tight mb-8">
           Send an Enquiry

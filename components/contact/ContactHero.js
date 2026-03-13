@@ -1,6 +1,8 @@
 'use client';
 
 import Link from '@/components/ui/Link';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
@@ -11,6 +13,8 @@ export default function ContactHero() {
       className="relative overflow-hidden bg-brand-grayLight/40"
       aria-labelledby="contact-hero-heading"
     >
+      <SectionBackgroundLabel label="CONTACT" position="right-top" size="lg" />
+      <SectionAmbient />
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
