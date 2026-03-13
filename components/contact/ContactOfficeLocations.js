@@ -100,7 +100,8 @@ export default function ContactOfficeLocations() {
                             <Link
                               key={num}
                               href={telHref(num)}
-                              className="block text-brand-text/90 hover:text-brand-accent transition-colors"
+                              className="min-h-[44px] py-2 inline-flex items-center text-brand-text/90 hover:text-brand-accent transition-colors"
+                              aria-label={`Call ${num}`}
                             >
                               {num}
                             </Link>

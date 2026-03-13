@@ -89,7 +89,8 @@ export default function Navbar() {
           <div className="hidden xl:block shrink-0">
             <Link
               href="https://www.picktime.com/aazizandco"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
+              className="inline-flex items-center justify-center min-h-[44px] px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
+              aria-label="Book a free consultation (main navigation)"
             >
               Book Consultation
             </Link>
@@ -97,7 +98,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="xl:hidden p-2 rounded-md text-brand-text hover:bg-brand-grayLight hover:text-brand-accent transition-colors duration-200"
+            className="xl:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-md text-brand-text hover:bg-brand-grayLight hover:text-brand-accent transition-colors duration-200"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-expanded={mobileOpen}
             aria-label="Toggle menu"
@@ -139,12 +140,12 @@ export default function Navbar() {
                 {item.megaKey ? (
                   <>
                     <div className="flex items-center w-full">
-                      <Link href={item.href} className="flex-1 py-3 px-4 font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                      <Link href={item.href} className="flex-1 py-3 px-4 min-h-[44px] flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
                         {item.label}
                       </Link>
                       <button
                         type="button"
-                        className="p-3 text-brand-text hover:text-brand-accent"
+                        className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center text-brand-text hover:text-brand-accent"
                         onClick={() => setOpenMega(openMega === item.label ? null : item.label)}
                         aria-expanded={openMega === item.label}
                         aria-label={openMega === item.label ? 'Collapse menu' : 'Expand menu'}
@@ -167,7 +168,7 @@ export default function Navbar() {
                     )}
                   </>
                 ) : (
-                  <Link href={item.href} className="block px-4 py-3 font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                  <Link href={item.href} className="block px-4 py-3 min-h-[44px] flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
                     {item.label}
                   </Link>
                 )}
@@ -176,8 +177,9 @@ export default function Navbar() {
             <li className="px-4 py-3">
               <Link
                 href="https://www.picktime.com/aazizandco"
-                className="block w-full text-center py-3 rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
+                className="block w-full text-center py-3 min-h-[44px] flex items-center justify-center rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
                 onClick={closeAll}
+                aria-label="Book a free consultation (mobile menu)"
               >
                 Book Consultation
               </Link>

@@ -42,25 +42,18 @@
   }
 }
 
-/* Section reveal: trigger with .is-visible on parent */
+/* Section reveal: simplified – always visible (no JS needed) */
 .reveal-item {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.is-visible .reveal-item {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
-.is-visible .reveal-item-delay-1 { transition-delay: 60ms; }
-.is-visible .reveal-item-delay-2 { transition-delay: 120ms; }
-.is-visible .reveal-item-delay-3 { transition-delay: 180ms; }
-.is-visible .reveal-item-delay-4 { transition-delay: 240ms; }
-.is-visible .reveal-item-delay-5 { transition-delay: 300ms; }
-.is-visible .reveal-item-delay-6 { transition-delay: 360ms; }
-@media (prefers-reduced-motion: reduce) {
-  .reveal-item,
-  .is-visible .reveal-item { transition: none; opacity: 1; transform: none; }
+.reveal-item-delay-1,
+.reveal-item-delay-2,
+.reveal-item-delay-3,
+.reveal-item-delay-4,
+.reveal-item-delay-5,
+.reveal-item-delay-6 {
+  transition: none;
 }
 
 /* Hero entrance: add .hero-ready to parent after mount */
@@ -70,6 +63,8 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .hero-ready .hero-reveal { opacity: 1; transform: translateY(0); }
+/* LCP paragraph: visible immediately to improve LCP (no animation delay) */
+.hero-lcp { opacity: 1; transform: none; }
 .hero-ready .hero-reveal-delay-1 { transition-delay: 80ms; }
 .hero-ready .hero-reveal-delay-2 { transition-delay: 160ms; }
 .hero-ready .hero-reveal-delay-3 { transition-delay: 240ms; }

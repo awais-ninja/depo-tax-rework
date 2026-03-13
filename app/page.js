@@ -1,24 +1,65 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
 import TrustMetricsSection from "@/components/home/TrustMetricsSection";
-import TrustStrip from "@/components/home/TrustStrip";
-import WhoWeHelp from "@/components/home/WhoWeHelp";
-import IndustriesWeServe from "@/components/home/IndustriesWeServe";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import WhyDepoTaxComparisonSection from "@/components/home/WhyDepoTaxComparisonSection";
-import MeetTheTeam from "@/components/home/MeetTheTeam";
-import CoreServices from "@/components/home/CoreServices";
-import PricingPreview from "@/components/home/PricingPreview";
-import UKTaxDeadlines from "@/components/home/UKTaxDeadlines";
-import FaqSection from "@/components/home/FaqSection";
-import OfficeLocations from "@/components/home/OfficeLocations";
-import AccountingSoftware from "@/components/home/AccountingSoftware";
-import HowItWorks from "@/components/home/HowItWorks";
-import Testimonials from "@/components/home/Testimonials";
-import LocalSEOSection from "@/components/home/LocalSEOSection";
-import FinalCTA from "@/components/home/FinalCTA";
 import SectionDivider from "@/components/ui/SectionDivider";
+
+const TrustStrip = dynamic(() => import("@/components/home/TrustStrip"), {
+  ssr: true,
+});
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), {
+  ssr: true,
+});
+const WhoWeHelp = dynamic(() => import("@/components/home/WhoWeHelp"), {
+  ssr: true,
+});
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"), {
+  ssr: true,
+});
+const WhyDepoTaxComparisonSection = dynamic(
+  () => import("@/components/home/WhyDepoTaxComparisonSection"),
+  { ssr: true },
+);
+const MeetTheTeam = dynamic(() => import("@/components/home/MeetTheTeam"), {
+  ssr: true,
+});
+const CoreServices = dynamic(() => import("@/components/home/CoreServices"), {
+  ssr: true,
+});
+const IndustriesWeServe = dynamic(
+  () => import("@/components/home/IndustriesWeServe"),
+  { ssr: true },
+);
+const AccountingSoftware = dynamic(
+  () => import("@/components/home/AccountingSoftware"),
+  { ssr: true },
+);
+const HowItWorks = dynamic(() => import("@/components/home/HowItWorks"), {
+  ssr: true,
+});
+const PricingPreview = dynamic(
+  () => import("@/components/home/PricingPreview"),
+  { ssr: true },
+);
+const UKTaxDeadlines = dynamic(
+  () => import("@/components/home/UKTaxDeadlines"),
+  { ssr: true },
+);
+const FaqSection = dynamic(() => import("@/components/home/FaqSection"), {
+  ssr: true,
+});
+const LocalSEOSection = dynamic(
+  () => import("@/components/home/LocalSEOSection"),
+  { ssr: true },
+);
+const OfficeLocations = dynamic(
+  () => import("@/components/home/OfficeLocations"),
+  { ssr: true },
+);
+const FinalCTA = dynamic(() => import("@/components/home/FinalCTA"), {
+  ssr: true,
+});
 
 export const metadata = {
   title: "Home | DepoTax",

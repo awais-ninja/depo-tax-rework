@@ -1,5 +1,3 @@
-'use client';
-
 /**
  * Hero-only ambient background. Md+ only; hidden on mobile.
  * Large blob, accent circle, dot pattern, thin lines – slow drift/pulse.

@@ -1,8 +1,11 @@
-'use client';
+"use client";
 
-import SectionReveal from '@/components/ui/SectionReveal';
-import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { ABOUT_CASE_STUDIES_INTRO, ABOUT_CASE_STUDIES } from './aboutCaseStudiesData';
+import SectionReveal from "@/components/ui/SectionReveal";
+import SectionBackgroundLabel from "@/components/ui/SectionBackgroundLabel";
+import {
+  ABOUT_CASE_STUDIES_INTRO,
+  ABOUT_CASE_STUDIES,
+} from "./aboutCaseStudiesData";
 
 function CaseStudyCard({ study, delayClass }) {
   return (
@@ -21,7 +24,7 @@ function CaseStudyCard({ study, delayClass }) {
       </h3>
       <dl className="space-y-3 flex-1">
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/60 mb-1">
+          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/80 mb-1">
             Challenge
           </dt>
           <dd className="text-sm text-brand-text/85 leading-relaxed">
@@ -29,7 +32,7 @@ function CaseStudyCard({ study, delayClass }) {
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/60 mb-1">
+          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/80 mb-1">
             Support
           </dt>
           <dd className="text-sm text-brand-text/85 leading-relaxed">
@@ -37,7 +40,7 @@ function CaseStudyCard({ study, delayClass }) {
           </dd>
         </div>
         <div>
-          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/60 mb-1">
+          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-text/80 mb-1">
             Outcome
           </dt>
           <dd className="text-sm text-brand-text/85 leading-relaxed">
@@ -56,7 +59,11 @@ export default function AboutCaseStudies() {
       className="relative py-12 sm:py-14 md:py-16 lg:py-20 overflow-hidden bg-brand-grayLight/40"
       aria-labelledby="case-studies-heading"
     >
-      <SectionBackgroundLabel label="CASE STUDIES" position="right-mid" size="md" />
+      <SectionBackgroundLabel
+        label="CASE STUDIES"
+        position="right-mid"
+        size="md"
+      />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
@@ -78,7 +85,11 @@ export default function AboutCaseStudies() {
                 key={study.id}
                 study={study}
                 delayClass={
-                  i === 0 ? 'reveal-item-delay-3' : i === 1 ? 'reveal-item-delay-4' : 'reveal-item-delay-5'
+                  i === 0
+                    ? "reveal-item-delay-3"
+                    : i === 1
+                      ? "reveal-item-delay-4"
+                      : "reveal-item-delay-5"
                 }
               />
             ))}

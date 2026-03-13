@@ -1,14 +1,29 @@
-'use client';
+"use client";
 
-import SectionReveal from '@/components/ui/SectionReveal';
-import { HiXCircle, HiCheckCircle } from 'react-icons/hi2';
+import SectionReveal from "@/components/ui/SectionReveal";
+import { HiXCircle, HiCheckCircle } from "react-icons/hi2";
 
 const COMPARISON_ROWS = [
-  { typical: 'Slow response times', depotax: 'Responsive and practical support' },
-  { typical: 'Generic advice', depotax: 'Tailored accounting and tax guidance' },
-  { typical: 'Hidden or unclear pricing', depotax: 'Transparent service structure' },
-  { typical: 'Limited support', depotax: 'Full accounting, payroll, tax, and advisory support' },
-  { typical: 'Reactive service only', depotax: 'Ongoing business support and compliance guidance' },
+  {
+    typical: "Slow response times",
+    depotax: "Responsive and practical support",
+  },
+  {
+    typical: "Generic advice",
+    depotax: "Tailored accounting and tax guidance",
+  },
+  {
+    typical: "Hidden or unclear pricing",
+    depotax: "Transparent service structure",
+  },
+  {
+    typical: "Limited support",
+    depotax: "Full accounting, payroll, tax, and advisory support",
+  },
+  {
+    typical: "Reactive service only",
+    depotax: "Ongoing business support and compliance guidance",
+  },
 ];
 
 export default function WhyDepoTaxComparisonSection() {
@@ -31,7 +46,8 @@ export default function WhyDepoTaxComparisonSection() {
               Why Businesses Choose DepoTax
             </p>
             <p className="reveal-item reveal-item-delay-2 text-center text-brand-text/80 max-w-2xl mx-auto">
-              We focus on practical support, transparent service, and dependable accounting solutions tailored to each client.
+              We focus on practical support, transparent service, and dependable
+              accounting solutions tailored to each client.
             </p>
           </div>
 
@@ -40,17 +56,22 @@ export default function WhyDepoTaxComparisonSection() {
             <div className="rounded-2xl border border-brand-grayBorder bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-2 mb-6 pb-4 border-b border-brand-grayBorder">
                 <HiXCircle className="w-6 h-6 text-brand-text/40" aria-hidden />
-                <h3 className="text-sm font-bold uppercase tracking-widest text-brand-text/60">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-brand-text/80">
                   Typical Accounting Firms
                 </h3>
               </div>
               <ul className="space-y-4" role="list">
                 {COMPARISON_ROWS.map((row, i) => (
                   <li key={i} className="flex gap-3 items-start">
-                    <span className="flex h-5 w-5 shrink-0 rounded-full bg-brand-grayBorder/80 items-center justify-center text-[10px] font-bold text-brand-text/50 mt-0.5" aria-hidden>
+                    <span
+                      className="flex h-5 w-5 shrink-0 rounded-full bg-brand-grayBorder/80 items-center justify-center text-[10px] font-bold text-brand-text/50 mt-0.5"
+                      aria-hidden
+                    >
                       {i + 1}
                     </span>
-                    <p className="text-sm sm:text-base text-brand-text/75 leading-snug">{row.typical}</p>
+                    <p className="text-sm sm:text-base text-brand-text/75 leading-snug">
+                      {row.typical}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -58,7 +79,10 @@ export default function WhyDepoTaxComparisonSection() {
 
             {/* DepoTax column */}
             <div className="rounded-2xl border-2 border-[#9a0000]/20 bg-white p-6 sm:p-8 shadow-[0_4px_24px_rgba(154,0,0,0.06)] relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-[#9a0000]/5 pointer-events-none" aria-hidden />
+              <div
+                className="absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-[#9a0000]/5 pointer-events-none"
+                aria-hidden
+              />
               <div className="flex items-center gap-2 mb-6 pb-4 border-b border-[#9a0000]/25 relative">
                 <HiCheckCircle className="w-6 h-6 text-[#9a0000]" aria-hidden />
                 <h3 className="text-sm font-bold uppercase tracking-widest text-[#9a0000]">
@@ -68,10 +92,15 @@ export default function WhyDepoTaxComparisonSection() {
               <ul className="space-y-4 relative" role="list">
                 {COMPARISON_ROWS.map((row, i) => (
                   <li key={i} className="flex gap-3 items-start">
-                    <span className="flex h-5 w-5 shrink-0 rounded-full bg-[#9a0000]/15 items-center justify-center text-[10px] font-bold text-[#9a0000] mt-0.5" aria-hidden>
+                    <span
+                      className="flex h-5 w-5 shrink-0 rounded-full bg-[#9a0000]/15 items-center justify-center text-[10px] font-bold text-[#9a0000] mt-0.5"
+                      aria-hidden
+                    >
                       {i + 1}
                     </span>
-                    <p className="text-sm sm:text-base font-medium text-[#2b4b6b] leading-snug">{row.depotax}</p>
+                    <p className="text-sm sm:text-base font-medium text-[#2b4b6b] leading-snug">
+                      {row.depotax}
+                    </p>
                   </li>
                 ))}
               </ul>

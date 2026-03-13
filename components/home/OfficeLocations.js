@@ -106,7 +106,8 @@ function OfficeCard({ office, delayClass }) {
               <Link
                 key={num}
                 href={telHref(num)}
-                className="block hover:text-[#9a0000] transition-colors"
+                className="min-h-[44px] py-2 inline-flex items-center hover:text-[#9a0000] transition-colors"
+                aria-label={`Call ${num}`}
               >
                 {num}
               </Link>
@@ -231,7 +232,7 @@ export default function OfficeLocations() {
                     <span className="shrink-0 w-9 h-9 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
                       <HiMapPin className="w-4 h-4" aria-hidden />
                     </span>
-                    <Link href={HEAD_OFFICE.mapLink} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors whitespace-pre-line">
+                    <Link href={HEAD_OFFICE.mapLink} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors whitespace-pre-line min-h-[44px] py-2 inline-flex items-start" aria-label="View head office on map">
                       {HEAD_OFFICE.address}
                     </Link>
                   </div>
@@ -239,7 +240,7 @@ export default function OfficeLocations() {
                     <span className="shrink-0 w-9 h-9 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
                       <HiEnvelope className="w-4 h-4" aria-hidden />
                     </span>
-                    <Link href={`mailto:${HEAD_OFFICE.email}`} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors">
+                    <Link href={`mailto:${HEAD_OFFICE.email}`} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors min-h-[44px] py-2 inline-flex items-center" aria-label="Email head office">
                       {HEAD_OFFICE.email}
                     </Link>
                   </div>
@@ -249,7 +250,7 @@ export default function OfficeLocations() {
                     </span>
                     <div className="text-sm text-brand-text/85 space-y-0.5">
                       {HEAD_OFFICE.phones.map((num) => (
-                        <Link key={num} href={`tel:${num.replace(/\s/g, '')}`} className="block hover:text-brand-accent transition-colors">
+                        <Link key={num} href={`tel:${num.replace(/\s/g, '')}`} className="min-h-[44px] py-2 inline-flex items-center hover:text-brand-accent transition-colors" aria-label={`Call ${num}`}>
                           {num}
                         </Link>
                       ))}
@@ -296,13 +297,15 @@ export default function OfficeLocations() {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="https://www.picktime.com/aazizandco"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-[#9a0000] hover:bg-[#7a0000] transition-colors duration-200"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold text-white bg-[#9a0000] hover:bg-[#7a0000] transition-colors duration-200"
+                aria-label="Book a consultation (locations section)"
               >
                 Book Consultation
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold border-2 border-[#9a0000] text-[#9a0000] hover:bg-[#9a0000] hover:text-white transition-colors duration-200"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold border-2 border-[#9a0000] text-[#9a0000] hover:bg-[#9a0000] hover:text-white transition-colors duration-200"
+                aria-label="Contact DepoTax (locations section)"
               >
                 Contact Us
               </Link>

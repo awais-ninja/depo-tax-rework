@@ -1,11 +1,6 @@
 import Link from '@/components/ui/Link';
 import Image from 'next/image';
-import {
-  HiEnvelope,
-  HiPhone,
-  HiMapPin,
-} from 'react-icons/hi2';
-import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { IconEnvelope, IconPhone, IconMapPin, IconFacebook, IconLinkedIn, IconInstagram } from '@/components/ui/Icons';
 
 const QUICK_LINKS = [
   { label: 'Home', href: '/' },
@@ -42,7 +37,7 @@ const BOTTOM_LINKS = [
 ];
 
 const FOOTER_LINK_CLASS =
-  'text-sm text-white/90 hover:text-white hover:underline transition-colors duration-200';
+  'text-sm text-white/90 hover:text-white hover:underline transition-colors duration-200 inline-flex items-center min-h-[44px] py-2';
 
 function FooterColumn({ title, children }) {
   return (
@@ -120,24 +115,24 @@ export default function Footer() {
               <p className="text-white font-medium">London</p>
               <ul className="space-y-2">
                 <li className="flex gap-2 justify-center lg:justify-start text-center lg:text-left items-start">
-                  <HiMapPin className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
-                  <Link href="https://maps.app.goo.gl/4NEbCUgv2xsFiP2T8" className="text-white/95 hover:text-white hover:underline transition-colors duration-200">
+                  <IconMapPin className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
+                  <Link href="https://maps.app.goo.gl/4NEbCUgv2xsFiP2T8" className="text-white/95 hover:text-white hover:underline transition-colors duration-200 inline-flex items-center min-h-[44px] py-2" aria-label="View head office on map: 2 Sanders Parade, Greyhound Lane, Streatham, London SW16 5NL">
                     2 Sanders Parade, Greyhound Lane, Streatham, London SW16 5NL
                   </Link>
                 </li>
                 <li className="flex gap-2 justify-center lg:justify-start items-start">
-                  <HiEnvelope className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
-                  <Link href="mailto:info@depotax.co.uk" className="text-white/95 hover:text-white hover:underline transition-colors duration-200">
+                  <IconEnvelope className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
+                  <Link href="mailto:info@depotax.co.uk" className="text-white/95 hover:text-white hover:underline transition-colors duration-200 inline-flex items-center min-h-[44px] py-2" aria-label="Email DepoTax">
                     info@depotax.co.uk
                   </Link>
                 </li>
                 <li className="flex gap-2 justify-center lg:justify-start items-start">
-                  <HiPhone className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
+                  <IconPhone className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" aria-hidden />
                   <span className="flex flex-col gap-0.5 items-center lg:items-stretch">
-                    <Link href="tel:+442036599254" className="text-white/95 hover:text-white hover:underline transition-colors duration-200">
+                    <Link href="tel:+442036599254" className="text-white/95 hover:text-white hover:underline transition-colors duration-200 inline-flex items-center min-h-[44px] py-2" aria-label="Call London office">
                       +44 20 3659 9254
                     </Link>
-                    <Link href="tel:+447392438213" className="text-white/95 hover:text-white hover:underline transition-colors duration-200">
+                    <Link href="tel:+447392438213" className="text-white/95 hover:text-white hover:underline transition-colors duration-200 inline-flex items-center min-h-[44px] py-2" aria-label="Call mobile">
                       +44 739 2438 213
                     </Link>
                   </span>
@@ -161,24 +156,24 @@ export default function Footer() {
             <div className="flex gap-3">
               <Link
                 href="https://www.facebook.com/depotax"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
-                aria-label="Facebook"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
+                aria-label="DepoTax on Facebook"
               >
-                <FaFacebookF className="w-4 h-4" />
+                <IconFacebook className="w-4 h-4" />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/depotaxaccountants/"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
-                aria-label="LinkedIn"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
+                aria-label="DepoTax on LinkedIn"
               >
-                <FaLinkedinIn className="w-4 h-4" />
+                <IconLinkedIn className="w-4 h-4" />
               </Link>
               <Link
                 href="https://www.instagram.com/depotax"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
-                aria-label="Instagram"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
+                aria-label="DepoTax on Instagram"
               >
-                <FaInstagram className="w-4 h-4" />
+                <IconInstagram className="w-4 h-4" />
               </Link>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function MegaMenu({ columns, featuredCard, onNavigate, isMobile, 
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="group flex items-center gap-2 py-2.5 pr-2 text-sm text-brand-text hover:text-brand-accent transition-colors duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 hover:bg-brand-grayLight/40 -mx-1 px-1"
+                    className="group flex items-center gap-2 min-h-[44px] py-2.5 pr-2 text-sm text-brand-text hover:text-brand-accent transition-colors duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40 hover:bg-brand-grayLight/40 -mx-1 px-1"
                     onClick={handleNav}
                   >
                     <span className="w-4 shrink-0 inline-flex justify-center">

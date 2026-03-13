@@ -5,7 +5,7 @@ import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
-import { HiChevronDown } from 'react-icons/hi2';
+import { IconChevronDown } from '@/components/ui/Icons';
 
 const FAQ_ITEMS = [
   {
@@ -58,24 +58,24 @@ function FaqItem({ question, answer, isOpen, onToggle }) {
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 sm:px-6 sm:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50 focus-visible:ring-offset-2 rounded-xl"
+        className="w-full flex items-center justify-between gap-4 text-left px-5 py-4 sm:px-6 sm:py-5 min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50 focus-visible:ring-offset-2 rounded-xl"
         aria-expanded={isOpen}
       >
         <span className="text-sm sm:text-base font-semibold text-brand-navy pr-2">
           {question}
         </span>
         <span
-          className={`shrink-0 w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`shrink-0 w-10 h-10 min-w-[44px] min-h-[44px] rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           aria-hidden
         >
-          <HiChevronDown className="w-5 h-5" />
+          <IconChevronDown className="w-5 h-5" />
         </span>
       </button>
       <div
         className={`grid transition-[grid-template-rows] duration-200 ease-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden">
-          <p className="px-5 pb-4 sm:px-6 sm:pb-5 pt-0 text-sm text-brand-text/85 leading-relaxed border-t border-brand-grayBorder/60">
+          <p className="px-5 pb-4 sm:px-6 sm:pb-5 pt-0 text-sm text-brand-text/90 leading-relaxed border-t border-brand-grayBorder/60">
             {answer}
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function FaqSection() {
               <span className="text-[#2b4b6b]">Frequently Asked </span>
               <span className="text-[#9a0000]">Questions</span>
             </h2>
-            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85 text-center">
+            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/90 text-center">
               Find answers to common questions about accounting packages, tax
               returns, bookkeeping, payroll, HMRC support and working with
               DepoTax across the UK.
@@ -131,20 +131,22 @@ export default function FaqSection() {
             <h3 className="text-lg font-semibold text-brand-navy mb-2">
               Still Have Questions?
             </h3>
-            <p className="text-sm text-brand-text/85 mb-5 max-w-md mx-auto">
+            <p className="text-sm text-brand-text/90 mb-5 max-w-md mx-auto">
               Speak to our team for expert advice on accounting packages, tax
               returns, bookkeeping and business support.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="https://www.picktime.com/aazizandco"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
+                aria-label="Book a free consultation (FAQ section)"
               >
                 Book Consultation
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
+                className="inline-flex items-center justify-center min-h-[44px] px-6 py-3 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-colors duration-200"
+                aria-label="Contact DepoTax (FAQ section)"
               >
                 Contact Us
               </Link>

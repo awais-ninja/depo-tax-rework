@@ -1,13 +1,24 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from '@/components/ui/Link';
-import SectionReveal from '@/components/ui/SectionReveal';
-import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
-import { ABOUT_TEAM_INTRO, ABOUT_DIRECTOR, ABOUT_SENIOR_TEAM, ABOUT_DEPARTMENT_GROUPS, ABOUT_OTHER_MEMBERS } from './aboutTeamData';
+import Image from "next/image";
+import Link from "@/components/ui/Link";
+import SectionReveal from "@/components/ui/SectionReveal";
+import SectionBackgroundLabel from "@/components/ui/SectionBackgroundLabel";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
+import {
+  ABOUT_TEAM_INTRO,
+  ABOUT_DIRECTOR,
+  ABOUT_SENIOR_TEAM,
+  ABOUT_DEPARTMENT_GROUPS,
+  ABOUT_OTHER_MEMBERS,
+} from "./aboutTeamData";
 
-const socialIconClass = 'w-4 h-4 sm:w-5 sm:h-5';
+const socialIconClass = "w-4 h-4 sm:w-5 sm:h-5";
 
 function getDisplayName(member) {
   return member.name || member.title;
@@ -34,35 +45,65 @@ function DirectorSpotlight() {
         {ABOUT_DIRECTOR.name}
       </h3>
       {ABOUT_DIRECTOR.tags && (
-        <p className="mt-1.5 text-xs text-brand-text/60" aria-hidden>
+        <p className="mt-1.5 text-xs text-brand-text/80" aria-hidden>
           {ABOUT_DIRECTOR.tags}
         </p>
       )}
       <p className="mt-3 text-sm text-brand-text/85 leading-relaxed">
         {ABOUT_DIRECTOR.description}
       </p>
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-5" aria-label="Social links">
+      <div
+        className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-5"
+        aria-label="Social links"
+      >
         {ABOUT_DIRECTOR.social?.instagram && (
-          <Link href={ABOUT_DIRECTOR.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors" aria-label="Instagram">
+          <Link
+            href={ABOUT_DIRECTOR.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
+            aria-label="Instagram"
+          >
             <FaInstagram className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.facebook && (
-          <Link href={ABOUT_DIRECTOR.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors" aria-label="Facebook">
+          <Link
+            href={ABOUT_DIRECTOR.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
+            aria-label="Facebook"
+          >
             <FaFacebookF className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.linkedin && (
-          <Link href={ABOUT_DIRECTOR.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors" aria-label="LinkedIn">
+          <Link
+            href={ABOUT_DIRECTOR.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
             <FaLinkedinIn className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.twitter ? (
-          <Link href={ABOUT_DIRECTOR.social.twitter} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors" aria-label="Twitter">
+          <Link
+            href={ABOUT_DIRECTOR.social.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
+            aria-label="Twitter"
+          >
             <FaTwitter className={socialIconClass} />
           </Link>
         ) : (
-          <span className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-text/40" aria-hidden>
+          <span
+            className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-text/40"
+            aria-hidden
+          >
             <FaTwitter className={socialIconClass} />
           </span>
         )}
@@ -94,12 +135,20 @@ function TeamCard({ member, delayClass, badge }) {
         )}
       </div>
       <div className="flex-1 min-w-0 text-left sm:text-center py-1 sm:py-0 sm:mt-3">
-        <h3 id={`team-${member.id}-name`} className="text-sm sm:text-base font-bold text-brand-navy leading-tight truncate sm:line-clamp-2">
+        <h3
+          id={`team-${member.id}-name`}
+          className="text-sm sm:text-base font-bold text-brand-navy leading-tight truncate sm:line-clamp-2"
+        >
           {displayName}
         </h3>
-        <p className="text-xs text-brand-text/70 mt-0.5 truncate sm:line-clamp-2">{member.title}</p>
+        <p className="text-xs text-brand-text/70 mt-0.5 truncate sm:line-clamp-2">
+          {member.title}
+        </p>
         {member.tags && (
-          <p className="text-[11px] text-brand-text/60 mt-1.5 hidden sm:block line-clamp-2" aria-hidden>
+          <p
+            className="text-[11px] text-brand-text/80 mt-1.5 hidden sm:block line-clamp-2"
+            aria-hidden
+          >
             {member.tags}
           </p>
         )}
@@ -147,7 +196,11 @@ export default function AboutMeetTheTeam() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 items-stretch">
                 {ABOUT_SENIOR_TEAM.map((member) => (
-                  <TeamCard key={member.id} member={member} delayClass="reveal-item-delay-4" />
+                  <TeamCard
+                    key={member.id}
+                    member={member}
+                    delayClass="reveal-item-delay-4"
+                  />
                 ))}
               </div>
             </div>
@@ -159,9 +212,19 @@ export default function AboutMeetTheTeam() {
                   {group.departmentLabel}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-                  <TeamCard member={group.members[0]} delayClass="reveal-item-delay-5" badge="Head" />
-                  <TeamCard member={group.members[1]} delayClass="reveal-item-delay-5" />
-                  <TeamCard member={group.members[2]} delayClass="reveal-item-delay-5" />
+                  <TeamCard
+                    member={group.members[0]}
+                    delayClass="reveal-item-delay-5"
+                    badge="Head"
+                  />
+                  <TeamCard
+                    member={group.members[1]}
+                    delayClass="reveal-item-delay-5"
+                  />
+                  <TeamCard
+                    member={group.members[2]}
+                    delayClass="reveal-item-delay-5"
+                  />
                 </div>
               </div>
             ))}
@@ -173,7 +236,11 @@ export default function AboutMeetTheTeam() {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-stretch">
                 {ABOUT_OTHER_MEMBERS.map((member) => (
-                  <TeamCard key={member.id} member={member} delayClass="reveal-item-delay-6" />
+                  <TeamCard
+                    key={member.id}
+                    member={member}
+                    delayClass="reveal-item-delay-6"
+                  />
                 ))}
               </div>
             </div>
