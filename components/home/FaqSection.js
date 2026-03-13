@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 import { HiChevronDown } from 'react-icons/hi2';
 
 const FAQ_ITEMS = [
@@ -94,20 +96,19 @@ export default function FaqSection() {
       className="relative py-16 lg:py-24 bg-brand-grayLight/50 overflow-hidden"
       aria-labelledby="faq-heading"
     >
+      <SectionBackgroundLabel label="FAQ" position="right-bottom" size="lg" />
+      <SectionAmbient />
       <SectionReveal>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <p className="reveal-item reveal-item-delay-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-text/60 mb-3">
-              Frequently Asked Questions
-            </p>
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <h2
               id="faq-heading"
-              className="reveal-item reveal-item-delay-2 text-2xl sm:text-3xl font-bold uppercase tracking-tight text-brand-navy mb-4"
+              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
             >
-              Common Questions About Our Accounting, Tax Returns &amp; Bookkeeping
-              Services
+              <span className="text-[#2b4b6b]">Frequently Asked </span>
+              <span className="text-[#9a0000]">Questions</span>
             </h2>
-            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85">
+            <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85 text-center">
               Find answers to common questions about accounting packages, tax
               returns, bookkeeping, payroll, HMRC support and working with
               DepoTax across the UK.
@@ -136,7 +137,7 @@ export default function FaqSection() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/book-consultation"
+                href="https://www.picktime.com/aazizandco"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
               >
                 Book Consultation

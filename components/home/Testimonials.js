@@ -4,6 +4,8 @@ import { useRef, useState } from 'react';
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import TestimonialsBackground from '@/components/ui/TestimonialsBackground';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const REVIEWS = [
   { quote: "It's been over 8 years since Depo Tax Accountants and Tax Consultants have been helping me in my tax matters. Great Service. Really advised to anyone who is looking for accountants. Brilliant!!!", name: 'Emanuel Correia', initials: 'EC', reviewUrl: 'https://share.google/qOfv4rDKFMtrYB43N' },
@@ -31,9 +33,10 @@ function GoogleGIcon({ className = 'w-5 h-5' }) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({ title, sectionId = 'reviews', maxReviews, sectionLabel, introParagraph }) {
   const scrollRef = useRef(null);
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const reviews = maxReviews ? REVIEWS.slice(0, maxReviews) : REVIEWS;
 
   const scroll = (dir) => {
     if (!scrollRef.current) return;
@@ -43,11 +46,13 @@ export default function Testimonials() {
 
   return (
     <section
-      id="reviews"
+      id={sectionId}
       className="relative pt-16 pb-20 lg:pt-20 lg:pb-28 bg-white overflow-hidden"
-      aria-labelledby="reviews-heading"
+      aria-labelledby={`${sectionId}-heading`}
     >
       <TestimonialsBackground />
+      <SectionAmbient />
+      <SectionBackgroundLabel label="TESTIMONIALS" position="right-top" />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Decorative quote mark – md+ only */}
@@ -56,18 +61,35 @@ export default function Testimonials() {
           </div>
 
           <div className="text-center mb-10">
+            {sectionLabel && (
+              <p className="reveal-item reveal-item-delay-1 text-[11px] font-bold uppercase tracking-[0.15em] text-brand-accent mb-3">
+                {sectionLabel}
+              </p>
+            )}
             <h2
-              id="reviews-heading"
-              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
+              id={`${sectionId}-heading`}
+              className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold tracking-tight mb-4"
             >
-              Testimonials
+              {title ? (
+                <span className="text-[#2b4b6b]">{title}</span>
+              ) : (
+                <>
+                  <span className="text-[#2b4b6b]">Testi</span>
+                  <span className="text-[#9a0000]">monials</span>
+                </>
+              )}
             </h2>
+            {introParagraph && (
+              <p className="reveal-item reveal-item-delay-2 text-base text-brand-text/85 leading-relaxed max-w-xl mx-auto mb-6">
+                {introParagraph}
+              </p>
+            )}
             {/* Large rating summary badge */}
             <Link
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal-item reveal-item-delay-2 inline-flex flex-col items-center rounded-2xl border border-brand-grayBorder bg-white px-10 py-6 shadow-[0_14px_40px_rgba(15,23,42,0.12)] transition-all duration-300 hover:shadow-[0_18px_55px_rgba(15,23,42,0.18)] hover:border-brand-accent/20"
+              className={`reveal-item ${introParagraph ? 'reveal-item-delay-3' : 'reveal-item-delay-2'} inline-flex flex-col items-center rounded-2xl border border-brand-grayBorder bg-white px-10 py-6 shadow-[0_14px_40px_rgba(15,23,42,0.12)] transition-all duration-300 hover:shadow-[0_18px_55px_rgba(15,23,42,0.18)] hover:border-brand-accent/20`}
             >
               <span className="flex items-center gap-2 text-2xl sm:text-3xl font-bold text-brand-navy">
                 <span className="tabular-nums">4.9</span>
@@ -114,7 +136,7 @@ export default function Testimonials() {
               ref={scrollRef}
               className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide py-2 snap-x snap-mandatory"
             >
-              {REVIEWS.map((review, index) => {
+              {reviews.map((review, index) => {
                 const isExpanded = expandedIndex === index;
                 return (
                   <article

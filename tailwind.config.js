@@ -64,6 +64,14 @@ module.exports = {
           '0%, 100%': { transform: 'translate(0, 0)' },
           '50%': { transform: 'translate(10px, -10px)' },
         },
+        'bg-label-ltr': {
+          '0%': { transform: 'translateX(-20px)' },
+          '100%': { transform: 'translateX(20px)' },
+        },
+        'bg-label-rtl': {
+          '0%': { transform: 'translateX(20px)' },
+          '100%': { transform: 'translateX(-20px)' },
+        },
       },
       animation: {
         marquee: 'marquee 22s linear infinite',
@@ -76,6 +84,8 @@ module.exports = {
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'fade-up': 'fade-up 0.55s ease-out forwards',
         'slide-down': 'slide-down 0.25s ease-out',
+        'bg-label-ltr': 'bg-label-ltr 6s ease-in-out infinite alternate',
+        'bg-label-rtl': 'bg-label-rtl 6s ease-in-out infinite alternate',
       },
     },
   },

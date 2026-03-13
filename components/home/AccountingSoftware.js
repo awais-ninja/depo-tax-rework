@@ -2,6 +2,8 @@
 
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const SOFTWARE = [
   {
@@ -69,12 +71,13 @@ export default function AccountingSoftware() {
       aria-labelledby="software-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
+        className="pointer-events-none absolute inset-0 hidden md:block z-0"
         aria-hidden
       >
-        <div className="absolute top-24 -right-24 w-64 h-64 rounded-full bg-[#9a0000]/[0.04] blur-3xl" />
+        <div className="absolute top-24 -right-24 w-64 h-64 rounded-full bg-[#9a0000]/[0.04] blur-3xl animate-float-slow" />
       </div>
-
+      <SectionBackgroundLabel label="SOFTWARE" position="right-bottom" />
+      <SectionAmbient />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-4">
@@ -82,7 +85,8 @@ export default function AccountingSoftware() {
               id="software-heading"
               className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
             >
-              Accounting Software
+              <span className="text-[#2b4b6b]">Accounting </span>
+              <span className="text-[#9a0000]">Software</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85 mb-2">
               DepoTax supports businesses using leading cloud accounting
@@ -124,7 +128,7 @@ export default function AccountingSoftware() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
-                href="/book-consultation"
+                href="https://www.picktime.com/aazizandco"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-[#9a0000] hover:bg-[#7a0000] transition-colors duration-200"
               >
                 Book Consultation

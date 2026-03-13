@@ -10,7 +10,8 @@ export default function SoftwarePartners() {
       <SectionReveal>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="reveal-item reveal-item-delay-1 text-2xl font-bold text-center mb-10">
-          Powered by Leading Accounting Software
+            <span className="text-[#2b4b6b]">Powered by Leading </span>
+            <span className="text-[#9a0000]">Accounting Software</span>
           </h2>
           <div className="reveal-item reveal-item-delay-2 flex flex-wrap justify-center items-center gap-8 sm:gap-12">
             {partners.map((name) => (

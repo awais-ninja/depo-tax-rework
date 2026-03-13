@@ -22,10 +22,13 @@
     @apply font-sans text-brand-text;
   }
   a {
-    @apply font-sans;
+    @apply font-sans cursor-pointer;
   }
   button {
-    @apply font-sans font-semibold;
+    @apply font-sans font-semibold cursor-pointer;
+  }
+  [role="button"] {
+    cursor: pointer;
   }
 }
 
@@ -92,6 +95,8 @@
   .card-hover:hover { transform: none; }
   .ambient-shape { animation: none !important; }
   .icon-float { animation: none !important; }
+  .animate-bg-label-ltr,
+  .animate-bg-label-rtl { animation: none !important; }
 }
 
 /* Hero accent line – expand on load */

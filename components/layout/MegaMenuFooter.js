@@ -52,25 +52,18 @@ export default function MegaMenuFooter({ onNavigate, compact = false }) {
           </div>
           <div className="flex flex-wrap gap-2">
             <Link
-              href="/book-consultation"
+              href="https://www.picktime.com/aazizandco"
               className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold bg-brand-accent text-white hover:bg-brand-accentDark transition-colors duration-200"
               onClick={onNavigate}
             >
               Schedule a Meeting
             </Link>
             <Link
-              href="/quick-quote"
+              href="/contact#contact-form"
               className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-200"
               onClick={onNavigate}
             >
               Quick Quote
-            </Link>
-            <Link
-              href="/work-in-progress"
-              className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold border border-brand-grayBorder text-brand-text hover:bg-brand-grayLight transition-colors duration-200"
-              onClick={onNavigate}
-            >
-              Work in Progress
             </Link>
           </div>
         </div>

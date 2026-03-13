@@ -8,19 +8,19 @@ const articles = [
     category: 'Tax',
     title: 'Tax Planning Tips for Small Businesses',
     excerpt: 'Practical ways to reduce your tax bill and plan ahead for the year end, from allowances to timing of income and expenses.',
-    href: '/insights/tax-planning-tips',
+    href: '/knowledge/tax-planning-tips',
   },
   {
     category: 'Property',
     title: 'A Simple Guide to SPV Accounting',
     excerpt: 'What SPV accounting involves, what to keep on top of, and how an accountant can help property investors stay compliant.',
-    href: '/insights/spv-accounting-guide',
+    href: '/knowledge/accounting-guides',
   },
   {
     category: 'Landlords',
     title: 'What Landlords Need to Know About Tax Returns',
     excerpt: 'Rental income, allowable expenses, and key deadlines for landlord tax returns in the UK.',
-    href: '/insights/landlord-tax-returns',
+    href: '/knowledge/tax-guides',
   },
 ]
 
@@ -30,7 +30,8 @@ export default function InsightsSection() {
       <SectionReveal>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold text-center mb-4">
-            Insights, Tax Guides & Business Advice
+            <span className="text-[#2b4b6b]">Insights, Tax Guides & </span>
+            <span className="text-[#9a0000]">Business Advice</span>
           </h2>
           <p className="reveal-item reveal-item-delay-2 text-center text-brand-text/80 max-w-2xl mx-auto mb-12">
             Practical guides and updates to help you stay on top of tax and accounting.

@@ -3,6 +3,7 @@
 import Link from '@/components/ui/Link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import MegaMenu from './MegaMenu'
 import {
   megaMenuAbout,
@@ -19,7 +20,6 @@ const mainNav = [
   { label: 'Pricing', href: '/pricing', megaKey: 'pricing' },
   { label: 'Who We Serve', href: '/who-we-serve', megaKey: 'whoWeServe' },
   { label: 'Knowledge', href: '/knowledge', megaKey: 'knowledge' },
-  { label: 'Work in Progress', href: '/work-in-progress' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -32,8 +32,12 @@ const megaByKey = {
 }
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [openMega, setOpenMega] = useState(null)
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const isServicesActive = pathname === '/services' || (pathname?.startsWith('/services/') ?? false)
+  const isKnowledgeActive = pathname === '/knowledge' || (pathname?.startsWith('/knowledge/') ?? false)
 
   const closeAll = () => {
     setOpenMega(null)
@@ -58,20 +62,20 @@ export default function Navbar() {
                 onMouseEnter={() => item.megaKey && setOpenMega(item.label)}
               >
                 {item.megaKey ? (
-                  <button
-                    type="button"
-                    className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${openMega === item.label ? 'text-brand-accent' : 'text-brand-text hover:text-brand-accent'}`}
+                  <Link
+                    href={item.href}
+                    className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'text-brand-accent' : 'text-brand-text hover:text-brand-accent'}`}
                     aria-expanded={openMega === item.label}
                     aria-haspopup="true"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${openMega === item.label ? 'w-full' : 'w-0 group-hover:w-full'}`} style={{ bottom: '-2px' }} />
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'w-full' : 'w-0 group-hover:w-full'}`} style={{ bottom: '-2px' }} />
                     </span>
                     <svg className={`w-4 h-4 transition-transform duration-200 ${openMega === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  </button>
+                  </Link>
                 ) : (
                   <Link href={item.href} className="relative group flex items-center px-3 xl:px-4 py-6 text-sm font-medium text-brand-text hover:text-brand-accent transition-colors duration-200 whitespace-nowrap">
                     {item.label}
@@ -84,7 +88,7 @@ export default function Navbar() {
 
           <div className="hidden xl:block shrink-0">
             <Link
-              href="/book-consultation"
+              href="https://www.picktime.com/aazizandco"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200"
             >
               Book Consultation
@@ -120,6 +124,7 @@ export default function Navbar() {
                 featuredCard={megaByKey[item.megaKey].featuredCard}
                 onNavigate={handleNav}
                 isMobile={false}
+                menuKey={item.megaKey}
               />
             </div>
           </div>
@@ -133,17 +138,22 @@ export default function Navbar() {
               <li key={item.label} className="border-b border-brand-grayBorder last:border-b-0">
                 {item.megaKey ? (
                   <>
-                    <button
-                      type="button"
-                      className="w-full flex items-center justify-between px-4 py-3 text-left font-medium text-brand-text"
-                      onClick={() => setOpenMega(openMega === item.label ? null : item.label)}
-                      aria-expanded={openMega === item.label}
-                    >
-                      {item.label}
-                      <svg className={`w-4 h-4 transition-transform ${openMega === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                    <div className="flex items-center w-full">
+                      <Link href={item.href} className="flex-1 py-3 px-4 font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="p-3 text-brand-text hover:text-brand-accent"
+                        onClick={() => setOpenMega(openMega === item.label ? null : item.label)}
+                        aria-expanded={openMega === item.label}
+                        aria-label={openMega === item.label ? 'Collapse menu' : 'Expand menu'}
+                      >
+                        <svg className={`w-4 h-4 transition-transform ${openMega === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                    </div>
                     {openMega === item.label && (
                       <div className="bg-brand-grayLight/50 px-4 py-4">
                         <MegaMenu
@@ -151,6 +161,7 @@ export default function Navbar() {
                           featuredCard={megaByKey[item.megaKey].featuredCard}
                           onNavigate={closeAll}
                           isMobile
+                          menuKey={item.megaKey}
                         />
                       </div>
                     )}
@@ -164,7 +175,7 @@ export default function Navbar() {
             ))}
             <li className="px-4 py-3">
               <Link
-                href="/book-consultation"
+                href="https://www.picktime.com/aazizandco"
                 className="block w-full text-center py-3 rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
                 onClick={closeAll}
               >

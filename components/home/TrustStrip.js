@@ -25,24 +25,43 @@ export default function TrustStrip() {
             <h2
               className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-2"
             >
-              Our Affiliations &amp; Partners
+              <span className="text-[#2b4b6b]">Our Affiliations &amp; </span>
+              <span className="text-[#9a0000]">Partners</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/80">
               Trusted by businesses, property investors and individuals across the UK.
             </p>
           </div>
-          <div className="reveal-item reveal-item-delay-3 w-full overflow-hidden group">
+          {/* Mobile: 3 logos per row in a static grid */}
+          <div className="reveal-item reveal-item-delay-3 md:hidden grid grid-cols-3 gap-4 sm:gap-6">
+            {AFFILIATION_LOGOS.map(({ name, src, alt }) => (
+              <div
+                key={name}
+                className="flex items-center justify-center h-16 sm:h-20"
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  className="h-10 sm:h-12 w-auto max-w-[120px] object-contain"
+                  width={120}
+                  height={48}
+                />
+              </div>
+            ))}
+          </div>
+          {/* Desktop: marquee */}
+          <div className="reveal-item reveal-item-delay-3 w-full overflow-hidden group hidden md:block">
             <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
               {[...AFFILIATION_LOGOS, ...AFFILIATION_LOGOS].map(({ name, src, alt }, i) => (
                 <div
                   key={`${name}-${i}`}
-                  className="shrink-0 flex items-center justify-center h-16 sm:h-20 transition-transform duration-300 ease-out md:hover:scale-105 grayscale md:hover:grayscale-0 opacity-80 md:hover:opacity-100"
+                  className="shrink-0 flex items-center justify-center h-20 transition-transform duration-300 ease-out md:hover:scale-105 grayscale md:hover:grayscale-0 opacity-80 md:hover:opacity-100"
                   style={{ width: LOGO_WIDTH }}
                 >
                   <img
                     src={src}
                     alt={alt}
-                    className="h-10 sm:h-14 w-auto max-w-[180px] object-contain pointer-events-none"
+                    className="h-14 w-auto max-w-[180px] object-contain pointer-events-none"
                     width={180}
                     height={64}
                   />

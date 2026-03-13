@@ -2,6 +2,8 @@
 
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const STEPS = [
   {
@@ -62,12 +64,13 @@ export default function HowItWorks() {
       aria-labelledby="how-it-works-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 hidden md:block"
+        className="pointer-events-none absolute inset-0 hidden md:block z-0"
         aria-hidden
       >
-        <div className="absolute top-1/4 -left-20 w-48 h-48 rounded-full bg-[#9a0000]/[0.04] blur-3xl" />
+        <div className="absolute top-1/4 -left-20 w-48 h-48 rounded-full bg-[#9a0000]/[0.04] blur-3xl animate-drift-slow" />
       </div>
-
+      <SectionBackgroundLabel label="HOW IT WORKS" position="left-top" size="md" />
+      <SectionAmbient />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -75,7 +78,8 @@ export default function HowItWorks() {
               id="how-it-works-heading"
               className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
             >
-              How It Works
+              <span className="text-[#2b4b6b]">How It </span>
+              <span className="text-[#9a0000]">Works</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85">
               A simple process to get started with DepoTax. From your first
@@ -133,11 +137,11 @@ export default function HowItWorks() {
 
           <div className="reveal-item reveal-item-delay-6 text-center mt-8">
             <Link
-              href="/book-consultation"
+              href="https://www.picktime.com/aazizandco"
               className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white bg-[#9a0000] hover:bg-[#7a0000] transition-colors duration-200"
             >
               Book a free consultation
-              <span className="ml-1.5" aria-hidden>→</span>
+              <span className="ml-1.5" aria-hidden>•</span>
             </Link>
           </div>
         </div>

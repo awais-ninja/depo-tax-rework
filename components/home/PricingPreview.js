@@ -2,6 +2,7 @@
 
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import { HiCheck } from 'react-icons/hi2';
 
 const PACKAGES = [
@@ -76,9 +77,10 @@ export default function PricingPreview() {
         className="pointer-events-none absolute inset-0 hidden md:block"
         aria-hidden
       >
-        <div className="absolute top-20 -right-20 w-72 h-72 rounded-full bg-[#9a0000]/5 blur-3xl" />
-        <div className="absolute bottom-20 -left-20 w-56 h-56 rounded-full bg-[#1F4E79]/5 blur-3xl" />
+        <div className="absolute top-20 -right-20 w-72 h-72 rounded-full bg-[#9a0000]/5 blur-3xl animate-float-slow" />
+        <div className="absolute bottom-20 -left-20 w-56 h-56 rounded-full bg-[#1F4E79]/5 blur-3xl animate-drift-slow" />
       </div>
+      <SectionBackgroundLabel label="PACKAGES" position="right-mid" />
 
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +89,8 @@ export default function PricingPreview() {
               id="pricing-heading"
               className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
             >
-              Accounting Packages
+              <span className="text-[#2b4b6b]">Accounting </span>
+              <span className="text-[#9a0000]">Packages</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85 mb-3">
               Flexible accounting packages for contractors, limited companies,
@@ -121,7 +124,7 @@ export default function PricingPreview() {
                   }`}
                 >
                   {pkg.chip && (
-                    <div className="px-6 pt-5 pb-0">
+                    <div className="px-6 pt-5 pb-0 text-center md:text-left">
                       <span
                         className={`inline-block text-[10px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full ${
                           isFeatured
@@ -133,7 +136,7 @@ export default function PricingPreview() {
                       </span>
                     </div>
                   )}
-                  <div className="p-6 flex-1 flex flex-col">
+                  <div className="p-6 flex-1 flex flex-col text-center md:text-left">
                     {!pkg.chip && <div className="pt-2" />}
                     <h3 className="text-lg sm:text-xl font-semibold text-brand-navy mb-2">
                       {pkg.title}
@@ -169,7 +172,7 @@ export default function PricingPreview() {
                       }`}
                     >
                       {pkg.cta}
-                      <span aria-hidden>→</span>
+                      <span aria-hidden>•</span>
                     </Link>
                   </div>
                 </article>

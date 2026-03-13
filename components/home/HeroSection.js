@@ -22,7 +22,7 @@ const TRUST_POINTS = [
 const QUICK_SERVICES = [
   { title: "Tax Planning & Returns", href: "/services/tax-planning", Icon: HiDocumentText, popular: true },
   { title: "Bookkeeping & Payroll", href: "/services/bookkeeping", Icon: HiCalculator, popular: false },
-  { title: "Business Advice & Compliance", href: "/services/financial-strategy", Icon: HiLightBulb, popular: false },
+  { title: "Business Advice & Compliance", href: "/services/cfo-advisory", Icon: HiLightBulb, popular: false },
 ];
 
 const GOOGLE_REVIEWS_URL = "https://tinyurl.com/2axkc3eo";
@@ -70,8 +70,8 @@ export default function HeroSection() {
 
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 ${ready ? 'hero-ready' : ''}`}>
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left: Content - first on mobile/medium, first on desktop */}
-          <div className="order-1">
+          {/* Left: Content - first on mobile/medium, first on desktop; centered on mobile */}
+          <div className="order-1 text-center lg:text-left flex flex-col items-center lg:items-start">
             <Link
               href={GOOGLE_REVIEWS_URL}
               target="_blank"
@@ -89,7 +89,7 @@ export default function HeroSection() {
                   ★★★★★
                 </span>
               </div>
-              <div className="flex flex-col gap-0.5 text-xs sm:text-sm font-medium text-brand-text/80 text-left">
+              <div className="flex flex-col gap-0.5 text-xs sm:text-sm font-medium text-brand-text/80 text-center lg:text-left">
                 <span>Based on 192 Google reviews</span>
                 <span className="text-[11px] uppercase tracking-[0.18em] text-brand-text/60">
                   Verified Google Rating
@@ -105,15 +105,15 @@ export default function HeroSection() {
               id="hero-heading"
               className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold leading-[1.18] tracking-tight max-w-xl mt-1"
             >
-              <span className="hero-reveal hero-reveal-delay-2 block">Specialist Accountants & Tax Consultants</span>
-              <span className="hero-reveal hero-reveal-delay-3 block">for Contractors, Companies</span>
-              <span className="hero-reveal hero-reveal-delay-3 block">and Growing Businesses</span>
+              <span className="hero-reveal hero-reveal-delay-2 block"><span className="text-[#2b4b6b]">Specialist Accountants & </span><span className="text-[#9a0000]">Tax Consultants</span></span>
+              <span className="hero-reveal hero-reveal-delay-3 block"><span className="text-[#2b4b6b]">for Contractors, </span><span className="text-[#9a0000]">Companies</span></span>
+              <span className="hero-reveal hero-reveal-delay-3 block"><span className="text-[#2b4b6b]">and </span><span className="text-[#9a0000]">Growing Businesses</span></span>
             </h1>
             <p className="hero-reveal hero-reveal-delay-4 mt-4 text-base text-brand-text/88 max-w-xl leading-relaxed">
               Expert tax planning, bookkeeping, payroll and accounting services for contractors, limited companies, self employed professionals, landlords and SPVs across the UK.
             </p>
 
-            <div className="hero-reveal hero-reveal-delay-5 mt-6 flex flex-wrap items-center gap-3">
+            <div className="hero-reveal hero-reveal-delay-5 mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <Link
                 href="/pricing"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-all duration-200 md:hover:-translate-y-0.5"
@@ -121,7 +121,7 @@ export default function HeroSection() {
                 View Pricing
               </Link>
               <Link
-                href="/book-consultation"
+                href="https://www.picktime.com/aazizandco"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-semibold border-2 border-brand-accent text-brand-accent bg-white hover:bg-brand-accent hover:text-white transition-all duration-200 md:hover:-translate-y-0.5"
               >
                 Book Free Consultation
@@ -129,7 +129,7 @@ export default function HeroSection() {
             </div>
 
             <ul
-              className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 text-sm font-medium text-brand-text/75"
+              className="mt-5 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-1.5 text-sm font-medium text-brand-text/75"
               aria-label="Trust points"
             >
               {TRUST_POINTS.map((point, i) => (
@@ -147,14 +147,15 @@ export default function HeroSection() {
               <div className="relative p-6 sm:p-7">
                 <div className="absolute top-0 right-0 w-20 h-20 rounded-bl-full bg-brand-accent/8" aria-hidden />
                 <Link
-                  href="/quick-quote"
+                  href="/contact#contact-form"
                   className="relative inline-flex items-center gap-1.5 rounded-full bg-brand-accent/10 text-brand-accent px-3 py-1.5 text-xs font-semibold hover:bg-brand-accent/15 transition-colors duration-200 mb-4"
                 >
                   <HiBolt className="w-3.5 h-3.5" />
                   Instant Quote
                 </Link>
                 <h2 className="relative text-xl sm:text-2xl font-bold leading-tight text-center mb-2">
-                  Choose the support you need
+                  <span className="text-[#2b4b6b]">Choose the support </span>
+                  <span className="text-[#9a0000]">you need</span>
                 </h2>
                 <p className="relative text-center text-sm text-brand-text/70 mb-5">
                   Quickly explore the services most businesses need.

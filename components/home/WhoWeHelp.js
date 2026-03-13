@@ -3,42 +3,44 @@
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import TestimonialsBackground from '@/components/ui/TestimonialsBackground';
+import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
+import SectionAmbient from '@/components/ui/SectionAmbient';
 
 const AUDIENCE_CARDS = [
   {
     title: 'Limited Companies',
     description: 'Accounting for limited companies including bookkeeping, VAT returns, payroll services, annual accounts and corporation tax compliance.',
-    href: '/who-we-serve/limited-companies',
+    href: '/who-we-serve#businesses-detail',
     cta: 'View Details',
   },
   {
     title: 'Contractors',
     description: 'Specialist contractor accountants providing IR35 guidance, company accounts, payroll support and tax planning for contractors across the UK.',
-    href: '/who-we-serve/contractors',
+    href: '/who-we-serve#businesses-detail',
     cta: 'Explore Service',
   },
   {
     title: 'Sole Traders',
     description: 'Accounting for sole traders and self-employed professionals including self assessment tax returns, bookkeeping services and HMRC compliance support.',
-    href: '/who-we-serve/sole-traders',
+    href: '/who-we-serve#individuals-detail',
     cta: 'Get Help',
   },
   {
     title: 'Landlords',
     description: 'Accounting for landlords, property investors and HMO owners including rental accounts, tax returns and property portfolio support.',
-    href: '/who-we-serve/landlords',
+    href: '/who-we-serve#property-clients-detail',
     cta: 'Read More',
   },
   {
     title: 'Startup Businesses',
     description: 'Startup accountants helping new businesses with company formation, bookkeeping, tax planning and financial structure from day one.',
-    href: '/who-we-serve/startups',
+    href: '/who-we-serve#businesses-detail',
     cta: 'Read More',
   },
   {
     title: 'eCommerce Businesses',
     description: 'Accounting for eCommerce businesses including bookkeeping, VAT support, profit tracking, payroll and cloud accounting for online sellers.',
-    href: '/who-we-serve/ecommerce',
+    href: '/who-we-serve#specialist-professionals-detail',
     cta: 'Read More',
   },
 ];
@@ -75,18 +77,20 @@ export default function WhoWeHelp() {
     >
       <TestimonialsBackground />
       {/* Decorative element – md+ only, matches Testimonials style */}
-      <div className="hidden md:block absolute top-20 left-8 text-brand-accent opacity-[0.06] font-serif text-[8rem] leading-none pointer-events-none select-none" aria-hidden>
+      <div className="hidden md:block absolute top-20 left-8 text-brand-accent opacity-[0.06] font-serif text-[8rem] leading-none pointer-events-none select-none z-0" aria-hidden>
         &
       </div>
-
+      <SectionBackgroundLabel label="WHO WE HELP" position="left-top" />
+      <SectionAmbient />
       <SectionReveal>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10 sm:mb-12">
             <h2
               id="who-we-help-heading"
               className="reveal-item reveal-item-delay-1 text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-4"
             >
-              Who We Help
+              <span className="text-[#2b4b6b]">Who We </span>
+              <span className="text-[#9a0000]">Help</span>
             </h2>
             <p className="reveal-item reveal-item-delay-2 text-xl sm:text-2xl font-bold text-brand-navy max-w-3xl mx-auto mb-3">
               Accountants for Self-Employed, Contractors, Landlords & Limited Companies in the UK
@@ -96,11 +100,11 @@ export default function WhoWeHelp() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 justify-items-center md:justify-items-stretch">
             {AUDIENCE_CARDS.map((card, i) => (
               <article
                 key={card.title}
-                className={`reveal-item ${i < 2 ? 'reveal-item-delay-3' : i < 4 ? 'reveal-item-delay-4' : 'reveal-item-delay-5'} group flex flex-col rounded-xl border border-brand-grayBorder bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] card-hover hover:border-brand-accent/30 transition-all duration-200 min-h-[250px]`}
+                className={`reveal-item ${i < 2 ? 'reveal-item-delay-3' : i < 4 ? 'reveal-item-delay-4' : 'reveal-item-delay-5'} group flex flex-col rounded-xl border border-brand-grayBorder bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.08)] card-hover hover:border-brand-accent/30 transition-all duration-200 min-h-[250px] w-full max-w-sm md:max-w-none`}
               >
                 <div className="icon-float w-14 h-14 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4 animate-float-soft">
                   <Icon path={iconPaths[i]} />
@@ -112,13 +116,13 @@ export default function WhoWeHelp() {
                   className="inline-flex items-center gap-1.5 text-brand-accent font-semibold text-sm hover:underline"
                 >
                   {card.cta}
-                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>→</span>
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>•</span>
                 </Link>
               </article>
             ))}
             {/* Standout accent card – row 2, spans so grid stays 4+3 */}
             <article
-              className="reveal-item reveal-item-delay-5 group flex flex-col rounded-xl bg-brand-accent p-6 shadow-[0_4px_20px_rgba(0,0,0,0.12)] card-hover hover:shadow-lg transition-all duration-200 md:col-span-2 lg:col-span-1"
+              className="reveal-item reveal-item-delay-5 group flex flex-col rounded-xl bg-brand-accent p-6 shadow-[0_4px_20px_rgba(0,0,0,0.12)] card-hover hover:shadow-lg transition-all duration-200 w-full max-w-sm md:max-w-none md:col-span-2 lg:col-span-1 justify-self-center md:justify-self-stretch"
             >
               <h3 className="text-lg font-semibold text-white mb-2">{ACCENT_CARD.title}</h3>
               <p className="text-sm text-white/90 mb-5 flex-1">{ACCENT_CARD.description}</p>
@@ -127,7 +131,7 @@ export default function WhoWeHelp() {
                 className="inline-flex items-center gap-1.5 text-white font-semibold text-sm hover:underline"
               >
                 {ACCENT_CARD.cta}
-                <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>→</span>
+                <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden>•</span>
               </Link>
             </article>
           </div>
