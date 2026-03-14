@@ -4,56 +4,56 @@ import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 import {
-  HiUserGroup,
-  HiHomeModern,
-  HiBuildingOffice2,
-  HiUser,
-  HiWrenchScrewdriver,
-  HiRocketLaunch,
-  HiShoppingCart,
-  HiBuildingStorefront,
-} from 'react-icons/hi2';
+  IconUserGroup,
+  IconHomeModern,
+  IconBuildingOffice2,
+  IconUser,
+  IconWrenchScrewdriver,
+  IconRocketLaunch,
+  IconShoppingCart,
+  IconBuildingStorefront,
+} from '@/components/ui/Icons';
 
 const INDUSTRIES = [
   {
     title: 'Contractors',
     description: 'Sector-focused support for contractors—IR35, limited company accounts and tax efficiency for freelancers and independents.',
-    Icon: HiUserGroup,
+    Icon: IconUserGroup,
   },
   {
     title: 'Property Landlords',
     description: 'Expertise in the property sector: rental accounts, landlord tax, portfolio reporting and HMO compliance.',
-    Icon: HiHomeModern,
+    Icon: IconHomeModern,
   },
   {
     title: 'Limited Companies',
     description: 'End-to-end support for the limited company sector—from incorporation to year-end accounts and corporation tax.',
-    Icon: HiBuildingOffice2,
+    Icon: IconBuildingOffice2,
   },
   {
     title: 'Self-Employed Individuals',
     description: 'Dedicated to the self-employed sector: self assessment, record-keeping, and tax planning for sole traders.',
-    Icon: HiUser,
+    Icon: IconUser,
   },
   {
     title: 'Construction (CIS Contractors)',
     description: 'CIS sector specialists—deductions, rebates, payroll and compliance for construction and subcontractors.',
-    Icon: HiWrenchScrewdriver,
+    Icon: IconWrenchScrewdriver,
   },
   {
     title: 'Startups & New Businesses',
     description: 'Built for the startup sector: company formation, early-stage accounts and growth-focused tax advice.',
-    Icon: HiRocketLaunch,
+    Icon: IconRocketLaunch,
   },
   {
     title: 'E-commerce Businesses',
     description: 'Sector-specific support for online retail—multi-channel sales, VAT, inventory and seller-side reporting.',
-    Icon: HiShoppingCart,
+    Icon: IconShoppingCart,
   },
   {
     title: 'Small Businesses',
     description: 'Day-to-day accounting and tax for the small business sector—bookkeeping, VAT and compliance nationwide.',
-    Icon: HiBuildingStorefront,
+    Icon: IconBuildingStorefront,
   },
 ];
 

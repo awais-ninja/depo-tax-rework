@@ -3,14 +3,14 @@
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import {
-  HiDocumentText,
-  HiCalculator,
-  HiBriefcase,
-  HiLightBulb,
-  HiClipboardDocumentList,
-  HiCalendarDays,
-  HiQuestionMarkCircle,
-} from 'react-icons/hi2';
+  IconDocumentText,
+  IconCalculator,
+  IconBriefcase,
+  IconLightBulb,
+  IconClipboardDocumentList,
+  IconCalendarDays,
+  IconQuestionMarkCircle,
+} from '@/components/ui/Icons';
 
 const CATEGORIES = [
   {
@@ -18,49 +18,49 @@ const CATEGORIES = [
     description: 'Practical information on common tax topics, filings, and obligations in the UK.',
     href: '/knowledge/tax-guides',
     ctaText: 'Explore Guides',
-    Icon: HiDocumentText,
+    Icon: IconDocumentText,
   },
   {
     title: 'Accounting Guides',
     description: 'Helpful content on bookkeeping, accounts, payroll, VAT, and compliance.',
     href: '/knowledge/accounting-guides',
     ctaText: 'View Resources',
-    Icon: HiCalculator,
+    Icon: IconCalculator,
   },
   {
     title: 'Business Advice',
     description: 'Useful guidance for startups, small businesses, and growing companies.',
     href: '/knowledge/business-advice',
     ctaText: 'View Resources',
-    Icon: HiBriefcase,
+    Icon: IconBriefcase,
   },
   {
     title: 'Tax Planning Tips',
     description: 'Practical tips to help individuals and businesses plan more efficiently.',
     href: '/knowledge/tax-planning-tips',
     ctaText: 'View Resources',
-    Icon: HiLightBulb,
+    Icon: IconLightBulb,
   },
   {
     title: 'Downloadable Checklists',
     description: 'Simple downloadable resources to help clients stay organised.',
     href: '/knowledge/checklists',
     ctaText: 'View Resources',
-    Icon: HiClipboardDocumentList,
+    Icon: IconClipboardDocumentList,
   },
   {
     title: 'Tax Calendar',
     description: 'Key filing and payment deadlines to help you stay aware of important dates.',
     href: '/knowledge/tax-calendar',
     ctaText: 'View Calendar',
-    Icon: HiCalendarDays,
+    Icon: IconCalendarDays,
   },
   {
     title: 'FAQs',
     description: 'Answers to common accounting, tax, and compliance questions.',
     href: '/knowledge/faqs',
     ctaText: 'See FAQs',
-    Icon: HiQuestionMarkCircle,
+    Icon: IconQuestionMarkCircle,
   },
 ];
 

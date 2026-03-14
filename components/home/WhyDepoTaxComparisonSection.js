@@ -1,7 +1,7 @@
 "use client";
 
 import SectionReveal from "@/components/ui/SectionReveal";
-import { HiXCircle, HiCheckCircle } from "react-icons/hi2";
+import { IconXCircle, IconCheckCircle } from "@/components/ui/Icons";
 
 const COMPARISON_ROWS = [
   {
@@ -55,7 +55,7 @@ export default function WhyDepoTaxComparisonSection() {
             {/* Typical firms column */}
             <div className="rounded-2xl border border-brand-grayBorder bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(15,23,42,0.06)]">
               <div className="flex items-center gap-2 mb-6 pb-4 border-b border-brand-grayBorder">
-                <HiXCircle className="w-6 h-6 text-brand-text/40" aria-hidden />
+                <IconXCircle className="w-6 h-6 text-brand-text/40" aria-hidden />
                 <h3 className="text-sm font-bold uppercase tracking-widest text-brand-text/80">
                   Typical Accounting Firms
                 </h3>
@@ -84,7 +84,7 @@ export default function WhyDepoTaxComparisonSection() {
                 aria-hidden
               />
               <div className="flex items-center gap-2 mb-6 pb-4 border-b border-[#9a0000]/25 relative">
-                <HiCheckCircle className="w-6 h-6 text-[#9a0000]" aria-hidden />
+                <IconCheckCircle className="w-6 h-6 text-[#9a0000]" aria-hidden />
                 <h3 className="text-sm font-bold uppercase tracking-widest text-[#9a0000]">
                   DepoTax
                 </h3>

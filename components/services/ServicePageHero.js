@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiCheck } from 'react-icons/hi2';
+import { IconCheck } from '@/components/ui/Icons';
 
 export default function ServicePageHero({ data }) {
   const { label, title, description, primaryCtaLabel, primaryCtaHref, secondaryCtaLabel, secondaryCtaHref, trustBullets } = data;
@@ -29,7 +29,7 @@ export default function ServicePageHero({ data }) {
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-text/90 mb-8" aria-hidden>
             {trustBullets.map((item) => (
               <li key={item} className="flex items-center gap-2">
-                <HiCheck className="w-5 h-5 text-brand-accent flex-shrink-0" />
+                <IconCheck className="w-5 h-5 text-brand-accent flex-shrink-0" />
                 <span>{item}</span>
               </li>
             ))}

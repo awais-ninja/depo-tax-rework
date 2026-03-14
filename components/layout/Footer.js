@@ -1,6 +1,7 @@
 import Link from '@/components/ui/Link';
 import Image from 'next/image';
 import { IconEnvelope, IconPhone, IconMapPin, IconFacebook, IconLinkedIn, IconInstagram } from '@/components/ui/Icons';
+import CookieSettingsTrigger from '@/components/ui/CookieSettingsTrigger';
 import {
   quickLinks,
   serviceLinks,
@@ -158,6 +159,10 @@ export default function Footer() {
                 )}
               </li>
             ))}
+            <li className="inline-flex items-center">
+              <span className="text-white/50 pointer-events-none mx-1.5" aria-hidden>,</span>
+              <CookieSettingsTrigger />
+            </li>
           </ul>
           <p className="text-xs text-white/70 pt-1">
             {madeBy.label}{' '}

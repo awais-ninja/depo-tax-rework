@@ -4,7 +4,7 @@ import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
-import { HiMapPin, HiEnvelope, HiPhone, HiClock } from 'react-icons/hi2';
+import { IconMapPin, IconEnvelope, IconPhone, IconClock } from '@/components/ui/Icons';
 
 const MAIN_HOURS = [
   { day: 'Monday', open: true, start: '10:00', end: '17:00' },
@@ -71,7 +71,7 @@ function OfficeCard({ office, delayClass }) {
       <div className="space-y-3">
         <div className="flex gap-3 justify-center sm:justify-start">
           <span className="shrink-0 w-9 h-9 rounded-full bg-[#9a0000]/10 flex items-center justify-center text-[#9a0000]">
-            <HiMapPin className="w-4 h-4" aria-hidden />
+            <IconMapPin className="w-4 h-4" aria-hidden />
           </span>
           {office.mapLink ? (
             <Link
@@ -88,7 +88,7 @@ function OfficeCard({ office, delayClass }) {
         </div>
         <div className="flex gap-3 justify-center sm:justify-start">
           <span className="shrink-0 w-9 h-9 rounded-full bg-[#9a0000]/10 flex items-center justify-center text-[#9a0000]">
-            <HiEnvelope className="w-4 h-4" aria-hidden />
+            <IconEnvelope className="w-4 h-4" aria-hidden />
           </span>
           <Link
             href={`mailto:${office.email}`}
@@ -99,7 +99,7 @@ function OfficeCard({ office, delayClass }) {
         </div>
         <div className="flex gap-3 justify-center sm:justify-start">
           <span className="shrink-0 w-9 h-9 rounded-full bg-[#9a0000]/10 flex items-center justify-center text-[#9a0000]">
-            <HiPhone className="w-4 h-4" aria-hidden />
+            <IconPhone className="w-4 h-4" aria-hidden />
           </span>
           <div className="text-sm text-brand-text/85 space-y-0.5">
             {office.phones.map((num) => (
@@ -163,7 +163,7 @@ export default function OfficeLocations() {
                 <div className="p-5 sm:p-6 lg:p-8 lg:border-r border-brand-grayBorder">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="w-10 h-10 rounded-lg bg-brand-grayLight flex items-center justify-center text-brand-accent shrink-0" aria-hidden>
-                      <HiClock className="w-5 h-5" />
+                      <IconClock className="w-5 h-5" />
                     </span>
                     <div>
                       <h3 className="text-base font-semibold text-brand-navy">
@@ -230,7 +230,7 @@ export default function OfficeLocations() {
                 <div className="space-y-4">
                   <div className="flex gap-3 justify-center sm:justify-start">
                     <span className="shrink-0 w-9 h-9 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-                      <HiMapPin className="w-4 h-4" aria-hidden />
+                      <IconMapPin className="w-4 h-4" aria-hidden />
                     </span>
                     <Link href={HEAD_OFFICE.mapLink} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors whitespace-pre-line min-h-12 py-2 inline-flex items-start" aria-label={`${HEAD_OFFICE.address.replace(/\n/g, ', ')} (View on map)`}>
                       {HEAD_OFFICE.address}
@@ -238,7 +238,7 @@ export default function OfficeLocations() {
                   </div>
                   <div className="flex gap-3 justify-center sm:justify-start">
                     <span className="shrink-0 w-9 h-9 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-                      <HiEnvelope className="w-4 h-4" aria-hidden />
+                      <IconEnvelope className="w-4 h-4" aria-hidden />
                     </span>
                     <Link href={`mailto:${HEAD_OFFICE.email}`} className="text-sm text-brand-text/85 hover:text-brand-accent transition-colors min-h-12 py-2 inline-flex items-center" aria-label={`${HEAD_OFFICE.email} (Email head office)`}>
                       {HEAD_OFFICE.email}
@@ -246,7 +246,7 @@ export default function OfficeLocations() {
                   </div>
                   <div className="flex gap-3 justify-center sm:justify-start">
                     <span className="shrink-0 w-9 h-9 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-                      <HiPhone className="w-4 h-4" aria-hidden />
+                      <IconPhone className="w-4 h-4" aria-hidden />
                     </span>
                     <div className="text-sm text-brand-text/85 space-y-0.5">
                       {HEAD_OFFICE.phones.map((num) => (

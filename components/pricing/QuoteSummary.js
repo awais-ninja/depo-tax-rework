@@ -146,34 +146,12 @@ export default function QuoteSummary({
     (mode === PRICING_MODES.SINGLE_SERVICES && servicesSummary?.selected?.length);
 
   const containerRef = useRef(null);
-  const [isDownloading, setIsDownloading] = useState(false);
   const [whatsAppName, setWhatsAppName] = useState('');
 
-  const handleDownloadImage = useCallback(async () => {
-    if (!containerRef.current || isDownloading) return;
-    try {
-      setIsDownloading(true);
-      const html2canvasMod = await import('html2canvas');
-      const html2canvas = html2canvasMod.default || html2canvasMod;
-      const canvas = await html2canvas(containerRef.current, {
-        backgroundColor: '#ffffff',
-        scale: window.devicePixelRatio > 1 ? 2 : 1.5,
-        useCORS: true,
-      });
-      const dataUrl = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.href = dataUrl;
-      link.download = 'depotax-quote.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (e) {
-      // Fail silently; user still has WhatsApp option
-      console.error('Failed to download quote image', e);
-    } finally {
-      setIsDownloading(false);
-    }
-  }, [isDownloading]);
+  const handlePrint = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    window.print();
+  }, []);
 
   const handleOpenWhatsApp = useCallback(() => {
     const trimmedName = whatsAppName.trim();
@@ -197,13 +175,15 @@ export default function QuoteSummary({
     <aside
       aria-label="Your quote summary"
       ref={containerRef}
-      className="mt-6 sticky top-4 rounded-3xl border border-brand-grayBorder/90 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.22)] px-5 py-5 sm:px-6 sm:py-6 space-y-5"
+      className="quote-summary-print mt-6 sticky top-4 rounded-3xl border border-brand-grayBorder/90 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.22)] px-5 py-5 sm:px-6 sm:py-6 space-y-5"
     >
       <div className="flex items-center justify-end gap-2.5 pb-2 border-b border-dashed border-brand-grayBorder/70">
         <img
           src="/footer-logo.svg"
           alt="DepoTax Accountants & Tax Consultants"
-          className="h-7 w-auto"
+          width={260}
+          height={73}
+          className="h-7 w-auto object-contain"
         />
         <div className="flex flex-col text-[11px] text-brand-text/90 text-right items-end">
           <span className="font-semibold text-brand-navy">
@@ -376,11 +356,10 @@ export default function QuoteSummary({
         <div className="flex flex-col gap-2">
           <button
             type="button"
-            onClick={handleDownloadImage}
-            disabled={isDownloading}
-            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-xs sm:text-sm font-medium px-5 py-2.5 shadow-[0_14px_40px_rgba(154,0,0,0.35)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-12 disabled:opacity-60 disabled:cursor-not-allowed"
+            onClick={handlePrint}
+            className="inline-flex items-center justify-center rounded-full bg-brand-accent text-white text-xs sm:text-sm font-medium px-5 py-2.5 shadow-[0_14px_40px_rgba(154,0,0,0.35)] hover:bg-brand-accentDark transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-accent min-h-12 print:hidden"
           >
-            {isDownloading ? 'Preparing image…' : 'Download quote as image'}
+            Print summary
           </button>
           <div className="space-y-1">
             <label

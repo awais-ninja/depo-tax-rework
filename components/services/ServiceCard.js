@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiArrowRight } from 'react-icons/hi2';
+import { IconArrowRight } from '@/components/ui/Icons';
 
 /**
  * Single service card: title, one-line description, link to service page.
@@ -23,7 +23,7 @@ export default function ServiceCard({ slug, label, description }) {
       )}
       <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-accent group-hover:gap-2 transition-all duration-200">
         Learn more
-        <HiArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden />
+        <IconArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden />
       </span>
     </Link>
   );

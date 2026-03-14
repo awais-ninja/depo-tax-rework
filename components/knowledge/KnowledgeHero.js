@@ -2,7 +2,7 @@
 
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiCheck } from 'react-icons/hi2';
+import { IconCheck } from '@/components/ui/Icons';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
@@ -55,7 +55,7 @@ export default function KnowledgeHero() {
           <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-brand-text/85" aria-label="Why use our resources">
             {TRUST_BULLETS.map((point) => (
               <li key={point} className="flex items-center gap-2">
-                <HiCheck className="w-4 h-4 text-brand-accent flex-shrink-0" aria-hidden />
+                <IconCheck className="w-4 h-4 text-brand-accent flex-shrink-0" aria-hidden />
                 <span>{point}</span>
               </li>
             ))}

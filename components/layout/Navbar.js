@@ -27,8 +27,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-brand-white border-b border-brand-grayBorder shadow-sm overflow-visible" onMouseLeave={() => setOpenMega(null)}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
-          <Link href="/" className="flex items-center shrink-0" aria-label="Depotax home" onClick={closeAll}>
-            <Image src="/logo.svg" alt="Depotax" width={216} height={58} className="h-11 md:h-12 w-auto" priority />
+          <Link href="/" className="flex items-center shrink-0 min-w-0" aria-label="Depotax home" onClick={closeAll}>
+            <Image
+              src="/logo.svg"
+              alt="Depotax"
+              width={216}
+              height={58}
+              className="h-11 md:h-12 w-auto min-h-[44px] object-contain object-left"
+              sizes="(max-width: 768px) 180px, 216px"
+              priority
+            />
           </Link>
 
           <div className="hidden xl:flex xl:items-center xl:flex-1 xl:justify-center xl:gap-1">

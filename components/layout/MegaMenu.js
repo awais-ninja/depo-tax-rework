@@ -2,7 +2,7 @@
 
 import Link from '@/components/ui/Link'
 import MegaMenuFooter from './MegaMenuFooter'
-import { HiChevronRight } from 'react-icons/hi2'
+import { IconChevronRight } from '@/components/ui/Icons'
 
 export default function MegaMenu({ columns, featuredCard, onNavigate, isMobile, menuKey }) {
   const handleNav = () => {
@@ -30,7 +30,7 @@ export default function MegaMenu({ columns, featuredCard, onNavigate, isMobile, 
                     onClick={handleNav}
                   >
                     <span className="w-4 shrink-0 inline-flex justify-center">
-                      <HiChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-brand-accent transition-opacity duration-200" />
+                      <IconChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 text-brand-accent transition-opacity duration-200" />
                     </span>
                     <span className="group-hover:translate-x-0.5 transition-transform duration-200">{item.label}</span>
                   </Link>
@@ -48,7 +48,7 @@ export default function MegaMenu({ columns, featuredCard, onNavigate, isMobile, 
               onClick={handleNav}
             >
               {featuredCard.ctaLabel}
-              <HiChevronRight className="w-4 h-4" aria-hidden />
+              <IconChevronRight className="w-4 h-4" aria-hidden />
             </Link>
           </div>
         )}

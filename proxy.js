@@ -37,15 +37,17 @@ export function proxy(request) {
   ].join(' ')
 
   // In dev, omit nonce from style-src so 'unsafe-inline' can take effect for Next.js dev overlay/devtools.
-  // Production keeps nonce-only for strict CSP.
+  // Production keeps nonce-only for strict CSP. style-src-attr same as style-src (no inline style attributes).
   const styleSrc = isDev
     ? "'self' 'unsafe-inline'"
     : ["'self'", `'nonce-${nonce}'`].join(' ')
+  const styleSrcAttr = isDev ? "'self' 'unsafe-inline'" : styleSrc
 
   const cspHeader = [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
     `style-src ${styleSrc}`,
+    `style-src-attr ${styleSrcAttr}`,
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
     "connect-src 'self' https:" + (isDev ? ' ws: http://localhost:* http://127.0.0.1:*' : ''),

@@ -4,7 +4,7 @@ import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
-import { HiCalendarDays } from 'react-icons/hi2';
+import { IconCalendarDays } from '@/components/ui/Icons';
 
 const DEADLINES = [
   {
@@ -44,7 +44,7 @@ function DeadlineCard({ deadlineTitle, deadlineDate, description }) {
     <article className="rounded-xl border border-brand-grayBorder bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition-all duration-200 md:hover:shadow-[0_8px_28px_rgba(15,23,42,0.08)] md:hover:border-brand-accent/20">
       <div className="flex gap-3">
         <span className="shrink-0 w-10 h-10 rounded-lg bg-brand-grayLight flex items-center justify-center text-brand-accent" aria-hidden>
-          <HiCalendarDays className="w-5 h-5" />
+          <IconCalendarDays className="w-5 h-5" />
         </span>
         <div className="min-w-0">
           <h3 className="text-base font-semibold text-brand-navy mb-2">{deadlineTitle}</h3>

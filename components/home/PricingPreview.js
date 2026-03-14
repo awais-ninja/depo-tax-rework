@@ -3,7 +3,7 @@
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiCheck } from 'react-icons/hi2';
+import { IconCheck } from '@/components/ui/Icons';
 
 const PACKAGES = [
   {
@@ -150,7 +150,7 @@ export default function PricingPreview() {
                           key={item}
                           className="flex items-start gap-2 text-sm text-brand-text/85"
                         >
-                          <HiCheck
+                          <IconCheck
                             className="w-5 h-5 text-brand-accent shrink-0 mt-0.5"
                             aria-hidden
                           />

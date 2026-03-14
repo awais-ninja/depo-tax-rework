@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiMapPin, HiEnvelope, HiPhone } from 'react-icons/hi2';
+import { IconMapPin, IconEnvelope, IconPhone } from '@/components/ui/Icons';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 
@@ -85,11 +85,11 @@ export default function ContactOfficeLocations() {
                     )}
                     <div className="space-y-4 text-sm">
                       <div className="flex gap-3">
-                        <HiMapPin className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
+                        <IconMapPin className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
                         <p className="text-brand-text/90 whitespace-pre-line">{office.address}</p>
                       </div>
                       <div className="flex gap-3">
-                        <HiEnvelope className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
+                        <IconEnvelope className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
                         <Link
                           href={`mailto:${office.email}`}
                           className="text-brand-text/90 hover:text-brand-accent transition-colors"
@@ -98,7 +98,7 @@ export default function ContactOfficeLocations() {
                         </Link>
                       </div>
                       <div className="flex gap-3">
-                        <HiPhone className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
+                        <IconPhone className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
                         <div className="space-y-0.5">
                           {office.phones.map((num) => (
                             <Link

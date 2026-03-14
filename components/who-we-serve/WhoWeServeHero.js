@@ -2,15 +2,15 @@
 
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiUser, HiBuildingOffice2, HiHome, HiSparkles } from 'react-icons/hi2';
+import { IconUser, IconBuildingOffice2, IconHome, IconSparkles } from '@/components/ui/Icons';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
 const CLIENT_TYPE_ICONS = [
-  { Icon: HiUser, label: 'Individuals' },
-  { Icon: HiBuildingOffice2, label: 'Businesses' },
-  { Icon: HiHome, label: 'Property Clients' },
-  { Icon: HiSparkles, label: 'Specialist Professionals' },
+  { Icon: IconUser, label: 'Individuals' },
+  { Icon: IconBuildingOffice2, label: 'Businesses' },
+  { Icon: IconHome, label: 'Property Clients' },
+  { Icon: IconSparkles, label: 'Specialist Professionals' },
 ];
 
 export default function WhoWeServeHero() {

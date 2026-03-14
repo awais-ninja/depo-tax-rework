@@ -5,27 +5,27 @@ import TestimonialsBackground from '@/components/ui/TestimonialsBackground';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 import {
-  HiBolt,
-  HiPhoneArrowUpRight,
-  HiDocumentMagnifyingGlass,
-  HiClock,
-  HiGlobeAlt,
-  HiShieldCheck,
-  HiUserGroup,
-  HiBuildingOffice2,
-} from 'react-icons/hi2';
+  IconBolt,
+  IconPhoneArrowUpRight,
+  IconDocumentText,
+  IconClock,
+  IconGlobe,
+  IconShieldCheck,
+  IconUserGroup,
+  IconBuildingOffice2,
+} from '@/components/ui/Icons';
 
 import { whyChooseUs as whyChooseUsData } from '@/data/home';
 
 const ICON_MAP = {
-  bolt: HiBolt,
-  phone: HiPhoneArrowUpRight,
-  document: HiDocumentMagnifyingGlass,
-  clock: HiClock,
-  globe: HiGlobeAlt,
-  shield: HiShieldCheck,
-  userGroup: HiUserGroup,
-  building: HiBuildingOffice2,
+  bolt: IconBolt,
+  phone: IconPhoneArrowUpRight,
+  document: IconDocumentText,
+  clock: IconClock,
+  globe: IconGlobe,
+  shield: IconShieldCheck,
+  userGroup: IconUserGroup,
+  building: IconBuildingOffice2,
 };
 
 const HEXAGON_CLIP =
@@ -75,7 +75,7 @@ function MobileFeatureCard({ title, description, Icon, delayClass }) {
 
 export default function WhyChooseUs() {
   const { heading1, heading2, description, features } = whyChooseUsData;
-  const FEATURES = features.map((f) => ({ ...f, Icon: ICON_MAP[f.iconKey] || HiBolt }));
+  const FEATURES = features.map((f) => ({ ...f, Icon: ICON_MAP[f.iconKey] || IconBolt }));
   const row1 = FEATURES.slice(0, 3);
   const row2 = FEATURES.slice(3, 5);
   const row3 = FEATURES.slice(5, 8);

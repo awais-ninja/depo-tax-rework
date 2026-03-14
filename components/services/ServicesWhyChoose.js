@@ -3,44 +3,44 @@
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import {
-  HiAcademicCap,
-  HiUserGroup,
-  HiLightBulb,
-  HiDocumentCheck,
-  HiChatBubbleLeftRight,
-  HiCloud,
-} from 'react-icons/hi2';
+  IconAcademicCap,
+  IconUserGroup,
+  IconLightBulb,
+  IconDocumentCheck,
+  IconChatBubbleLeftRight,
+  IconCloud,
+} from '@/components/ui/Icons';
 
 const VALUE_CARDS = [
   {
     title: 'Experienced Professionals',
     description: 'Our team brings trusted accounting and tax expertise so you receive accurate, compliant advice from people who understand UK regulation.',
-    Icon: HiAcademicCap,
+    Icon: IconAcademicCap,
   },
   {
     title: 'Tailored Support',
     description: 'We adapt our services to each client—whether you’re a sole trader, limited company, or landlord—so you get the right level of support.',
-    Icon: HiUserGroup,
+    Icon: IconUserGroup,
   },
   {
     title: 'Clear and Practical Advice',
     description: 'Straightforward guidance without jargon. We explain options clearly so you can make informed decisions about your finances and tax.',
-    Icon: HiLightBulb,
+    Icon: IconLightBulb,
   },
   {
     title: 'Reliable Compliance Support',
     description: 'We help you stay on top of tax, payroll, VAT, and filing obligations so you meet deadlines and remain compliant with HMRC and Companies House.',
-    Icon: HiDocumentCheck,
+    Icon: IconDocumentCheck,
   },
   {
     title: 'Responsive Communication',
     description: 'Timely support when you need it. We aim to respond promptly and keep you updated so you’re never left waiting on important matters.',
-    Icon: HiChatBubbleLeftRight,
+    Icon: IconChatBubbleLeftRight,
   },
   {
     title: 'Modern Cloud-Based Processes',
     description: 'We use modern cloud accounting systems and processes so your data is secure, accessible, and aligned with current best practice.',
-    Icon: HiCloud,
+    Icon: IconCloud,
   },
 ];
 

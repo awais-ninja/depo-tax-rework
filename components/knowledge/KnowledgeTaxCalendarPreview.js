@@ -2,7 +2,7 @@
 
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiCalendarDays } from 'react-icons/hi2';
+import { IconCalendarDays } from '@/components/ui/Icons';
 
 const DEADLINES = [
   { label: 'Self Assessment', detail: '31 January' },
@@ -53,7 +53,7 @@ export default function KnowledgeTaxCalendarPreview() {
             href="/knowledge/tax-calendar"
             className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
           >
-            <HiCalendarDays className="w-5 h-5" aria-hidden />
+            <IconCalendarDays className="w-5 h-5" aria-hidden />
             View Full Tax Calendar
           </Link>
         </div>

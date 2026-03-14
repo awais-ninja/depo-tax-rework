@@ -1,6 +1,6 @@
 'use client';
 
-import { HiCheckCircle } from 'react-icons/hi2';
+import { IconCheckCircle } from '@/components/ui/Icons';
 
 /**
  * Simple list of quick-tip items for Tax Planning Tips page.
@@ -18,7 +18,7 @@ export default function KnowledgeQuickTipsList({ title = 'Quick tips', items }) 
         <ul className="space-y-3">
           {items.map((tip) => (
             <li key={tip} className="flex items-start gap-3 text-brand-text/90">
-              <HiCheckCircle className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
+              <IconCheckCircle className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
               <span>{tip}</span>
             </li>
           ))}

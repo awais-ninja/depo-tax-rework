@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiUser, HiBuildingOffice2, HiHome, HiSparkles } from 'react-icons/hi2';
+import { IconUser, IconBuildingOffice2, IconHome, IconSparkles } from '@/components/ui/Icons';
 
 const CARDS = [
   {
@@ -11,7 +11,7 @@ const CARDS = [
     types: ['Self Employed', 'Freelancers', 'High Net Worth Individuals', 'CIS Contractors'],
     ctaLabel: 'View Services',
     href: '/services#tax-services',
-    Icon: HiUser,
+    Icon: IconUser,
   },
   {
     id: 'businesses',
@@ -20,7 +20,7 @@ const CARDS = [
     types: ['Startups', 'Limited Companies', 'Small Businesses', 'Contractors'],
     ctaLabel: 'View Services',
     href: '/services#accounting-compliance',
-    Icon: HiBuildingOffice2,
+    Icon: IconBuildingOffice2,
   },
   {
     id: 'property',
@@ -29,7 +29,7 @@ const CARDS = [
     types: ['Landlords', 'Non Resident Landlords', 'SPV Companies', 'Property Investors'],
     ctaLabel: 'View Services',
     href: '/services#property-services',
-    Icon: HiHome,
+    Icon: IconHome,
   },
   {
     id: 'specialist',
@@ -38,7 +38,7 @@ const CARDS = [
     types: ['Charities', 'Consultants', 'Healthcare Professionals', 'Tech Startups'],
     ctaLabel: 'View Services',
     href: '/services#business-advisory',
-    Icon: HiSparkles,
+    Icon: IconSparkles,
   },
 ];
 

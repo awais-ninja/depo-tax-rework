@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiCheck, HiDocumentText, HiCalculator, HiLightBulb, HiHome } from 'react-icons/hi2';
+import { IconCheck, IconDocumentText, IconCalculator, IconLightBulb, IconHome } from '@/components/ui/Icons';
 
 const TRUST_BULLETS = [
   'Experienced UK accountants',
@@ -16,25 +16,25 @@ const CATEGORIES = [
     id: 'accounting-compliance',
     label: 'Accounting & Compliance',
     subtitle: 'Accounts, bookkeeping, payroll & VAT',
-    Icon: HiDocumentText,
+    Icon: IconDocumentText,
   },
   {
     id: 'tax-services',
     label: 'Tax Services',
     subtitle: 'Self assessment, corporation tax & planning',
-    Icon: HiCalculator,
+    Icon: IconCalculator,
   },
   {
     id: 'business-advisory',
     label: 'Business Advisory',
     subtitle: 'Startups, formation & growth support',
-    Icon: HiLightBulb,
+    Icon: IconLightBulb,
   },
   {
     id: 'property-services',
     label: 'Property Services',
     subtitle: 'Landlords, SPVs & property tax',
-    Icon: HiHome,
+    Icon: IconHome,
   },
 ];
 
@@ -70,7 +70,7 @@ export default function ServicesHero() {
             >
               {TRUST_BULLETS.map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <HiCheck className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
+                  <IconCheck className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
                   <span>{item}</span>
                 </li>
               ))}

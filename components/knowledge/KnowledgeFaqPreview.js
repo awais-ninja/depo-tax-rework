@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from '@/components/ui/Link';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiChevronDown } from 'react-icons/hi2';
+import { IconChevronDown } from '@/components/ui/Icons';
 
 const FAQ_ITEMS = [
   {
@@ -46,7 +46,7 @@ function FaqPreviewItem({ question, answer, isOpen, onToggle }) {
           className={`shrink-0 w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           aria-hidden
         >
-          <HiChevronDown className="w-5 h-5" />
+          <IconChevronDown className="w-5 h-5" />
         </span>
       </button>
       <div

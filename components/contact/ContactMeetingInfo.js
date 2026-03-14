@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiCalendarDays, HiClock } from 'react-icons/hi2';
+import { IconCalendarDays, IconClock } from '@/components/ui/Icons';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 
@@ -20,7 +20,7 @@ export default function ContactMeetingInfo() {
         <div className="rounded-2xl border border-brand-grayBorder bg-brand-grayLight/30 p-6 sm:p-8 shadow-[0_2px_12px_rgba(15,23,42,0.05)]">
           <div className="flex gap-4 mb-4">
             <span className="shrink-0 w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
-              <HiCalendarDays className="w-5 h-5" aria-hidden />
+              <IconCalendarDays className="w-5 h-5" aria-hidden />
             </span>
             <div className="space-y-3 text-brand-text/90">
               <p>
@@ -28,7 +28,7 @@ export default function ContactMeetingInfo() {
               </p>
               <div className="flex flex-wrap gap-x-6 gap-y-1 items-center text-sm">
                 <span className="inline-flex items-center gap-2">
-                  <HiClock className="w-4 h-4 text-brand-accent" aria-hidden />
+                  <IconClock className="w-4 h-4 text-brand-accent" aria-hidden />
                   Our office is open Monday to Friday from 10:00 AM to 5:00 PM.
                 </span>
               </div>

@@ -1,6 +1,5 @@
 import Link from "@/components/ui/Link";
-import { HiEnvelope, HiPhone } from "react-icons/hi2";
-import { FaWhatsapp } from "react-icons/fa";
+import { IconEnvelope, IconPhone, IconWhatsApp } from "@/components/ui/Icons";
 
 const iconClass = "w-4 h-4 shrink-0";
 
@@ -22,7 +21,7 @@ export default function MegaMenuFooter({ onNavigate, compact = false }) {
               className="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-accent transition-colors duration-200"
               onClick={onNavigate}
             >
-              <HiEnvelope className={iconClass} />
+              <IconEnvelope className={iconClass} />
               <span>info@depotax.co.uk</span>
             </Link>
             <Link
@@ -30,7 +29,7 @@ export default function MegaMenuFooter({ onNavigate, compact = false }) {
               className="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-accent transition-colors duration-200"
               onClick={onNavigate}
             >
-              <HiPhone className={iconClass} />
+              <IconPhone className={iconClass} />
               <span>+44 20 3659 9254 Phone</span>
             </Link>
             <Link
@@ -38,7 +37,7 @@ export default function MegaMenuFooter({ onNavigate, compact = false }) {
               className="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-accent transition-colors duration-200"
               onClick={onNavigate}
             >
-              <FaWhatsapp className={iconClass} />
+              <IconWhatsApp className={iconClass} />
               <span>+44 739 243 8213 </span>
             </Link>
             <Link
@@ -46,7 +45,7 @@ export default function MegaMenuFooter({ onNavigate, compact = false }) {
               className="inline-flex items-center gap-1.5 text-brand-navy hover:text-brand-accent transition-colors duration-200"
               onClick={onNavigate}
             >
-              <FaWhatsapp className={iconClass} />
+              <IconWhatsApp className={iconClass} />
               <span>+44 739 243 8213 </span>
             </Link>
           </div>

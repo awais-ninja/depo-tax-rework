@@ -3,44 +3,44 @@
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import {
-  HiAcademicCap,
-  HiUserGroup,
-  HiLightBulb,
-  HiDocumentCheck,
-  HiChatBubbleLeftRight,
-  HiChartBar,
-} from 'react-icons/hi2';
+  IconAcademicCap,
+  IconUserGroup,
+  IconLightBulb,
+  IconDocumentCheck,
+  IconChatBubbleLeftRight,
+  IconChartBar,
+} from '@/components/ui/Icons';
 
 const VALUE_CARDS = [
   {
     title: 'Experienced Professionals',
     description: 'Our team brings trusted accounting and tax expertise so you receive accurate, compliant advice from people who understand UK regulation and your sector.',
-    Icon: HiAcademicCap,
+    Icon: IconAcademicCap,
   },
   {
     title: 'Tailored Client Support',
     description: 'We adapt our services to each client’s needs—whether you’re a sole trader, limited company, or landlord—so you get the right level of support.',
-    Icon: HiUserGroup,
+    Icon: IconUserGroup,
   },
   {
     title: 'Clear and Practical Advice',
     description: 'Straightforward guidance without jargon or confusion. We explain options clearly so you can make informed decisions about your finances and tax.',
-    Icon: HiLightBulb,
+    Icon: IconLightBulb,
   },
   {
     title: 'Reliable Compliance Support',
     description: 'We help you stay on top of tax, payroll, VAT, and filing obligations so you meet deadlines and remain compliant with HMRC and Companies House.',
-    Icon: HiDocumentCheck,
+    Icon: IconDocumentCheck,
   },
   {
     title: 'Responsive Communication',
     description: 'Timely support when you need it. We aim to respond promptly and keep you updated so you’re never left waiting on important accounting or tax matters.',
-    Icon: HiChatBubbleLeftRight,
+    Icon: IconChatBubbleLeftRight,
   },
   {
     title: 'Long-Term Business Support',
     description: 'We help you not only stay compliant but also operate with more confidence—supporting your growth and financial planning year after year.',
-    Icon: HiChartBar,
+    Icon: IconChartBar,
   },
 ];
 

@@ -1,27 +1,27 @@
 'use client';
 
-import { HiUserCircle, HiBuildingStorefront, HiShieldCheck, HiHeart } from 'react-icons/hi2';
+import { IconUserCircle, IconBuildingStorefront, IconShieldCheck, IconHeart } from '@/components/ui/Icons';
 
 const FEATURES = [
   {
     title: 'Personalised Support',
     description: 'Every client receives guidance tailored to their business type, income structure, and financial responsibilities.',
-    Icon: HiUserCircle,
+    Icon: IconUserCircle,
   },
   {
     title: 'Industry Understanding',
     description: 'DepoTax works with a range of client groups and understands their different accounting and tax priorities.',
-    Icon: HiBuildingStorefront,
+    Icon: IconBuildingStorefront,
   },
   {
     title: 'Reliable Compliance',
     description: 'Clients receive organised support to help them stay on top of reporting, deadlines, and obligations.',
-    Icon: HiShieldCheck,
+    Icon: IconShieldCheck,
   },
   {
     title: 'Long-Term Support',
     description: 'DepoTax aims to support clients not only with immediate requirements, but also as their needs develop over time.',
-    Icon: HiHeart,
+    Icon: IconHeart,
   },
 ];
 

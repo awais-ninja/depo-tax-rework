@@ -1,7 +1,7 @@
 'use client';
 
 import Link from '@/components/ui/Link';
-import { HiPhone, HiEnvelope, HiBuildingOffice2 } from 'react-icons/hi2';
+import { IconPhone, IconEnvelope, IconBuildingOffice2 } from '@/components/ui/Icons';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 
@@ -15,21 +15,21 @@ const OPTIONS = [
     content: [PHONE_PRIMARY, PHONE_SECONDARY],
     ctaLabel: 'Call Now',
     href: `tel:${PHONE_PRIMARY.replace(/\s/g, '')}`,
-    Icon: HiPhone,
+    Icon: IconPhone,
   },
   {
     title: 'Send an Email',
     content: [EMAIL],
     ctaLabel: 'Email Us',
     href: `mailto:${EMAIL}`,
-    Icon: HiEnvelope,
+    Icon: IconEnvelope,
   },
   {
     title: 'Visit Our Offices',
     content: ['We have offices across London and Milton Keynes where you can meet our team.'],
     ctaLabel: 'View Locations',
     href: '#office-locations',
-    Icon: HiBuildingOffice2,
+    Icon: IconBuildingOffice2,
   },
 ];
 

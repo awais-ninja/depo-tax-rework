@@ -137,15 +137,16 @@ export default function PrivacyPolicyPage() {
 
       <LegalSection id="cookies" title="9. Cookies">
         <p>
-          Our website may use cookies and similar technologies for:
+          We use a first-party cookie banner so you can choose which cookies you allow. Only strictly necessary cookies (such as remembering your cookie choices) are set before you make a choice. We may use cookies and similar technologies for:
         </p>
         <ul className="list-disc pl-6 space-y-1 mt-2">
-          <li>Analytics — to understand how visitors use our site</li>
-          <li>Functionality — to remember preferences and improve your experience</li>
-          <li>Performance — to monitor and improve site performance</li>
+          <li><strong>Strictly necessary</strong> — required for the site to function (e.g. remembering your cookie preferences)</li>
+          <li><strong>Analytics</strong> — to understand how visitors use our site (only with your consent)</li>
+          <li><strong>Marketing / advertising</strong> — only with your consent</li>
+          <li><strong>Preferences</strong> — to remember settings and improve your experience (only with your consent)</li>
         </ul>
         <p className="mt-3">
-          You can manage or disable cookies through your browser settings. Disabling certain cookies may affect the functionality of the website.
+          You can change your choices at any time using the &quot;Cookie settings&quot; link in the footer. Rejecting non-essential cookies is as easy as accepting them. You can also manage cookies through your browser settings.
         </p>
       </LegalSection>
 

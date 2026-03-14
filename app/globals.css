@@ -56,7 +56,7 @@
   transition: none;
 }
 
-/* Hero entrance: add .hero-ready to parent after mount */
+/* Hero entrance: add .hero-ready to parent after mount. Mobile: show immediately for LCP/SI. */
 .hero-reveal {
   opacity: 0;
   transform: translateY(10px);
@@ -72,6 +72,10 @@
 .hero-ready .hero-reveal-delay-5 { transition-delay: 400ms; }
 .hero-ready .hero-reveal-delay-6 { transition-delay: 480ms; }
 .hero-ready .hero-reveal-delay-7 { transition-delay: 560ms; }
+/* Mobile: no hero animation delay – content visible immediately for better LCP and Speed Index */
+@media (max-width: 767px) {
+  .hero-reveal { opacity: 1; transform: none; transition: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal, .hero-ready .hero-reveal { transition: none; opacity: 1; transform: none; }
 }
@@ -112,6 +116,26 @@
 /* Triangle clip for CoreServices image corner */
 .clip-triangle-br {
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* Print: show only quote summary (pricing page). CSP-safe. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .quote-summary-print,
+  .quote-summary-print * {
+    visibility: visible;
+  }
+  .quote-summary-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

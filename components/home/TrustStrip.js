@@ -8,6 +8,23 @@ import { trustStrip as trustStripData } from '@/data/home'
 const LOGO_WIDTH = 200;
 const MOBILE_LOGO_MAX = 120;
 
+/** Mobile: fixed-aspect slot (5/2 fits 120x48) + object-contain so logos keep correct proportions and never squashed. */
+function MobileLogoSlot({ name, src, alt, width, height }) {
+  return (
+    <div className="flex items-center justify-center w-full aspect-[5/2] min-h-[48px]">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        className="max-w-full max-h-full w-auto h-auto object-contain"
+        sizes={`(max-width: 640px) 33vw, ${MOBILE_LOGO_MAX}px`}
+        loading="lazy"
+      />
+    </div>
+  );
+}
+
 export default function TrustStrip() {
   const { heading1, heading2, description, logos } = trustStripData
   return (
@@ -26,22 +43,16 @@ export default function TrustStrip() {
               {description}
             </p>
           </div>
-          <div className="reveal-item reveal-item-delay-3 md:hidden grid grid-cols-3 gap-4 sm:gap-6">
+          <div className="reveal-item reveal-item-delay-3 md:hidden grid grid-cols-3 gap-4 sm:gap-6 max-w-[400px] mx-auto sm:max-w-none">
             {logos.map(({ name, src, alt, width, height }) => (
-              <div
+              <MobileLogoSlot
                 key={name}
-                className="flex items-center justify-center min-h-[64px] sm:min-h-[80px]"
-              >
-                <Image
-                  src={src}
-                  alt={alt}
-                  width={width}
-                  height={height}
-                  className="h-10 sm:h-12 w-auto max-w-[120px] object-contain"
-                  sizes={`(max-width: 640px) 33vw, ${MOBILE_LOGO_MAX}px`}
-                  loading="lazy"
-                />
-              </div>
+                name={name}
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+              />
             ))}
           </div>
           {/* Desktop: marquee – all logos, consistent slot width */}

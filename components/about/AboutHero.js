@@ -3,7 +3,7 @@
 import Link from '@/components/ui/Link';
 import Image from 'next/image';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiCheck } from 'react-icons/hi2';
+import { IconCheck } from '@/components/ui/Icons';
 
 const BOOK_CONSULTATION_URL = 'https://www.picktime.com/aazizandco';
 
@@ -60,7 +60,7 @@ export default function AboutHero() {
           <ul className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 mb-6 sm:mb-8 text-white/95 text-xs sm:text-sm" aria-label="Why trust DepoTax">
             {TRUST_POINTS.map((point) => (
               <li key={point} className="flex items-center gap-2">
-                <HiCheck className="w-4 h-4 text-white flex-shrink-0" aria-hidden />
+                <IconCheck className="w-4 h-4 text-white flex-shrink-0" aria-hidden />
                 <span>{point}</span>
               </li>
             ))}

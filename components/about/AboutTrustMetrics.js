@@ -2,32 +2,32 @@
 
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
-import { HiClock, HiUserGroup, HiDocumentText, HiStar } from 'react-icons/hi2';
+import { IconClock, IconUserGroup, IconDocumentText, IconStar } from '@/components/ui/Icons';
 
 const METRICS = [
   {
     id: 'years',
     value: '10+',
     label: 'Years Experience',
-    Icon: HiClock,
+    Icon: IconClock,
   },
   {
     id: 'clients',
     value: '500+',
     label: 'Clients Supported',
-    Icon: HiUserGroup,
+    Icon: IconUserGroup,
   },
   {
     id: 'returns',
     value: '1000+',
     label: 'Tax Returns Filed',
-    Icon: HiDocumentText,
+    Icon: IconDocumentText,
   },
   {
     id: 'satisfaction',
     value: '98%',
     label: 'Client Satisfaction',
-    Icon: HiStar,
+    Icon: IconStar,
   },
 ];
 

@@ -4,12 +4,7 @@ import Image from "next/image";
 import Link from "@/components/ui/Link";
 import SectionReveal from "@/components/ui/SectionReveal";
 import SectionBackgroundLabel from "@/components/ui/SectionBackgroundLabel";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-  FaTwitter,
-} from "react-icons/fa";
+import { IconFacebook, IconLinkedIn, IconInstagram, IconTwitter } from "@/components/ui/Icons";
 import {
   ABOUT_TEAM_INTRO,
   ABOUT_DIRECTOR,
@@ -64,7 +59,7 @@ function DirectorSpotlight() {
             className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
             aria-label="Instagram"
           >
-            <FaInstagram className={socialIconClass} />
+            <IconInstagram className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.facebook && (
@@ -75,7 +70,7 @@ function DirectorSpotlight() {
             className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
             aria-label="Facebook"
           >
-            <FaFacebookF className={socialIconClass} />
+            <IconFacebook className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.linkedin && (
@@ -86,7 +81,7 @@ function DirectorSpotlight() {
             className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
             aria-label="LinkedIn"
           >
-            <FaLinkedinIn className={socialIconClass} />
+            <IconLinkedIn className={socialIconClass} />
           </Link>
         )}
         {ABOUT_DIRECTOR.social?.twitter ? (
@@ -97,14 +92,14 @@ function DirectorSpotlight() {
             className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-navy hover:bg-brand-accent hover:text-white transition-colors"
             aria-label="Twitter"
           >
-            <FaTwitter className={socialIconClass} />
+            <IconTwitter className={socialIconClass} />
           </Link>
         ) : (
           <span
             className="w-10 h-10 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-text/40"
             aria-hidden
           >
-            <FaTwitter className={socialIconClass} />
+            <IconTwitter className={socialIconClass} />
           </span>
         )}
       </div>

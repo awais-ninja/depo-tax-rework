@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "@/components/ui/Link";
-import { HiArrowRight } from "react-icons/hi2";
+import { IconArrowRight } from "@/components/ui/Icons";
 
 /**
  * Reusable audience detail section: label, heading, paragraph, support points, service links, optional CTA.
@@ -43,7 +43,7 @@ export default function AudienceDetailSection({
             className="inline-flex items-center gap-2 text-sm font-semibold text-brand-accent hover:text-brand-accentDark transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 rounded"
           >
             {ctaLabel}
-            <HiArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden />
+            <IconArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden />
           </Link>
         </div>
       )}
@@ -86,7 +86,7 @@ export default function AudienceDetailSection({
                   className="inline-flex items-center gap-1.5 rounded-lg border border-brand-grayBorder bg-brand-grayLight/30 px-3 py-2 text-sm font-medium text-brand-navy hover:border-brand-accent/30 hover:text-brand-accent hover:bg-white transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2"
                 >
                   {link.label}
-                  <HiArrowRight
+                  <IconArrowRight
                     className="w-3.5 h-3.5 flex-shrink-0 opacity-70"
                     aria-hidden
                   />

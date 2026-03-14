@@ -1,6 +1,7 @@
 import './globals.css'
 import { Open_Sans } from 'next/font/google'
 import BackToTop from '@/components/ui/BackToTop'
+import CookieConsentBanner from '@/components/ui/CookieConsentBanner'
 import Script from 'next/script'
 import { headers } from 'next/headers'
 import { connection } from 'next/server'
@@ -122,6 +123,7 @@ export default async function RootLayout({ children }) {
         </Script>
         {children}
         <BackToTop />
+        <CookieConsentBanner />
       </body>
     </html>
   )

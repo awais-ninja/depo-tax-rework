@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from '@/components/ui/Link';
-import { HiCalendarDays } from 'react-icons/hi2';
+import { IconCalendarDays } from '@/components/ui/Icons';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
 import { contactForm as formData } from '@/data/contactPage';
@@ -64,7 +64,7 @@ export default function ContactForm() {
           <div className="lg:col-span-2">
             <div className="rounded-2xl border border-brand-grayBorder bg-brand-grayLight/30 p-6 lg:sticky lg:top-24">
               <span className="flex w-11 h-11 rounded-xl bg-brand-accent/10 items-center justify-center text-brand-accent mb-4">
-                <HiCalendarDays className="w-6 h-6" aria-hidden />
+                <IconCalendarDays className="w-6 h-6" aria-hidden />
               </span>
               <h3 className="text-lg font-bold text-brand-navy tracking-tight mb-2">{sidebar.title}</h3>
               <p className="text-sm text-brand-text/85 mb-5">{sidebar.description}</p>

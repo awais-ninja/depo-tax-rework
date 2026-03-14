@@ -1,6 +1,6 @@
 'use client';
 
-import { HiUserGroup } from 'react-icons/hi2';
+import { IconUserGroup } from '@/components/ui/Icons';
 
 function isItemWithDescription(item) {
   return item && typeof item === 'object' && 'name' in item && 'description' in item;
@@ -35,7 +35,7 @@ export default function ServicePageWhoItsFor({ data }) {
                 className="rounded-xl border border-brand-grayBorder bg-white p-5 shadow-[0_2px_12px_rgba(15,23,42,0.04)]"
               >
                 <h3 className="text-base font-bold text-brand-navy mb-2 flex items-center gap-2">
-                  <HiUserGroup className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
+                  <IconUserGroup className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
                   {item.name}
                 </h3>
                 <p className="text-sm text-brand-text/85 leading-relaxed">{item.description}</p>
@@ -46,7 +46,7 @@ export default function ServicePageWhoItsFor({ data }) {
           <ul className="space-y-3">
             {items.map((item, i) => (
               <li key={i} className="flex items-start gap-3">
-                <HiUserGroup className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
+                <IconUserGroup className="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" aria-hidden />
                 <span className="text-brand-text/90">{item}</span>
               </li>
             ))}

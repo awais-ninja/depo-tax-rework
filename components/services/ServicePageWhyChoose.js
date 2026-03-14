@@ -1,6 +1,6 @@
 'use client';
 
-import { HiCheck } from 'react-icons/hi2';
+import { IconCheck } from '@/components/ui/Icons';
 
 export default function ServicePageWhyChoose({ data }) {
   const { title, intro, points } = data;
@@ -26,7 +26,7 @@ export default function ServicePageWhyChoose({ data }) {
         <ul className="space-y-3">
           {points.map((point, i) => (
             <li key={i} className="flex items-center gap-3">
-              <HiCheck className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
+              <IconCheck className="w-5 h-5 text-brand-accent flex-shrink-0" aria-hidden />
               <span className="text-brand-text/90">{point}</span>
             </li>
           ))}

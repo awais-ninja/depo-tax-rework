@@ -4,7 +4,7 @@ import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
-import { HiPhone, HiEnvelope } from 'react-icons/hi2';
+import { IconPhone, IconEnvelope } from '@/components/ui/Icons';
 import { finalCta as finalCtaData } from '@/data/home';
 import { contact } from '@/data/contact';
 
@@ -31,11 +31,11 @@ export default function FinalCTA() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-brand-text/70 mb-5">{d.cardEyebrow}</p>
                 <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                   <Link href={`mailto:${contact.email}`} className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-xl font-semibold text-white bg-brand-accent hover:bg-brand-accentDark transition-colors duration-200">
-                    <HiEnvelope className="w-5 h-5 shrink-0" aria-hidden />
+                    <IconEnvelope className="w-5 h-5 shrink-0" aria-hidden />
                     {d.ctaEmail}
                   </Link>
                   <Link href={`tel:${contact.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-xl font-semibold border-2 border-brand-navy text-brand-navy hover:bg-brand-navy hover:text-white transition-colors duration-200">
-                    <HiPhone className="w-5 h-5 shrink-0" aria-hidden />
+                    <IconPhone className="w-5 h-5 shrink-0" aria-hidden />
                     {d.ctaPhone}
                   </Link>
                 </div>

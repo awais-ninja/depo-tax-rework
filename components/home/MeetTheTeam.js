@@ -5,7 +5,7 @@ import Image from 'next/image';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { IconFacebook, IconLinkedIn, IconInstagram, IconTwitter } from '@/components/ui/Icons';
 
 const INTRO =
   'We have a team of more than 20 people that are serving from three different cities and four different offices. Our network of Accountants is vast and we know how to get things done because we know our credibility and our ability to do things right.';
@@ -69,7 +69,7 @@ export default function MeetTheTeam() {
                         className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-brand-accent transition-colors duration-200"
                         aria-label="Instagram"
                       >
-                        <FaInstagram className={iconClass} />
+                        <IconInstagram className={iconClass} />
                       </Link>
                     )}
                     {DIRECTOR.social.facebook && (
@@ -80,7 +80,7 @@ export default function MeetTheTeam() {
                         className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-brand-accent transition-colors duration-200"
                         aria-label="Facebook"
                       >
-                        <FaFacebookF className={iconClass} />
+                        <IconFacebook className={iconClass} />
                       </Link>
                     )}
                     {DIRECTOR.social.linkedin && (
@@ -91,7 +91,7 @@ export default function MeetTheTeam() {
                         className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-brand-accent transition-colors duration-200"
                         aria-label="LinkedIn"
                       >
-                        <FaLinkedinIn className={iconClass} />
+                        <IconLinkedIn className={iconClass} />
                       </Link>
                     )}
                     {DIRECTOR.social.twitter ? (
@@ -102,11 +102,11 @@ export default function MeetTheTeam() {
                         className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-brand-accent transition-colors duration-200"
                         aria-label="Twitter"
                       >
-                        <FaTwitter className={iconClass} />
+                        <IconTwitter className={iconClass} />
                       </Link>
                     ) : (
                       <span className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60" aria-hidden>
-                        <FaTwitter className={iconClass} />
+                        <IconTwitter className={iconClass} />
                       </span>
                     )}
                   </div>
