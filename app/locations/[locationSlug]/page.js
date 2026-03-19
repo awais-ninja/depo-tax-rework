@@ -1,8 +1,4 @@
-import { headers } from 'next/headers'
-import Script from 'next/script'
 import { notFound } from 'next/navigation'
-import fs from 'fs'
-import path from 'path'
 
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -16,25 +12,16 @@ import {
   getAreaBySlug,
   getAreaLinkText,
   normalizeLocationSlug,
-} from '@/lib/locations/getLocations'
+} from '@/lib/locations'
 
 import { isValidServiceSlug, getServiceBySlug } from '@/data/services/config'
 import { BOOKING_URL } from '@/data/contact'
-import { BASE_URL, SITE_NAME } from '@/data/site'
+import { BASE_URL } from '@/data/site'
 
-async function getNonce() {
-  // Used to keep JSON-LD consistent with the existing CSP/nonce setup.
-  const h = await headers()
-  return h.get('x-nonce') || undefined
-}
+export const dynamicParams = false
 
 function getPageTitle(area) {
   return area?.seo?.pageTitle || area?.hero?.headline || area?.areaName || 'Location'
-}
-
-function getMetaTitle(area) {
-  const pageTitle = getPageTitle(area)
-  return area?.seo?.metaTitle || `${pageTitle} | ${SITE_NAME}`
 }
 
 function getMetaDescription(area) {
@@ -120,7 +107,8 @@ export async function generateMetadata({ params }) {
   }
 
   const pageTitle = getPageTitle(area)
-  const metaTitle = getMetaTitle(area)
+  const locationName = area?.areaName || pageTitle
+  const metaTitle = area?.seo?.metaTitle || `Accountants in ${locationName}`
   const metaDescription = getMetaDescription(area)
   const canonicalUrl = `${BASE_URL}${buildLocationHref(locationSlug)}`
 
@@ -151,8 +139,6 @@ export default async function LocationPage({ params }) {
   if (!area) notFound()
 
   const pageTitle = getPageTitle(area)
-  const hasRegionRoutes = fs.existsSync(path.join(process.cwd(), 'app', 'regions'))
-  const nonce = await getNonce()
 
   const nearbyAreas = Array.isArray(area?.internalLinks?.nearbyAreas)
     ? area.internalLinks.nearbyAreas
@@ -186,10 +172,7 @@ export default async function LocationPage({ params }) {
         .filter(Boolean)
     : []
 
-  const regionalPage =
-    hasRegionRoutes && typeof area?.internalLinks?.regionalPage === 'string'
-      ? area.internalLinks.regionalPage
-      : null
+  const regionalPage = null
 
   const faqJsonLd = buildFaqJsonLd(area)
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(area)
@@ -391,24 +374,18 @@ export default async function LocationPage({ params }) {
         </section>
 
         {faqJsonLd && (
-          <Script
+          <script
             id={`ld-json-faq-${locationSlug}`}
             type="application/ld+json"
-            strategy="lazyOnload"
-            nonce={nonce}
-          >
-            {JSON.stringify(faqJsonLd)}
-          </Script>
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
         )}
         {breadcrumbJsonLd && (
-          <Script
+          <script
             id={`ld-json-breadcrumb-${locationSlug}`}
             type="application/ld+json"
-            strategy="lazyOnload"
-            nonce={nonce}
-          >
-            {JSON.stringify(breadcrumbJsonLd)}
-          </Script>
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+          />
         )}
       </main>
       <Footer />

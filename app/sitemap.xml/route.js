@@ -3,7 +3,9 @@
  * Served at /sitemap.xml
  */
 
-import { getAllLocationHrefs } from '@/lib/locations/getLocations'
+import { getAllLocationHrefs } from '@/lib/locations'
+import { getAllServiceSlugs } from '@/data/services/config'
+import { getAllWhoWeServePages } from '@/data/whoWeServe'
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.depotax.co.uk';
 
@@ -20,13 +22,8 @@ const staticPages = [
   { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
 ];
 
-const serviceSlugs = [
-  'annual-accounts', 'bookkeeping', 'management-accounts', 'payroll', 'vat-returns',
-  'confirmation-statement', 'self-assessment', 'corporation-tax', 'capital-gains-tax',
-  'tax-planning', 'non-resident-landlord-tax', 'startup-support', 'company-formation',
-  'cashflow-forecasting', 'cfo-advisory', 'business-growth-planning', 'landlord-accounting',
-  'spv-accounting', 'property-tax-returns', 'hmo-holiday-let-accounting',
-];
+const serviceSlugs = getAllServiceSlugs();
+const whoWeServePages = getAllWhoWeServePages();
 
 const knowledgePaths = [
   '/knowledge/tax-guides',
@@ -65,8 +62,18 @@ function buildSitemapEntries() {
       changeFrequency: 'monthly',
       priority: 0.6,
     })),
+    ...whoWeServePages.map((page) => ({
+      url: `${baseUrl}/who-we-serve/${page.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })),
   ];
-  return entries;
+  return dedupeByUrl(entries);
+}
+
+function dedupeByUrl(entries) {
+  return Array.from(new Map(entries.map((entry) => [entry.url, entry])).values());
 }
 
 function toXml(entries) {

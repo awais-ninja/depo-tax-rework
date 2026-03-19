@@ -15,6 +15,7 @@ export default function Navbar() {
 
   const isServicesActive = pathname === '/services' || (pathname?.startsWith('/services/') ?? false)
   const isKnowledgeActive = pathname === '/knowledge' || (pathname?.startsWith('/knowledge/') ?? false)
+  const isWhoWeServeActive = pathname === '/who-we-serve' || (pathname?.startsWith('/who-we-serve/') ?? false)
   const isContactActive = pathname === '/contact' || (pathname?.startsWith('/contact/') ?? false)
   const isNavItemActive = (href) => pathname === href
 
@@ -54,6 +55,7 @@ export default function Navbar() {
                     className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                       openMega === item.label ||
                       (item.label === 'Services' && isServicesActive) ||
+                      (item.label === 'Who We Serve' && isWhoWeServeActive) ||
                       (item.label === 'Knowledge' && isKnowledgeActive) ||
                       (item.label === 'Contact' && isContactActive)
                         ? 'text-brand-accent'
@@ -68,6 +70,7 @@ export default function Navbar() {
                         className={`absolute -bottom-0.5 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${
                           openMega === item.label ||
                           (item.label === 'Services' && isServicesActive) ||
+                          (item.label === 'Who We Serve' && isWhoWeServeActive) ||
                           (item.label === 'Knowledge' && isKnowledgeActive) ||
                           (item.label === 'Contact' && isContactActive)
                             ? 'w-full'

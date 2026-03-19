@@ -1,9 +1,8 @@
-'use client';
-
 import Link from '@/components/ui/Link';
 import SectionReveal from '@/components/ui/SectionReveal';
 import SectionBackgroundLabel from '@/components/ui/SectionBackgroundLabel';
 import SectionAmbient from '@/components/ui/SectionAmbient';
+import { getSimplifiedAreasForGrid } from '@/lib/locations';
 
 const GRID_ITEMS = [
   {
@@ -41,6 +40,8 @@ const GRID_ITEMS = [
 ];
 
 export default function LocalSEOSection() {
+  const topLocations = getSimplifiedAreasForGrid().slice(0, 12);
+
   return (
     <section
       className="py-16 lg:py-24 bg-white"
@@ -61,6 +62,19 @@ export default function LocalSEOSection() {
             <p className="reveal-item reveal-item-delay-2 text-sm sm:text-base text-brand-text/85 mb-2 leading-relaxed">
               Trusted Accountants and Tax Consultants for Businesses and Individuals Across the UK
             </p>
+            {topLocations.length > 0 && (
+              <div className="reveal-item reveal-item-delay-2 mt-4 flex flex-wrap justify-center gap-2">
+                {topLocations.map((location) => (
+                  <Link
+                    key={location.href}
+                    href={location.href}
+                    className="inline-flex items-center rounded-full border border-brand-grayBorder px-3 py-1.5 text-xs sm:text-sm text-brand-text hover:text-brand-accent hover:border-brand-accent/40 transition-colors"
+                  >
+                    {location.title}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* 2x3 grid with dividers */}

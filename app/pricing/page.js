@@ -2,70 +2,34 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PricingHero from "@/components/pricing/PricingHero";
 import PricingIntroduction from "@/components/pricing/PricingIntroduction";
-import PricingExperience from "@/components/pricing/PricingExperience";
-import PackageComparison from "@/components/pricing/PackageComparison";
-import PricingFAQ from "@/components/pricing/PricingFAQ";
-import PricingCTA from "@/components/pricing/PricingCTA";
-import { PRICING_MODES } from '@/data/pricing';
-import AboutFinalCTA from "@/components/about/AboutFinalCTA";
+import PricingExperienceFromSearchParams from "@/components/pricing/PricingExperienceFromSearchParams";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import { BASE_URL } from "@/data/site";
+
+const PackageComparison = dynamic(() => import("@/components/pricing/PackageComparison"));
+const PricingFAQ = dynamic(() => import("@/components/pricing/PricingFAQ"));
+const AboutFinalCTA = dynamic(() => import("@/components/about/AboutFinalCTA"));
 
 export const metadata = {
-  title: "Pricing | DepoTax",
+  title: "Pricing",
   description:
     "DepoTax accounting and tax pricing. Clear packages for individuals and businesses.",
+  alternates: {
+    canonical: `${BASE_URL}/pricing`,
+  },
 };
 
-function mapBusinessType(queryValue) {
-  if (!queryValue) return null;
-  const map = {
-    contractors: "contractor-ltd",
-    "limited-companies": "startups-ltds",
-    landlords: "landlords",
-    "non-resident-landlords": "non-resident-landlords",
-    "spv-residential": "spvs",
-    "self-employed": "self-employed",
-  };
-  return map[queryValue] ?? null;
-}
-
-function mapMode(modeParam) {
-  if (modeParam === PRICING_MODES.SINGLE_SERVICES)
-    return PRICING_MODES.SINGLE_SERVICES;
-  return PRICING_MODES.PACKAGES;
-}
-
-function mapPackageType(packageType) {
-  if (!packageType) return null;
-  const normalized = packageType.toLowerCase();
-  if (normalized === "compliance") return "Compliance";
-  if (normalized === "core") return "Core";
-  if (normalized === "growth") return "Growth";
-  return null;
-}
-
-export default async function PricingPage({ searchParams }) {
-  const params = await searchParams;
-
-  const mode = mapMode(params?.mode);
-  const businessTypeId = mapBusinessType(params?.businessType);
-  const initialSelectedServiceKeys =
-    mode === PRICING_MODES.SINGLE_SERVICES && params?.service
-      ? [params.service]
-      : [];
-  const initialPackageTier = mapPackageType(params?.packageType);
-
+export default function PricingPage() {
   return (
     <>
       <Header />
       <main className="overflow-x-hidden min-h-screen bg-white">
         <PricingHero />
         <PricingIntroduction />
-        <PricingExperience
-          initialMode={mode}
-          initialBusinessTypeId={businessTypeId}
-          initialPackageTier={initialPackageTier}
-          initialSelectedServiceKeys={initialSelectedServiceKeys}
-        />
+        <Suspense fallback={null}>
+          <PricingExperienceFromSearchParams />
+        </Suspense>
         <PackageComparison />
         <PricingFAQ />
         <AboutFinalCTA />

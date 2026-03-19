@@ -52,6 +52,13 @@ const ACCENT_CARD = {
   cta: 'Explore More',
 };
 
+const QUICK_WHO_WE_SERVE_LINKS = [
+  { label: 'Self-employed', href: '/who-we-serve/self-employed' },
+  { label: 'Limited companies', href: '/who-we-serve/limited-companies' },
+  { label: 'Landlords', href: '/who-we-serve/landlords' },
+  { label: 'Startups', href: '/who-we-serve/startups' },
+];
+
 const iconPaths = [
   'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
   'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
@@ -98,6 +105,17 @@ export default function WhoWeHelp() {
             <p className="reveal-item reveal-item-delay-2 text-center text-brand-text/90 max-w-2xl mx-auto">
               DepoTax provides expert accounting, bookkeeping, payroll, tax returns and compliance support for limited companies, contractors, sole traders, landlords, startup businesses and eCommerce businesses across the UK.
             </p>
+            <div className="reveal-item reveal-item-delay-2 mt-5 flex flex-wrap justify-center gap-2.5">
+              {QUICK_WHO_WE_SERVE_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center rounded-full border border-brand-grayBorder px-3 py-1.5 text-xs sm:text-sm text-brand-text hover:text-brand-accent hover:border-brand-accent/40 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 justify-items-center md:justify-items-stretch">

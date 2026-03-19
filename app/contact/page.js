@@ -7,7 +7,7 @@ import ContactForm from '@/components/contact/ContactForm';
 import ContactOfficeLocations from '@/components/contact/ContactOfficeLocations';
 import ContactFinalCTA from '@/components/contact/ContactFinalCTA';
 import AreasProgressiveByRegion from '@/components/locations/AreasProgressiveByRegion';
-import { getSimplifiedAreasGroupedByRegion } from '@/lib/locations/getLocations';
+import { getSimplifiedAreasGroupedByRegion } from '@/lib/locations';
 
 export const metadata = {
   title: 'Contact DepoTax | Accountants and Tax Consultants',

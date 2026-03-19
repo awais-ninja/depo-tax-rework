@@ -3,8 +3,6 @@ import { Open_Sans } from 'next/font/google'
 import BackToTop from '@/components/ui/BackToTop'
 import CookieConsentBanner from '@/components/ui/CookieConsentBanner'
 import Script from 'next/script'
-import { headers } from 'next/headers'
-import { connection } from 'next/server'
 import { SITE_NAME, BASE_URL, defaultMetadata, structuredDataNav } from '@/data/site'
 
 const openSans = Open_Sans({
@@ -85,18 +83,14 @@ export const metadata = {
   verification: {},
 }
 
-export default async function RootLayout({ children }) {
-  await connection()
-  const headersList = await headers()
-  const nonce = headersList.get('x-nonce') || undefined
-
+export default function RootLayout({ children }) {
   return (
     <html lang="en-GB" className={openSans.variable}>
       <head>
         <link rel="preload" href="/logo.svg" as="image" />
       </head>
       <body className="min-h-screen bg-brand-white font-sans antialiased text-brand-text" suppressHydrationWarning>
-        <Script id="ld-json-website" type="application/ld+json" strategy="lazyOnload" nonce={nonce}>
+        <Script id="ld-json-website" type="application/ld+json" strategy="lazyOnload">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
@@ -109,7 +103,7 @@ export default async function RootLayout({ children }) {
             },
           })}
         </Script>
-        <Script id="ld-json-sitenavigation" type="application/ld+json" strategy="lazyOnload" nonce={nonce}>
+        <Script id="ld-json-sitenavigation" type="application/ld+json" strategy="lazyOnload">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'ItemList',
