@@ -29,12 +29,13 @@ export function proxy(request) {
   const nonce = generateNonce()
   const isDev = process.env.NODE_ENV === 'development'
 
-  const scriptSrc = [
-    "'self'",
-    `'nonce-${nonce}'`,
-    "'strict-dynamic'",
-    ...(isDev ? ["'unsafe-eval'"] : []),
-  ].join(' ')
+  // NOTE:
+  // Using strict-dynamic + nonce here can block Next.js runtime scripts in production
+  // if every rendered script does not consistently carry a nonce. Keep script-src
+  // compatible with App Router hydration so interactive UI (e.g. navbar) works.
+  const scriptSrc = isDev
+    ? "'self' 'unsafe-eval' 'unsafe-inline'"
+    : "'self' 'unsafe-inline'"
 
   // In dev, omit nonce from style-src so 'unsafe-inline' can take effect for Next.js dev overlay/devtools.
   // Production keeps nonce-only for strict CSP. style-src-attr same as style-src (no inline style attributes).

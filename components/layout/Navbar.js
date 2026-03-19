@@ -2,7 +2,7 @@
 
 import Link from '@/components/ui/Link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import MegaMenu from './MegaMenu'
 import { mainNav, megaMenus } from '@/data/navigation'
@@ -12,22 +12,61 @@ export default function Navbar() {
   const pathname = usePathname()
   const [openMega, setOpenMega] = useState(null)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const closeTimerRef = useRef(null)
 
   const isServicesActive = pathname === '/services' || (pathname?.startsWith('/services/') ?? false)
   const isKnowledgeActive = pathname === '/knowledge' || (pathname?.startsWith('/knowledge/') ?? false)
   const isWhoWeServeActive = pathname === '/who-we-serve' || (pathname?.startsWith('/who-we-serve/') ?? false)
   const isContactActive = pathname === '/contact' || (pathname?.startsWith('/contact/') ?? false)
   const isNavItemActive = (href) => pathname === href
+  const isMegaItemActive = (item) => {
+    if (!item?.href) return false
+    if (item.label === 'Services') return isServicesActive
+    if (item.label === 'Knowledge') return isKnowledgeActive
+    if (item.label === 'Who We Serve') return isWhoWeServeActive
+    if (item.label === 'Contact') return isContactActive
+    return pathname === item.href || (item.href !== '/' && (pathname?.startsWith(`${item.href}/`) ?? false))
+  }
 
   const closeAll = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
     setOpenMega(null)
     setMobileOpen(false)
   }
 
   const handleNav = () => closeAll()
+  const openMegaMenu = (label) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
+    setOpenMega(label)
+  }
+  const scheduleMegaClose = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current)
+    closeTimerRef.current = setTimeout(() => {
+      setOpenMega(null)
+    }, 120)
+  }
+  const cancelMegaClose = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
+  }
+  useEffect(() => () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-white border-b border-brand-grayBorder shadow-sm overflow-visible" onMouseLeave={() => setOpenMega(null)}>
+    <header
+      className="sticky top-0 z-50 bg-brand-white border-b border-brand-grayBorder shadow-sm overflow-visible"
+      onMouseEnter={cancelMegaClose}
+      onMouseLeave={scheduleMegaClose}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16 md:h-18 lg:h-20">
           <Link href="/" className="flex items-center shrink-0 min-w-0" aria-label="Depotax home" onClick={closeAll}>
@@ -47,17 +86,13 @@ export default function Navbar() {
               <div
                 key={item.label}
                 className="relative group"
-                onMouseEnter={() => item.megaKey && setOpenMega(item.label)}
+                onMouseEnter={() => item.megaKey && openMegaMenu(item.label)}
               >
                 {item.megaKey ? (
                   <Link
                     href={item.href}
                     className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
-                      openMega === item.label ||
-                      (item.label === 'Services' && isServicesActive) ||
-                      (item.label === 'Who We Serve' && isWhoWeServeActive) ||
-                      (item.label === 'Knowledge' && isKnowledgeActive) ||
-                      (item.label === 'Contact' && isContactActive)
+                      openMega === item.label || isMegaItemActive(item)
                         ? 'text-brand-accent'
                         : 'text-brand-text hover:text-brand-accent'
                     }`}
@@ -68,11 +103,7 @@ export default function Navbar() {
                       {item.label}
                       <span
                         className={`absolute -bottom-0.5 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${
-                          openMega === item.label ||
-                          (item.label === 'Services' && isServicesActive) ||
-                          (item.label === 'Who We Serve' && isWhoWeServeActive) ||
-                          (item.label === 'Knowledge' && isKnowledgeActive) ||
-                          (item.label === 'Contact' && isContactActive)
+                          openMega === item.label || isMegaItemActive(item)
                             ? 'w-full'
                             : 'w-0 group-hover:w-full'
                         }`}
