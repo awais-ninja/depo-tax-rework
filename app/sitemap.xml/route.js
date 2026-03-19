@@ -3,6 +3,8 @@
  * Served at /sitemap.xml
  */
 
+import { getAllLocationHrefs } from '@/lib/locations/getLocations'
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.depotax.co.uk';
 
 const staticPages = [
@@ -56,6 +58,12 @@ function buildSitemapEntries() {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.7,
+    })),
+    ...getAllLocationHrefs().map((href) => ({
+      url: `${baseUrl}${href}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     })),
   ];
   return entries;

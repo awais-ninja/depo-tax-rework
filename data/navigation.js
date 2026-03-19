@@ -3,7 +3,7 @@
  * Used by Navbar and MegaMenu.
  */
 
-import { BOOKING_URL } from './contact';
+import { BOOKING_URL, contact } from './contact';
 
 export const mainNav = [
   { label: 'Home', href: '/', megaKey: null },
@@ -12,7 +12,7 @@ export const mainNav = [
   { label: 'Pricing', href: '/pricing', megaKey: 'pricing' },
   { label: 'Who We Serve', href: '/who-we-serve', megaKey: 'whoWeServe' },
   { label: 'Knowledge', href: '/knowledge', megaKey: 'knowledge' },
-  { label: 'Contact', href: '/contact', megaKey: null },
+  { label: 'Contact', href: '/contact', megaKey: 'contact' },
 ]
 
 export const megaMenuAbout = {
@@ -180,6 +180,32 @@ export const megaMenuKnowledge = {
   ],
 }
 
+export const megaMenuContact = {
+  columns: [
+    {
+      title: 'Get in touch',
+      items: [
+        { label: 'Contact page', href: '/contact' },
+        { label: 'Book a consultation', href: BOOKING_URL },
+        { label: `Email: ${contact.email}`, href: `mailto:${contact.email}` },
+        { label: `Call: ${contact.phone}`, href: `tel:${contact.phone.replace(/\s/g, '')}` },
+      ],
+    },
+    {
+      title: 'Offices',
+      items: [
+        { label: `${contact.headOffice.label} (head office)`, href: contact.headOffice.mapUrl },
+        ...contact.branches.map((b) => ({ label: b.label, href: b.mapUrl })),
+      ],
+    },
+  ],
+  featuredCard: {
+    text: 'Have a question about accounting, tax, VAT or payroll? Speak to our team and we’ll point you in the right direction.',
+    ctaLabel: 'Contact us',
+    ctaHref: '/contact',
+  },
+}
+
 /** Mega menu by nav key. Used by Navbar. */
 export const megaMenus = {
   about: megaMenuAbout,
@@ -187,4 +213,5 @@ export const megaMenus = {
   pricing: megaMenuPricing,
   whoWeServe: megaMenuWhoWeServe,
   knowledge: megaMenuKnowledge,
+  contact: megaMenuContact,
 }

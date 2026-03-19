@@ -6,6 +6,8 @@ import ContactOptions from '@/components/contact/ContactOptions';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactOfficeLocations from '@/components/contact/ContactOfficeLocations';
 import ContactFinalCTA from '@/components/contact/ContactFinalCTA';
+import AreasProgressiveByRegion from '@/components/locations/AreasProgressiveByRegion';
+import { getSimplifiedAreasGroupedByRegion } from '@/lib/locations/getLocations';
 
 export const metadata = {
   title: 'Contact DepoTax | Accountants and Tax Consultants',
@@ -14,6 +16,8 @@ export const metadata = {
 };
 
 export default function ContactPage() {
+  const regions = getSimplifiedAreasGroupedByRegion()
+
   return (
     <>
       <Header />
@@ -23,6 +27,24 @@ export default function ContactPage() {
         <ContactOptions />
         <ContactForm />
         <ContactOfficeLocations />
+        <section className="relative py-14 sm:py-16 md:py-20 border-t border-brand-grayBorder/60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <h2 id="areas-we-cover-heading" className="text-2xl sm:text-3xl font-bold text-brand-navy tracking-tight mb-3">
+                Areas We Cover
+              </h2>
+              <p className="text-base text-brand-text/85 leading-relaxed">
+                We provide accounting services across England. Browse locations by main area below.
+              </p>
+            </div>
+            <AreasProgressiveByRegion
+              regions={regions}
+              initialCount={5}
+              step={20}
+              ariaLabelledBy="areas-we-cover-heading"
+            />
+          </div>
+        </section>
         <ContactFinalCTA />
       </main>
       <Footer />

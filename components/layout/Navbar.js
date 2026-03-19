@@ -15,6 +15,8 @@ export default function Navbar() {
 
   const isServicesActive = pathname === '/services' || (pathname?.startsWith('/services/') ?? false)
   const isKnowledgeActive = pathname === '/knowledge' || (pathname?.startsWith('/knowledge/') ?? false)
+  const isContactActive = pathname === '/contact' || (pathname?.startsWith('/contact/') ?? false)
+  const isNavItemActive = (href) => pathname === href
 
   const closeAll = () => {
     setOpenMega(null)
@@ -49,22 +51,45 @@ export default function Navbar() {
                 {item.megaKey ? (
                   <Link
                     href={item.href}
-                    className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'text-brand-accent' : 'text-brand-text hover:text-brand-accent'}`}
+                    className={`relative flex items-center gap-0.5 px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                      openMega === item.label ||
+                      (item.label === 'Services' && isServicesActive) ||
+                      (item.label === 'Knowledge' && isKnowledgeActive) ||
+                      (item.label === 'Contact' && isContactActive)
+                        ? 'text-brand-accent'
+                        : 'text-brand-text hover:text-brand-accent'
+                    }`}
                     aria-expanded={openMega === item.label}
                     aria-haspopup="true"
                   >
                     <span className="relative">
                       {item.label}
-                      <span className={`absolute -bottom-0.5 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${openMega === item.label || (item.label === 'Services' && isServicesActive) || (item.label === 'Knowledge' && isKnowledgeActive) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                      <span
+                        className={`absolute -bottom-0.5 left-0 h-0.5 bg-brand-accent transition-all duration-200 ${
+                          openMega === item.label ||
+                          (item.label === 'Services' && isServicesActive) ||
+                          (item.label === 'Knowledge' && isKnowledgeActive) ||
+                          (item.label === 'Contact' && isContactActive)
+                            ? 'w-full'
+                            : 'w-0 group-hover:w-full'
+                        }`}
+                      />
                     </span>
                     <svg className={`w-4 h-4 transition-transform duration-200 ${openMega === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </Link>
                 ) : (
-                  <Link href={item.href} className="relative group flex items-center px-3 xl:px-4 py-6 text-sm font-medium text-brand-text hover:text-brand-accent transition-colors duration-200 whitespace-nowrap">
+                  <Link
+                    href={item.href}
+                    className={`relative group flex items-center px-3 xl:px-4 py-6 text-sm font-medium transition-colors duration-200 whitespace-nowrap ${isNavItemActive(item.href) ? 'text-brand-accent' : 'text-brand-text hover:text-brand-accent'}`}
+                  >
                     {item.label}
-                    <span className="absolute left-3 xl:left-4 right-3 xl:right-4 bottom-[18px] h-0.5 bg-brand-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                    <span
+                      className={`absolute left-3 xl:left-4 right-3 xl:right-4 bottom-[18px] h-0.5 bg-brand-accent transition-transform duration-200 origin-left ${
+                        isNavItemActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
+                    />
                   </Link>
                 )}
               </div>
@@ -153,7 +178,11 @@ export default function Navbar() {
                     )}
                   </>
                 ) : (
-                  <Link href={item.href} className="block px-4 py-3 min-h-12 flex items-center font-medium text-brand-text hover:text-brand-accent" onClick={closeAll}>
+                  <Link
+                    href={item.href}
+                    className={`px-4 py-3 min-h-12 flex items-center font-medium transition-colors ${isNavItemActive(item.href) ? 'text-brand-accent' : 'text-brand-text hover:text-brand-accent'}`}
+                    onClick={closeAll}
+                  >
                     {item.label}
                   </Link>
                 )}
@@ -162,7 +191,7 @@ export default function Navbar() {
             <li className="px-4 py-3">
               <Link
                 href={BOOKING_URL}
-                className="block w-full text-center py-3 min-h-12 flex items-center justify-center rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
+                className="w-full text-center py-3 min-h-12 flex items-center justify-center rounded-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentDark"
                 onClick={closeAll}
                 aria-label="Book Consultation (mobile menu)"
               >
